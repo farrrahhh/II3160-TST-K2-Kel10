@@ -1,27 +1,60 @@
-# Menggunakan image PHP dengan Apache
+# Gunakan image resmi PHP 8.2 dengan Apache
 FROM php:8.2-apache
 
-# Install ekstensi PHP yang diperlukan (misalnya, mysqli untuk koneksi database)
-RUN docker-php-ext-install mysqli
+# -------------------------------------------------------
+# 1. Install packages dan ekstensi PHP
+# -------------------------------------------------------
+RUN apt-get update && apt-get install -y \
+    libicu-dev \        
+    libzip-dev \        
+    unzip \              
+    git && \
+    docker-php-ext-configure intl && \
+    docker-php-ext-install \
+       intl \           
+       pdo \            
+       pdo_mysql \      
+       mysqli \         
+           zip
+    
+    RUN a2enmod rewrite && \
+        rm -rf /var/lib/apt/lists/*
 
-# Mengaktifkan mod_rewrite untuk Apache (untuk URL yang ramah SEO)
-RUN a2enmod rewrite
+# -------------------------------------------------------
+# 2. Install Composer
+# -------------------------------------------------------
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Salin file konfigurasi Apache jika diperlukan (misalnya, jika Anda punya file konfigurasi kustom)
-# COPY ./config/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
-
-# Setel direktori kerja (opsional)
+# -------------------------------------------------------
+# 3. Atur direktori kerja di dalam container
+# -------------------------------------------------------
 WORKDIR /var/www/html
 
-# Salin aplikasi Anda ke dalam kontainer
+# -------------------------------------------------------
+# 4. Salin kode sumber ke container
+# -------------------------------------------------------
 COPY . /var/www/html
 
-# Berikan hak akses yang sesuai untuk direktori
-RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 755 /var/www/html
+# -------------------------------------------------------
+# 5. Jalankan Composer install (opsional)
+#    - Sesuaikan dengan kebutuhan Anda. Misalnya:
+#    - --no-dev jika Anda tidak butuh dev-dependencies di production.
+#    - --optimize-autoloader untuk mempercepat load class di production
+# -------------------------------------------------------
+RUN composer install --no-dev --optimize-autoloader
 
-# Port yang digunakan oleh Apache
+# -------------------------------------------------------
+# 6. Atur hak kepemilikan & izin direktori
+# -------------------------------------------------------
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
+
+# -------------------------------------------------------
+# 7. Ekspos port 80 (HTTP)
+# -------------------------------------------------------
 EXPOSE 80
 
-# Perintah untuk menjalankan Apache
+# -------------------------------------------------------
+# 8. Jalankan Apache saat container di-start
+# -------------------------------------------------------
 CMD ["apache2-foreground"]
