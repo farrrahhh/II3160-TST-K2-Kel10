@@ -24,32 +24,15 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
-    public array $default = [
-        'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
-        'database'     => '',
-        'DBDriver'     => 'MySQLi',
-        'DBPrefix'     => '',
-        'pConnect'     => false,
-        'DBDebug'      => true,
-        'charset'      => 'utf8mb4',
-        'DBCollat'     => 'utf8mb4_general_ci',
-        'swapPre'      => '',
-        'encrypt'      => false,
-        'compress'     => false,
-        'strictOn'     => false,
-        'failover'     => [],
-        'port'         => 3306,
-        'numberNative' => false,
-        'dateFormat'   => [
-            'date'     => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time'     => 'H:i:s',
-        ],
+    public $default = [
+        'DSN'      => '',
+        'hostname' => 'db',            // Hostname sesuai nama service di docker-compose
+        'username' => 'root',          // Username root MySQL
+        'password' => '',              // Tidak ada password
+        'database' => 'online_medicine', // Nama database yang Anda buat di Docker
+        'DBDriver' => 'MySQLi',
     ];
-
+    
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
