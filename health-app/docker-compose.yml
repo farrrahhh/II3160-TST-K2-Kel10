@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   app:
     build: .
@@ -12,8 +11,8 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes" 
-      MYSQL_DATABASE: online_medicine  # Nama database default yang akan dibuat
+      MYSQL_ALLOW_EMPTY_PASSWORD: 
+      MYSQL_DATABASE: online_medicine  
     ports:
       - "3306:3306"
     volumes:
