@@ -15,9 +15,7 @@ services:
     container_name: health-app-db
     environment:
       MYSQL_ROOT_PASSWORD: pass    
-      MYSQL_DATABASE: online_medicine     
-      MYSQL_USER: root                   
-      MYSQL_PASSWORD: pass        
+      MYSQL_DATABASE: online_medicine                          
     ports:
       - "3306:3306"  # Port 3306 untuk MySQL
     volumes:
