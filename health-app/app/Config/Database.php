@@ -26,11 +26,18 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => 'db',            // Hostname sesuai nama service di docker-compose
-        'username' => 'root',          // Username root MySQL
-        'password' => '',              // Tidak ada password
-        'database' => 'online_medicine', // Nama database yang Anda buat di Docker
-        'DBDriver' => 'MySQLi',
+        'hostname' => 'db',             // Sesuaikan dengan nama service di docker-compose (service name)
+        'username' => 'root',           // Username sesuai dengan yang Anda tentukan di docker-compose
+        'password' => 'pass',           // Password sesuai dengan yang Anda tentukan di docker-compose
+        'database' => 'online_medicine',// Nama database yang Anda buat di Docker
+        'DBDriver' => 'MySQLi',         // Driver untuk MySQL
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'cacheOn'  => false,
+        'cachedir' => APPPATH . 'Cache/',
+        'charSet'  => 'utf8',
+        'dbCollat' => 'utf8_general_ci',
     ];
     
     //    /**
