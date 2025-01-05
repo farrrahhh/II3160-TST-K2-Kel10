@@ -60,3 +60,6 @@ $routes->group('api', ['filter' => 'jwt'], function ($routes) {
     });
 });
 
+// hello
+$routes->get('hello', 'Hello::index');
+
