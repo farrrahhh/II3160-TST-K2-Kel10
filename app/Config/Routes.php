@@ -63,5 +63,5 @@ $routes->group('api', ['filter' => 'jwt'], function ($routes) {
 // hello
 $routes->get('hello', 'Hello::index');
 // test db
-$routes->get('test', 'Test::index');
+$routes->get('test', 'TestDB::index');
 
