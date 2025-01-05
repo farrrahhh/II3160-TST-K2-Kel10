@@ -26,7 +26,7 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
+        'hostname' => '127.0.0.1',
         'username' => 'root',
         'password' => '',          // Kosongkan password jika memang tidak ada password
         'database' => 'online_medicine',
