@@ -25,18 +25,23 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public $default = [
-        'DSN'      => '',            
-        'username' => 'root',           
-        'password' => '',           
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',          // Kosongkan password jika memang tidak ada password
         'database' => 'online_medicine',
-        'DBDriver' => 'MySQLi',         
+        'DBDriver' => 'MySQLi',    // Pastikan menggunakan driver MySQLi
         'DBPrefix' => '',
         'pConnect' => false,
         'DBDebug'  => (ENVIRONMENT !== 'production'),
-        'cacheOn'  => false,
-        'cachedir' => APPPATH . 'Cache/',
-        'charSet'  => 'utf8',
-        'dbCollat' => 'utf8_general_ci',
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
     ];
     
     //    /**
