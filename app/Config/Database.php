@@ -25,8 +25,7 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public $default = [
-        'DSN'      => '',
-        'hostname' => 'db',             
+        'DSN'      => '',            
         'username' => 'root',           
         'password' => '',           
         'database' => 'online_medicine',
