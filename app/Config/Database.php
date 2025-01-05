@@ -25,22 +25,11 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public $default = [
-        'DSN'      => '',
-        'hostname' => '127.0.0.1',
+        'hostname' => '127.0.0.1',   // Gunakan 127.0.0.1, bukan localhost
         'username' => 'root',
-        'password' => '',          // Kosongkan password jika memang tidak ada password
+        'password' => '',            // Kosongkan password
         'database' => 'online_medicine',
-        'DBDriver' => 'MySQLi',    // Pastikan menggunakan driver MySQLi
-        'DBPrefix' => '',
-        'pConnect' => false,
-        'DBDebug'  => (ENVIRONMENT !== 'production'),
-        'charset'  => 'utf8',
-        'DBCollat' => 'utf8_general_ci',
-        'swapPre'  => '',
-        'encrypt'  => false,
-        'compress' => false,
-        'strictOn' => false,
-        'failover' => [],
+        'DBDriver' => 'MySQLi',
         'port'     => 3306,
     ];
     
