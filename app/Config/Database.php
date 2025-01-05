@@ -25,13 +25,14 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public $default = [
-        'hostname' => '127.0.0.1',   // Gunakan 127.0.0.1 agar koneksi menggunakan TCP/IP
+        'hostname' => '127.0.0.1',
         'username' => 'root',
-        'password' => '',            // Kosongkan jika tanpa password
+        'password' => '',
         'database' => 'online_medicine',
         'DBDriver' => 'MySQLi',
         'port'     => 3306,
-        'DBCollat' => 'utf8_general_ci',  // Tambahkan DB collation
+        'charset'  => 'utf8mb4',          // Ubah charset ke utf8mb4
+        'DBCollat' => 'utf8mb4_general_ci', // Ubah collation ke utf8mb4_general_ci
     ];
     
     //    /**
