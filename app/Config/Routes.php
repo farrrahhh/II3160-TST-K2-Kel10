@@ -39,7 +39,7 @@ $routes->group('api', ['filter' => 'jwt'], function ($routes) {
         // show order detail by userID - user can see all of their order
         $routes->get('user/(:num)', 'OrderController::showByUser/$1');
         // show order detail by orderID - user can see the details of the order they made, like the name of product, quantity, and price, shipping address, and total price
-        $routes->get('(:num)/user/(:num)', 'OrderController::showDetail/$2/$1');
+        $routes->get('(:num)', 'OrderController::showDetail/$1');
         // update status order by admin - admin can update the status of the order
         $routes->put('(:num)', 'OrderController::update/$1');
         $routes->get('(:num)/track', 'OrderController::track/$1');
