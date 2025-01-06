@@ -131,18 +131,18 @@ class OrderController extends BaseController
     // customer can see the details of the order they made, like the name of product, quantity, and price, shipping address, and total price
     public function showDetail($orderId)
     {
-        // Ambil data order berdasarkan ID
         $order = $this->orderModel->getOrder($orderId);
-        if (!$order) {
+        if (!$order || !is_array($order)) {
+            log_message('error', 'Invalid order data: ' . json_encode($order));
             return $this->response->setJSON(['message' => "Order with ID $orderId not found."]);
         }
 
-
-        // Ambil detail pesanan terkait
         $orderDetails = $this->orderDetailModel->getOrderDetail($orderId);
-        if (empty($orderDetails)) {
+        if (!is_array($orderDetails)) {
+            log_message('error', 'Invalid order details data: ' . json_encode($orderDetails));
             return $this->response->setJSON(['message' => "Order details not found."]);
         }
+
 
         // Ambil data produk untuk setiap detail pesanan
         $productModel = new ProductModel();
