@@ -7,6 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use Config\Services; // Tambahkan ini untuk mengakses Services dengan benar
 
 class JwtFilter implements FilterInterface
 {
@@ -14,16 +15,24 @@ class JwtFilter implements FilterInterface
     {
         $authHeader = $request->getHeaderLine('Authorization');
         $arr = explode(' ', $authHeader);
-        if (count($arr) != 2 || $arr[0] != 'Bearer') {
-            return Services::response()->setStatusCode(ResponseInterface::HTTP_UNAUTHORIZED, 'Token not provided');
+
+        // Validasi header Authorization
+        if (count($arr) !== 2 || $arr[0] !== 'Bearer') {
+            return Services::response()
+                ->setJSON(['error' => 'Token not provided'])
+                ->setStatusCode(ResponseInterface::HTTP_UNAUTHORIZED);
         }
 
         try {
+            // Decode token JWT
             $decoded = JWT::decode($arr[1], new Key('itGDlDTd9TFgyaNwsY8NntPu0OdisipJk/4BCKMUEUY72tUGh51O5/bhnNCA7J/X/y4uLaz7neeWU4BpvF0IiQ==', 'HS256'));
-            // Simpan data user yang terdekripsi ke request jika perlu
-            $request->setGlobal('decoded_user_data', (array)$decoded);
+
+            // Menyimpan data user yang terdekripsi ke request (opsional)
+            $request->decodedUserData = (array) $decoded;
         } catch (\Exception $e) {
-            return Services::response()->setStatusCode(ResponseInterface::HTTP_UNAUTHORIZED, 'Invalid token');
+            return Services::response()
+                ->setJSON(['error' => 'Invalid token: ' . $e->getMessage()])
+                ->setStatusCode(ResponseInterface::HTTP_UNAUTHORIZED);
         }
     }
 
