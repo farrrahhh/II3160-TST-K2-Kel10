@@ -1,0 +1,33 @@
+WARNING - 2025-01-06 12:18:21 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$decodedUserData is deprecated in APPPATH/Filters/JwtFilter.php on line 31.
+ 1 SYSTEMPATH/Filters/Filters.php(203): App\Filters\JwtFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/orders/2', 'before')
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+CRITICAL - 2025-01-06 12:18:21 --> TypeError: Cannot access offset of type string on string
+[Method: GET, Route: api/orders/2]
+in APPPATH/Controllers/OrderController.php on line 150.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\OrderController->showDetail('2')
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-06 12:21:11 --> [DEPRECATED] Creation of dynamic property CodeIgniter\HTTP\IncomingRequest::$decodedUserData is deprecated in APPPATH/Filters/JwtFilter.php on line 31.
+ 1 SYSTEMPATH/Filters/Filters.php(203): App\Filters\JwtFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/orders/2', 'before')
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+ERROR - 2025-01-06 12:21:11 --> Invalid detail data: "2"
+ERROR - 2025-01-06 12:21:11 --> Invalid detail data: "2"
+ERROR - 2025-01-06 12:21:11 --> Invalid detail data: "10"
+ERROR - 2025-01-06 12:21:11 --> Invalid detail data: "6"
+ERROR - 2025-01-06 12:21:11 --> Invalid detail data: "20000"
