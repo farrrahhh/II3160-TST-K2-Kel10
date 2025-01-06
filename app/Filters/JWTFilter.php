@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use Config\Services; // Tambahkan ini untuk mengakses Services dengan benar
+use Config\Services; 
 
 class JwtFilter implements FilterInterface
 {
