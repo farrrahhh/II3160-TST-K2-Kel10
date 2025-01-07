@@ -165,3 +165,18 @@ WARNING - 2025-01-07 07:03:19 --> [DEPRECATED] Passing lowercase HTTP method "po
  8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+CRITICAL - 2025-01-07 08:29:37 --> ErrorException: Undefined array key "username"
+[Method: GET, Route: admin/manage-users]
+in APPPATH/Views/admin/Telemed_Admin_ManageUsers.php on line 18.
+ 1 APPPATH/Views/admin/Telemed_Admin_ManageUsers.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "username"', '/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Views/admin/Telemed_Admin_ManageUsers.php', 18)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Views/admin/Telemed_Admin_ManageUsers.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():231}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('admin/Telemed_Admin_ManageUsers', [], true)
+ 5 APPPATH/Controllers/Telemed_AuthController.php(145): view('admin/Telemed_Admin_ManageUsers', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->manageUsers()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')

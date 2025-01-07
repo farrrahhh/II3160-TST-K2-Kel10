@@ -5,7 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+
 
 
 $routes->group('api', function ($routes) {
@@ -65,7 +65,7 @@ $routes->group('api', ['filter' => 'jwt'], function ($routes) {
 
 
 
-
+$routes->get('/', 'Home::index');
 $routes->get('/login', 'Telemed_AuthController::login');
 $routes->post('/auth/loginProcess', 'Telemed_AuthController::loginProcess');
 $routes->get('/admin/dashboard', 'Telemed_AuthController::adminDashboard');
