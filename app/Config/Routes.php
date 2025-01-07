@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 
 
-$routes->group('api', function ($routes) {
+$routes->group('farah', function ($routes) {
     $routes->post('login', 'AuthController::login');
     $routes->post('register', 'AuthController::register');
 });
