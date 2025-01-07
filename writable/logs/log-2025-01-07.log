@@ -2682,3 +2682,1080 @@ WARNING - 2025-01-07 09:56:25 --> [DEPRECATED] Passing lowercase HTTP method "po
  8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:04 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CLI/Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/Boot.php(360): CodeIgniter\CLI\Console->run()
+ 6 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 7 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2025-01-07 10:15:04 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CLI/Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/Boot.php(360): CodeIgniter\CLI\Console->run()
+ 6 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 7 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2025-01-07 10:15:08 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:08 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:08 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Views/auth/Telemed_Login.php(10): session()
+12 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Views/auth/Telemed_Login.php')
+13 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():231}()
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('auth/Telemed_Login', [], true)
+15 APPPATH/Controllers/Telemed_AuthController.php(19): view('auth/Telemed_Login')
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->login()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:15:13 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:13 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:13 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(34): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->loginProcess()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:15:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:15:13 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:13 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:13 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(67): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->adminDashboard()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:15:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:15:15 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:15 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:15 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(60): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->logout()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:15:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:15:15 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:15 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:15 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Views/auth/Telemed_Login.php(10): session()
+12 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Views/auth/Telemed_Login.php')
+13 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():231}()
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('auth/Telemed_Login', [], true)
+15 APPPATH/Controllers/Telemed_AuthController.php(19): view('auth/Telemed_Login')
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->login()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:15:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:15:21 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:21 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:21 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(34): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->loginProcess()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:15:21 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:21 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:25 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:25 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:34 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:15:34 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:25 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:25 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:25 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(60): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->logout()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:19:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:19:25 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:25 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:25 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Views/auth/Telemed_Login.php(10): session()
+12 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Views/auth/Telemed_Login.php')
+13 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():231}()
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('auth/Telemed_Login', [], true)
+15 APPPATH/Controllers/Telemed_AuthController.php(19): view('auth/Telemed_Login')
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->login()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:19:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:19:54 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:54 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:54 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(34): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->loginProcess()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:19:54 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:54 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:56 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:56 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:56 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(60): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->logout()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:19:56 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:56 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:19:56 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Views/auth/Telemed_Login.php(10): session()
+12 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Views/auth/Telemed_Login.php')
+13 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():231}()
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('auth/Telemed_Login', [], true)
+15 APPPATH/Controllers/Telemed_AuthController.php(19): view('auth/Telemed_Login')
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->login()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:20:06 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:06 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:06 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_AuthController.php(34): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_AuthController->loginProcess()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:20:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-07 10:20:06 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:06 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:08 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:08 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:08 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_BookingController.php(18): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_BookingController->index()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_BookingController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:20:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-07 10:20:08 --> Jadwal Dokter: Array
+(
+    [0] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 06:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [1] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 08:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [2] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 09:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [3] => Array
+        (
+            [dokter_id] => 3
+            [jam] => 12:00:00
+            [tanggal] => 2025-01-11
+            [spesialis] => Artifical Neural Network
+            [nama_dokter] => Farah Imba
+        )
+
+    [4] => Array
+        (
+            [dokter_id] => 4
+            [jam] => 12:00:00
+            [tanggal] => 2025-01-07
+            [spesialis] => Mata hati
+            [nama_dokter] => Farah Aulia
+        )
+
+)
+
+WARNING - 2025-01-07 10:20:15 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:15 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:15 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_BookingController.php(50): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_BookingController->create()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_BookingController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:20:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-07 10:20:15 --> Pasien sudah memiliki booking untuk jadwal ini.
+WARNING - 2025-01-07 10:20:15 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:15 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:20:15 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_BookingController.php(18): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_BookingController->index()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_BookingController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:20:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-07 10:20:15 --> Jadwal Dokter: Array
+(
+    [0] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 06:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [1] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 08:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [2] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 09:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [3] => Array
+        (
+            [dokter_id] => 3
+            [jam] => 12:00:00
+            [tanggal] => 2025-01-11
+            [spesialis] => Artifical Neural Network
+            [nama_dokter] => Farah Imba
+        )
+
+    [4] => Array
+        (
+            [dokter_id] => 4
+            [jam] => 12:00:00
+            [tanggal] => 2025-01-07
+            [spesialis] => Mata hati
+            [nama_dokter] => Farah Aulia
+        )
+
+)
+
+WARNING - 2025-01-07 10:23:20 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:23:20 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:23:20 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_BookingController.php(50): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_BookingController->create()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_BookingController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:23:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-07 10:23:20 --> Pasien sudah memiliki booking untuk jadwal ini.
+WARNING - 2025-01-07 10:23:20 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:23:20 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:23:20 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_BookingController.php(18): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_BookingController->index()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_BookingController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:23:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-07 10:23:20 --> Jadwal Dokter: Array
+(
+    [0] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 06:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [1] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 08:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [2] => Array
+        (
+            [dokter_id] => 2
+            [jam] => 09:00:00
+            [tanggal] => 2024-12-30
+            [spesialis] => Hati
+            [nama_dokter] => Dr. Dre
+        )
+
+    [3] => Array
+        (
+            [dokter_id] => 3
+            [jam] => 12:00:00
+            [tanggal] => 2025-01-11
+            [spesialis] => Artifical Neural Network
+            [nama_dokter] => Farah Imba
+        )
+
+    [4] => Array
+        (
+            [dokter_id] => 4
+            [jam] => 12:00:00
+            [tanggal] => 2025-01-07
+            [spesialis] => Mata hati
+            [nama_dokter] => Farah Aulia
+        )
+
+)
+
+WARNING - 2025-01-07 10:24:36 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:24:36 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:24:36 --> [DEPRECATED] ini_set(): session.sid_length INI setting is deprecated in SYSTEMPATH/Session/Handlers/FileHandler.php on line 321.
+ 1 SYSTEMPATH/Session/Handlers/FileHandler.php(321): ini_set('session.sid_length', '40')
+ 2 SYSTEMPATH/Session/Handlers/FileHandler.php(85): CodeIgniter\Session\Handlers\FileHandler->configureSessionIDRegex()
+ 3 SYSTEMPATH/Config/Services.php(697): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH/Config/BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH/Config/BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH/Config/Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH/Config/BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH/Config/BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH/Common.php(998): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH/Common.php(971): service('session')
+11 APPPATH/Controllers/Telemed_BookingController.php(50): session()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_BookingController->create()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_BookingController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+DEBUG - 2025-01-07 10:24:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-07 10:24:36 --> Data yang disimpan: Array
+(
+    [patient_id] => 13
+    [dokter_id] => 2
+    [booking_date] => 2024-12-30
+    [jam_booking] => 08:00:00
+)
+
+WARNING - 2025-01-07 10:24:36 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+WARNING - 2025-01-07 10:24:36 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH/Router/RouteCollection.php on line 1026.
+ 1 SYSTEMPATH/Router/RouteCollection.php(1026): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH/Config/Routes.php(73): CodeIgniter\Router\RouteCollection->match([...], '/register', 'Telemed_AuthController::register')
+ 3 SYSTEMPATH/Router/RouteCollection.php(339): require('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/app/Config/Routes.php')
+ 4 SYSTEMPATH/CodeIgniter.php(823): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
