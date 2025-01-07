@@ -31,10 +31,20 @@ class Database extends Config
         'database' => 'online_medicine',
         'DBDriver' => 'MySQLi',
         'port'     => 3306,
-        'charset'  => 'utf8mb4',          // Ubah charset ke utf8mb4
-        'DBCollat' => 'utf8mb4_general_ci', // Ubah collation ke utf8mb4_general_ci
+        'charset'  => 'utf8mb4',          
+        'DBCollat' => 'utf8mb4_general_ci', 
     ];
     
+    public $secondary = [ 
+        'hostname' => '127.0.0.1',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'users_telemed',
+        'DBDriver' => 'MySQLi',
+        'port'     => 3306,
+        'charset'  => 'utf8mb4',
+        'DBCollat' => 'utf8mb4_general_ci',
+    ];
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
