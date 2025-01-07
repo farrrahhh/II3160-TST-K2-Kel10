@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 
-$routes->group('farah', function ($routes) {
+$routes->group('api', function ($routes) {
     $routes->post('login', 'AuthController::login');
     $routes->post('register', 'AuthController::register');
 });
@@ -66,7 +66,6 @@ $routes->group('api', ['filter' => 'jwt'], function ($routes) {
 
 
 
-
 $routes->get('/login', 'Telemed_AuthController::login');
 $routes->post('/auth/loginProcess', 'Telemed_AuthController::loginProcess');
 $routes->get('/admin/dashboard', 'Telemed_AuthController::adminDashboard');
@@ -100,3 +99,5 @@ $routes->get('patient/booking', 'Telemed_BookingController::index');
 $routes->post('patient/booking/create', 'Telemed_BookingController::create');
 $routes->get('/doctor/add-profile', 'Telemed_DataDokterController::index');
 $routes->post('/doctor/save', 'Telemed_DataDokterController::save');
+
+
