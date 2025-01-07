@@ -81,6 +81,7 @@ $routes->get('/patient/dashboard', 'Telemed_PatientController::dashboard');
 $routes->get('/doctor/dashboard', 'Telemed_DoctorController::dashboard');
 $routes->get('/doctor/add-schedule', 'Telemed_DoctorController::showAddScheduleForm');
 $routes->post('/doctor/add-schedule', 'Telemed_DoctorController::addSchedule');
+$routes->get('/doctor/view-appointments', 'Telemed_DoctorController::viewAppointments');
 
 
 // Rute untuk dashboard pasien

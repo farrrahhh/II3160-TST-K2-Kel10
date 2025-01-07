@@ -4107,3 +4107,59 @@ WARNING - 2025-01-07 10:25:15 --> [DEPRECATED] ini_set(): session.sid_length INI
 21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 22 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
 DEBUG - 2025-01-07 10:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-01-07 11:05:29 --> Dokter ID tidak ditemukan di session.
+ERROR - 2025-01-07 11:38:15 --> Dokter ID tidak ditemukan di session.
+ERROR - 2025-01-07 11:38:22 --> Dokter ID tidak ditemukan di session.
+ERROR - 2025-01-07 11:40:50 --> Dokter ID tidak ditemukan di session.
+CRITICAL - 2025-01-07 11:41:36 --> Error: Class "App\Controllers\Telemed_BookingModel" not found
+[Method: GET, Route: doctor/view-appointments]
+in APPPATH/Controllers/Telemed_DoctorController.php on line 56.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_DoctorController->viewAppointments()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_DoctorController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+CRITICAL - 2025-01-07 11:43:53 --> Error: Class "App\Controllers\Telemed_BookingModel" not found
+[Method: GET, Route: doctor/view-appointments]
+in APPPATH/Controllers/Telemed_DoctorController.php on line 56.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_DoctorController->viewAppointments()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_DoctorController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+CRITICAL - 2025-01-07 11:43:58 --> Error: Class "App\Controllers\Telemed_BookingModel" not found
+[Method: GET, Route: doctor/view-appointments]
+in APPPATH/Controllers/Telemed_DoctorController.php on line 56.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_DoctorController->viewAppointments()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_DoctorController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+CRITICAL - 2025-01-07 11:44:23 --> Error: Class "App\Controllers\Telemed_BookingModel" not found
+[Method: GET, Route: doctor/view-appointments]
+in APPPATH/Controllers/Telemed_DoctorController.php on line 56.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_DoctorController->viewAppointments()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_DoctorController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+CRITICAL - 2025-01-07 11:44:24 --> Error: Class "App\Controllers\Telemed_BookingModel" not found
+[Method: GET, Route: doctor/view-appointments]
+in APPPATH/Controllers/Telemed_DoctorController.php on line 56.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Telemed_DoctorController->viewAppointments()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Telemed_DoctorController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Applications/XAMPP/xamppfiles/htdocs/II3160-TST-K2-Kel10/public/index.php')
+ERROR - 2025-01-07 11:45:46 --> Dokter ID tidak ditemukan di session.
+ERROR - 2025-01-07 13:21:24 --> Dokter ID tidak ditemukan di session.

@@ -58,4 +58,6 @@ class Telemed_DataDokterController extends BaseController
             return redirect()->to('/doctor/dashboard')->with('success', 'Data dokter berhasil disimpan!');
         }
     }
+
+    
 }
