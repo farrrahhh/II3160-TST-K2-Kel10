@@ -88,8 +88,8 @@ dokterSelect.addEventListener('change', function () {
 
     jadwalDokterByDokter.forEach(jadwal => {
         const option = document.createElement('option');
-        option.value = jadwal.id; // Pastikan ini adalah ID jadwal dokter
-        option.textContent = `${jadwal.tanggal}`; // Hanya menampilkan tanggal
+        option.value = `${jadwal.dokter_id}|${jadwal.tanggal}|${jadwal.jam}`;
+        option.textContent = `${jadwal.tanggal}`; // Menampilkan tanggal saja
         option.setAttribute('data-jam', jadwal.jam);
         jadwalDokterSelect.appendChild(option);
     });

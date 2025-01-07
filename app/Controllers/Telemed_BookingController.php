@@ -40,45 +40,51 @@ class Telemed_BookingController extends BaseController
         ]);
     }
 
+
     public function create()
     {
         $bookingModel = new Telemed_BookingModel();
-
+        $jadwalDokterModel = new Telemed_JadwalDokterModel();
+    
         // Ambil data dari form
         $patientId = session()->get('id');
-        $dokterID = $this->request->getPost('dokter_id');
-        $tanggalBooking = $this->request->getPost('jadwal_dokter_id');
-        $jamBooking = $this->request->getPost('jam_booking');
-
-        // Log data POST
-        log_message('debug', 'Data POST: ' . print_r($this->request->getPost(), true));
-
+        $jadwalDokterId = $this->request->getPost('jadwal_dokter_id');
+    
         // Validasi input
-        if (!$patientId || !$dokterID || !$tanggalBooking || !$jamBooking) {
+        if (!$patientId || !$jadwalDokterId) {
             log_message('error', 'Validasi input gagal. Semua field wajib diisi.');
             return redirect()->back()->with('error', 'Semua field wajib diisi!')->withInput();
         }
-
+    
+        // Ambil detail jadwal dokter berdasarkan jadwal_dokter_id
+        $jadwal = $jadwalDokterModel->find($jadwalDokterId);
+    
+        if (!$jadwal) {
+            log_message('error', 'Jadwal dokter tidak ditemukan.');
+            return redirect()->back()->with('error', 'Jadwal dokter tidak valid.')->withInput();
+        }
+    
         // Cek apakah pasien sudah pernah booking untuk jadwal dokter ini
         $existingBooking = $bookingModel
             ->where('patient_id', $patientId)
-            ->where('booking_date', $tanggalBooking)
-            ->where('jam_booking', $jamBooking)
+            ->where('dokter_id', $jadwal['dokter_id'])
+            ->where('booking_date', $jadwal['jadwal_konsultasi'])
+            ->where('jam_booking', $jadwal['jam'])
             ->first();
-
+    
         if ($existingBooking) {
             log_message('info', 'Pasien sudah memiliki booking untuk jadwal ini.');
             return redirect()->back()->with('error', 'Anda sudah memiliki booking untuk jadwal ini.')->withInput();
         }
-
+    
         // Data booking baru
         $data = [
-            'patient_id' => $patientId,
-            'dokter_id' => $dokterID,
-            'booking_date' => $tanggalBooking,
-            'jam_booking' => $jamBooking,
+            'patient_id'    => $patientId,
+            'dokter_id'     => $jadwal['dokter_id'],
+            'booking_date'  => $jadwal['jadwal_konsultasi'],
+            'jam_booking'   => $jadwal['jam'],
         ];
-
+    
         try {
             $bookingModel->save($data);
             log_message('info', 'Data yang disimpan: ' . print_r($data, true));
