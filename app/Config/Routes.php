@@ -65,7 +65,7 @@ $routes->group('api', ['filter' => 'jwt'], function ($routes) {
 
 
 
-$routes->get('/login', 'Telemed_AuthController::login');
+$routes->get('/logintes', 'Telemed_AuthController::login');
 $routes->post('/auth/loginProcess', 'Telemed_AuthController::loginProcess');
 $routes->get('/admin/dashboard', 'Telemed_AuthController::adminDashboard');
 $routes->get('/admin/logout', 'Telemed_AuthController::logout');
