@@ -13,8 +13,8 @@
         }
 
         :root {
-            --primary: #C1CAE9;
-            --primary-dark: #9FA8DA;
+            --primary: #4066E0;
+            --primary-dark: #333;
             --secondary: #E8EAF6;
             --text: #2C3E50;
             --text-light: #6B7C93;
@@ -69,6 +69,9 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            justify-content: flex-start;
+            text-align: left; 
+            
         }
 
         .nav-links a {
@@ -76,28 +79,13 @@
             color: var(--text);
             font-weight: 500;
             transition: color 0.3s;
+            
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background: var(--background);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            width: 300px;
-        }
-
-        .search-bar input {
-            border: none;
-            background: none;
-            width: 100%;
-            padding: 0.25rem;
-            outline: none;
-        }
 
         .nav-icons {
             display: flex;
@@ -123,24 +111,44 @@
         .hero {
             margin-top: 80px;
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative; /* Agar pseudo-elemen ::after bekerja */
+            background: url('<?= base_url("images/pict1.png") ?>') center/cover no-repeat;
             min-height: 500px;
             display: flex;
             align-items: center;
+            justify-content: flex-start; /* Menjaga konten ke kiri */
+            overflow: hidden;
         }
 
+        /* Blur efek pada gambar latar */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Pastikan blur menutupi seluruh area */
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Warna overlay semi-transparan */
+            z-index: 1; /* Letakkan di bawah teks */
+        }
+
+        /* Hero container untuk menampung konten */
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative; /* Agar berada di atas blur */
+            z-index: 2; /* Konten di atas pseudo-elemen */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; /* Susunan konten secara vertikal */
+            align-items: flex-start; /* Teks ke kiri */
         }
 
+        /* Hero content */
         .hero-content {
             max-width: 500px;
         }
 
+        /* Judul utama */
         .hero-title {
             font-size: 3.5rem;
             color: white;
@@ -148,9 +156,10 @@
             line-height: 1.2;
         }
 
+        /* Subjudul */
         .hero-subtitle {
             font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2rem;
         }
 
@@ -224,6 +233,14 @@
             color: var(--text-light);
             font-size: 0.9rem;
         }
+        .logo-icon{
+            width: 50px;
+            height: 50px;
+        }
+        .user-icon{
+            width: 30px;
+            height: 30px;
+        }
 
         @media (max-width: 768px) {
             .nav-middle {
@@ -244,35 +261,25 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="logo">
-                <span class="logo-icon">⚕</span>
+                <span class="logo-icon">
+                    <!-- image -->
+                    <img class="logo-icon" src="<?= base_url('images/icon.png') ?>" alt="My Icon">
+                </span>
                 MediMart
             </a>
             
-            <div class="nav-middle">
-                <ul class="nav-links">
-                    <li><a href="/categories">Categories</a></li>
-                    <li><a href="/deals">Deals</a></li>
-                    <li><a href="/new">What's New</a></li>
-                    <li><a href="/delivery">Delivery</a></li>
-                </ul>
-                
-                <div class="search-bar">
-                    <input type="text" placeholder="Search medicines...">
-                </div>
-            </div>
+            
 
             <div class="nav-icons">
-                <a href="/consultation" class="nav-icon">
-                    👨‍⚕️ <span>Consultation</span>
+            <a href="/transactions" class="nav-icon">
+                     <span>Easy Diagnose</span>
                 </a>
                 <a href="/transactions" class="nav-icon">
-                    📋 <span>Orders</span>
+                     <span>Your Transactions</span>
                 </a>
                 <a href="/profile" class="nav-icon">
-                    👤 <span>Profile</span>
-                </a>
-                <a href="/cart" class="nav-icon">
-                    🛒 <span>Cart</span>
+                    <img class="user-icon" src="<?= base_url('images/User.png') ?>" alt="My Profile">
+                
                 </a>
             </div>
         </div>
@@ -283,7 +290,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Your Health, Our Priority</h1>
                 <p class="hero-subtitle">Get your medicines and health supplies delivered right to your doorstep.</p>
-                <a href="/shop" class="hero-button">Shop Now</a>
+                <a href="#" class="hero-button">Shop Now</a>
             </div>
         </div>
     </section>
@@ -293,7 +300,8 @@
             <h2 class="section-title">Shop By Category</h2>
             <div class="categories-grid">
                 <div class="category-card">
-                    <div class="category-image" style="background-image: url('/images/medicines.jpg')"></div>
+                    <div class="category-image" style="background-image: url('<?php echo base_url('/images/medicine.png'); ?>')"></div>
+
                     <div class="category-content">
                         <h3 class="category-title">Medicines</h3>
                         <p class="category-description">Prescription and over-the-counter medicines</p>
@@ -301,26 +309,26 @@
                 </div>
                 
                 <div class="category-card">
-                    <div class="category-image" style="background-image: url('/images/vitamins.jpg')"></div>
+                <div class="category-image" style="background-image: url('<?php echo base_url('/images/vitamin.png'); ?>')"></div>
                     <div class="category-content">
-                        <h3 class="category-title">Vitamins & Supplements</h3>
+                        <h3 class="category-title">Vitamins</h3>
                         <p class="category-description">Stay healthy with our range of vitamins</p>
                     </div>
                 </div>
                 
                 <div class="category-card">
-                    <div class="category-image" style="background-image: url('/images/personal-care.jpg')"></div>
+                <div class="category-image" style="background-image: url('<?php echo base_url('/images/supplement.png'); ?>')"></div>
                     <div class="category-content">
-                        <h3 class="category-title">Personal Care</h3>
-                        <p class="category-description">Healthcare and hygiene products</p>
+                        <h3 class="category-title">Supplements</h3>
+                        <p class="category-description">Supplements boost health by providing essential nutrients your body needs.</p>
                     </div>
                 </div>
                 
                 <div class="category-card">
-                    <div class="category-image" style="background-image: url('/images/medical-devices.jpg')"></div>
+                <div class="category-image" style="background-image: url('<?php echo base_url('/images/ointment.png'); ?>')"></div>
                     <div class="category-content">
-                        <h3 class="category-title">Medical Devices</h3>
-                        <p class="category-description">Health monitoring and medical equipment</p>
+                        <h3 class="category-title">Ointments</h3>
+                        <p class="category-description">Ointments provide targeted relief and protection for the skin.</p>
                     </div>
                 </div>
             </div>
