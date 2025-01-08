@@ -10,34 +10,34 @@ use Firebase\JWT\Key;
 
 class AuthController extends ResourceController
 {
+    protected $session;
+
+    public function __construct()
+    {
+        $this->session = \Config\Services::session();
+    }
     public function login(){
+
         $model = new UserModel();
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
         $user = $model->validateUser($email, $password);
         if ($user) {
-            // Pastikan kunci rahasia (secret key) sesuai dengan yang digunakan untuk encode/decode JWT
-            $key = 'itGDlDTd9TFgyaNwsY8NntPu0OdisipJk/4BCKMUEUY72tUGh51O5/bhnNCA7J/X/y4uLaz7neeWU4BpvF0IiQ==';
+            // Jika user ditemukan, set session
+            session()->set([
+                'user_id' => $user['user_id'],
+                'name'    => $user['name'],
+                'email'   => $user['email'],
+                'role'    => $user['role'],
+                'is_logged_in' => true
+            ]);
 
-            // Data payload untuk JWT
-            $payload = [
-                'iss' => 'example.com', 
-                'aud' => 'example.com', 
-                'iat' => time(),        
-                'nbf' => time(),        
-                'exp' => time() + 3600, 
-                'data' => [
-                    'id' => $user['user_id'],
-                    'email' => $user['email'],
-                    'role' => $user['role'],
-                ],
-            ];
+            // kalau sudah login dan role = admin redirect ke halaman admin
+            if ($user['role'] == 'admin') {
+                return redirect()->to('/MediMart/admin/manage');
+            }
+            return redirect()->to('/MediMart/user/dashboard');
 
-            // Encode payload menggunakan JWT dan algoritma HS256
-            $jwt = JWT::encode($payload, $key, 'HS256');
-
-            // Return token dalam response
-            return $this->respond(['token' => $jwt], 200);
         } else {
             // Jika user tidak ditemukan, kirim response gagal
             return $this->respond(['message' => 'Invalid login'], 401);
@@ -54,4 +54,17 @@ class AuthController extends ResourceController
         $model->insertUser($data);
         return $this->respondCreated(['message' => 'User created successfully']);
     }
+
+    // return view login
+    public function Medimartlogin(){
+        return view('MediMart/auth/login');
+    }
+    public function Medimartregister(){
+        return view('MediMart/auth/signup');
+    }
+    public function logout(){
+        session()->destroy();
+        return redirect()->to('/MediMart');
+    }
+   
 }

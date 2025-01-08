@@ -30,6 +30,7 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'jwt'           => \App\Filters\JwtFilter::class, 
+        'auth'          => \App\Filters\AuthFilter::class,
         
     ];
 
@@ -74,6 +75,7 @@ class Filters extends BaseFilters
      * @var array
      */
     public array $filters = [
-        'jwt' => ['before' => ['api/*']], // Apply JWT Filter before handling requests to 'api/*' routes
+        'jwt' => ['before' => ['api/*']], 
+        'auth' => ['before' => ['admin/*', 'user/*']],
     ];
 }

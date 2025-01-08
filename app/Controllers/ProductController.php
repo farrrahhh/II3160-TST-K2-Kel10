@@ -32,19 +32,22 @@ class ProductController extends BaseController
     {
         $model = new ProductModel();
         $data = $this->request->getJSON(true);
-        // validate data
-        if (!$data) {
+
+        // Cek apakah data ada dan semua field terisi
+        if (
+            !isset($data['name'], $data['description'], $data['category'], $data['price'], $data['stock'], $data['is_active'])
+            || empty($data['name']) || empty($data['description']) || empty($data['category'])
+            || empty($data['price']) || empty($data['stock'])
+        ) {
             return $this->response->setJSON(['message' => 'Invalid input']);
         }
-        // validate isi kategori harus 'vitamin', 'supplement', 'medicine', 'ointment', 'other'
+
+        // Validasi kategori
         if (!in_array($data['category'], ['vitamin', 'supplement', 'medicine', 'ointment', 'other'])) {
             return $this->response->setJSON(['message' => 'Invalid category']);
         }
-        // semuanya harus terisi
-        if (!isset($data['name'], $data['description'], $data['category'], $data['price'], $data['stock'], $data['is_active'])) {
-            return $this->response->setJSON(['message' => 'Invalid input']);
-        }
-        
+
+        // Simpan produk ke database
         $model->insertProduct($data);
 
         return $this->response->setJSON(['message' => 'Product created successfully']);

@@ -8,12 +8,29 @@ use CodeIgniter\Router\RouteCollection;
 
 
 
-$routes->group('farah', function ($routes) {
+$routes->group('MediMart', function ($routes) {
+    $routes->get('/', 'MediMartHome::index');
+
+    // API ENDPOINT
     $routes->post('login', 'AuthController::login');
     $routes->post('register', 'AuthController::register');
-});
+    $routes->get('logout', 'AuthController::logout');
 
-$routes->group('api', ['filter' => 'jwt'], function ($routes) {
+    // API VIEW
+    $routes->get('login', 'AuthController::MedimartLogin');
+    $routes->get('register', 'AuthController::MedimartRegister');
+
+    // Subgrup view admin
+    $routes->group('admin', ['filter' => 'auth'], function ($routes) {
+        // routing to management view
+        $routes->get('manage', 'AdminController::ManageProduct');
+        $routes->get('payments', 'AdminController::Payments');
+        $routes->get('shipping', 'AdminController::Shipping');
+    });
+    $routes->group('user', ['filter' => 'auth'], function ($routes) {
+        $routes->get('dashboard', 'UserViewController::Dashboard');
+    });
+
     // Subgrup untuk produk
     $routes->group('products', function ($routes) {
         // show all of products data - admin can see all of the products
@@ -61,6 +78,8 @@ $routes->group('api', ['filter' => 'jwt'], function ($routes) {
         $routes->get('check/(:alpha)', 'PaymentController::check/$1');
     });
 });
+
+
 
 
 
