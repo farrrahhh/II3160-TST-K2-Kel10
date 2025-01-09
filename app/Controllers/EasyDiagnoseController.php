@@ -102,6 +102,8 @@ class EasyDiagnoseController extends BaseController
 
     private function getDoctors($diseases)
     {   
+        // Inisialisasi string penyakit
+        $diseaseString = '';
         // Inisialisasi string hasil akhir
         $resultString = '';
 
