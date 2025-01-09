@@ -14,9 +14,7 @@ class EasyDiagnoseController extends BaseController
         $password = 'password123';  
         $username = $this->generateUsername($name);
         $diseases = $this->request->getPost('diseases');
-        // Diagnosa format data diseases
-        echo "Diseases (raw): ";
-        var_dump($diseases);
+
 
         // Pastikan diseases adalah array
         if (is_string($diseases)) {
@@ -30,9 +28,7 @@ class EasyDiagnoseController extends BaseController
             }
         }
 
-        // Print diseases setelah diproses
-        echo "Diseases (as array): ";
-        print_r($diseases);
+   
         // Input validation
         if (!$name || !$age || !$complaint) {
             return redirect()->back()->with('error', 'All fields are required!')->withInput();
@@ -152,9 +148,6 @@ class EasyDiagnoseController extends BaseController
             }
         }
 
-        // Menampilkan hasil
-        echo $resultString;
-
         
         // Menggunakan concatenation untuk memasukkan resultString ke URL
         $url = 'http://farahproject.my.id/doctor/spesialis/' . $resultString;
@@ -167,11 +160,12 @@ class EasyDiagnoseController extends BaseController
             ]);
         
             if ($response->getStatusCode() == 200) {
-                // Parse the JSON response from the API
-                $responseData = json_decode($response->getBody()->getContents(), true);
-    
-                // Return the doctors data
-                return $responseData['data'];
+                // return json 
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Data dokter berhasil diambil.',
+                    'data' => json_decode($response->getBody()->getContents(), true),
+                ]);
             } else {
                 // Return an empty array if the request failed
                 return [];
