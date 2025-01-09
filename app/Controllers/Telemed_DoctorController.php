@@ -74,29 +74,49 @@ class Telemed_DoctorController extends BaseController
     }
 
     public function getDoctor()
-    {
-        // get send json
-        $spesialis = $this->request->getVar('spesialis');
-        $jadwalDokterModel = new Telemed_JadwalDokterModel();
+{
+    // Ambil parameter 'spesialis' dari request
+    $spesialis = $this->request->getVar('spesialis');
 
-        // Pecah string menjadi array jika ada beberapa nilai (dipisahkan koma)
-        $spesialisList = explode('-', $spesialis);
+    // Validasi input
+    if (!$spesialis) {
+        return $this->response->setJSON(['error' => 'Parameter spesialis is required'])->setStatusCode(400);
+    }
 
-        // Mulai query
-        $jadwalDokterModel
-            ->select('jadwal_dokter.dokter_id, jadwal_dokter.jam, jadwal_dokter.jadwal_konsultasi AS tanggal, data_dokter.spesialis, data_dokter.nama_dokter')
-            ->join('data_dokter', 'jadwal_dokter.dokter_id = data_dokter.dokter_id');
+    // Model untuk jadwal dokter
+    $jadwalDokterModel = new Telemed_JadwalDokterModel();
 
-        // Tambahkan kondisi LIKE untuk setiap string dalam array
-        foreach ($spesialisList as $value) {
-            $jadwalDokterModel->orLike('data_dokter.spesialis', trim($value));
+    // Pecah string menjadi array (dipisahkan '-')
+    $spesialisList = explode('-', $spesialis);
+
+    // Mulai query
+    $jadwalDokterModel
+        ->select('jadwal_dokter.dokter_id, jadwal_dokter.jam, jadwal_dokter.jadwal_konsultasi AS tanggal, data_dokter.spesialis, data_dokter.nama_dokter')
+        ->join('data_dokter', 'jadwal_dokter.dokter_id = data_dokter.dokter_id');
+
+    // Tambahkan kondisi LIKE untuk setiap nilai dalam array
+    foreach ($spesialisList as $value) {
+        $jadwalDokterModel->orLike('data_dokter.spesialis', trim($value));
+    }
+
+    // Ambil data dari database
+    try {
+        $jadwalDokter = $jadwalDokterModel->findAll();
+
+        // Jika tidak ada data
+        if (empty($jadwalDokter)) {
+            return $this->response->setJSON(['message' => 'No doctors found'])->setStatusCode(404);
         }
 
-        // Ambil data
-        $jadwalDokter = $jadwalDokterModel->findAll();
-        #return jadwal dookter
-        return $this->response->setJSON($jadwalDokter);
+        // Kembalikan data dalam format JSON
+        return $this->response->setJSON($jadwalDokter)->setStatusCode(200);
+
+    } catch (\Exception $e) {
+        // Tangani error database atau lainnya
+        return $this->response->setJSON(['error' => $e->getMessage()])->setStatusCode(500);
     }
+}
+
 
     
     
