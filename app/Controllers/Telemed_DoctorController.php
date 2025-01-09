@@ -72,4 +72,32 @@ class Telemed_DoctorController extends BaseController
 
 
     }
+
+    public function getDoctor($spesialis)
+    {
+        $jadwalDokterModel = new Telemed_JadwalDokterModel();
+
+        // Pecah string menjadi array jika ada beberapa nilai (dipisahkan koma)
+        $spesialisList = explode('-', $spesialis);
+
+        // Mulai query
+        $jadwalDokterModel
+            ->select('jadwal_dokter.dokter_id, jadwal_dokter.jam, jadwal_dokter.jadwal_konsultasi AS tanggal, data_dokter.spesialis, data_dokter.nama_dokter')
+            ->join('data_dokter', 'jadwal_dokter.dokter_id = data_dokter.dokter_id');
+
+        // Tambahkan kondisi LIKE untuk setiap string dalam array
+        foreach ($spesialisList as $value) {
+            $jadwalDokterModel->orLike('data_dokter.spesialis', trim($value));
+        }
+
+        // Ambil data
+        $jadwalDokter = $jadwalDokterModel->findAll();
+
+        // return json jadwal dokter
+        return $this->response->setJSON($jadwalDokter);
+    }
+
+    
+    
+    
 }

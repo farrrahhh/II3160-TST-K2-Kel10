@@ -94,7 +94,10 @@
                     <!-- Checkbox group for diseases -->
                     <label><input type="checkbox" name="diseases[]" value="Diabetes"> Diabetes</label>
                     <label><input type="checkbox" name="diseases[]" value="Hypertension"> Hypertension</label>
-                    <label><input type="checkbox" name="diseases[]" value="Asthma"> Asthma</label>
+                    <label><input type="checkbox" name="diseases[]" value="Influenza"> Influenza</label>
+                    <label><input type="checkbox" name="diseases[]" value="Migraine"> Migraine</label>
+                    <label><input type="checkbox" name="diseases[]" value="Maag"> Maag</label>
+                    <label><input type="checkbox" name="diseases[]" value="Other"> Other</label>
                     <!-- Add other diseases -->
                 </div>
             </div>

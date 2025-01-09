@@ -13,6 +13,7 @@ class EasyDiagnoseController extends BaseController
         $complaint = $this->request->getPost('complaint');
         $password = 'password123';  
         $username = $this->generateUsername($name);
+        $diseases = $this->request->getPost('diseases');
     
         // Input validation
         if (!$name || !$age || !$complaint) {
@@ -62,12 +63,8 @@ class EasyDiagnoseController extends BaseController
                 if ($response->getStatusCode() == 200) {
 
                     
-                    return $this->response->setJSON([
-
-                        'status' => 'success',
-                        'message' => 'Registration successful',
-                        'data' => $responseData // Include the API response data
-                    ]);    
+                    // method getDoctor
+                    $this->getDoctors($diseases);
                 } else {
                     
                     return $this->response->setJSON([
@@ -99,6 +96,68 @@ class EasyDiagnoseController extends BaseController
     {
         // Generate a random username based on the name and random digits
         return strtolower(str_replace(' ', '', $name)) . rand(1000, 9999);
+    }
+
+
+    private function getDoctors($diseases)
+    {   
+        // Inisialisasi string hasil akhir
+        $resultString = '';
+
+        // Looping setiap disease
+        foreach ($diseases as $disease) {
+            // Menentukan string berdasarkan disease
+            if ($disease == 'influenza') {
+                $diseaseString = 'umum';
+            } elseif ($disease == 'diabetes') {
+                $diseaseString = 'dalam';
+            } elseif ($disease == 'hypertension') {
+                $diseaseString = 'kardiologi';
+            } elseif ($disease == 'maag') {
+                $diseaseString = 'gastroenterologi';
+            }
+            else {
+                $diseaseString = 'umum';
+            }
+
+            // Tambahkan ke resultString dengan separator "-"
+            if ($resultString === '') {
+                // Jika resultString kosong, langsung tambahkan
+                $resultString = $diseaseString;
+            } else {
+                // Jika tidak, tambahkan dengan tanda strip
+                $resultString .= '-' . $diseaseString;
+            }
+        }
+
+        // Menampilkan hasil
+        echo $resultString;
+
+        
+        // Menggunakan concatenation untuk memasukkan resultString ke URL
+        $url = 'http://farahproject.my.id/doctor/spesialis/' . $resultString;
+        $client = new Client();
+    
+        try {
+            // Send request to the API
+            $response = $client->request('GET', $url, [
+                'timeout' => 10,
+            ]);
+        
+            if ($response->getStatusCode() == 200) {
+                // Parse the JSON response from the API
+                $responseData = json_decode($response->getBody()->getContents(), true);
+    
+                // Return the doctors data
+                return $responseData['data'];
+            } else {
+                // Return an empty array if the request failed
+                return [];
+            }
+        } catch (\Exception $e) {
+            // Return an empty array if an exception occurred
+            return [];
+        }
     }
     
 }

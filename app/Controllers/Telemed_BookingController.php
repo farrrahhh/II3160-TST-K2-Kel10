@@ -40,6 +40,8 @@ class Telemed_BookingController extends BaseController
         ]);
     }
 
+    
+
 
     public function create()
     {

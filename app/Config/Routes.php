@@ -150,4 +150,5 @@ $routes->post('/patient/registermedicine', 'Telemed_MedicineRegisterController::
 
 $routes->post('/registerprocess', 'Telemed_AuthController::registerProcess'); // Menampilkan form
 
-$routes->post('/patient/save-patient-process', 'Telemed_PatientController::savePatientProcess'); // Menampilkan form
+$routes->post('/patient/save-patient-process', 'Telemed_PatientController::savePatientProcess'); 
+$routes->get('/doctor/spesialis/(:segment)', 'Telemed_DoctorController::getDoctor/$1');
