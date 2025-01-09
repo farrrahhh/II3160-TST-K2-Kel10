@@ -20,6 +20,8 @@ class EasyDiagnoseController extends BaseController
         if (is_string($diseases)) {
             $diseases = explode(',', $diseases); 
         }
+
+        echo $diseases;
     
         // Input validation
         if (!$name || !$age || !$complaint) {
