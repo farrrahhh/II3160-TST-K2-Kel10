@@ -52,7 +52,7 @@ class ProductModel extends Model
     public function getProductByIsActive()
     {
         return $this->db->table('products')
-            ->select('product_id, name, category, price', disease)  // Gabungkan kolom dalam satu string
+            ->select('product_id, name, category, price')  // Gabungkan kolom dalam satu string
             ->where('is_active', 1)
             ->get()  // Menjalankan query
             ->getResultArray();  // Mengembalikan hasil sebagai array

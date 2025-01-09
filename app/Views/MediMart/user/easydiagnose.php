@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 2rem;
+=
             background-color: #f7f7f7;
         }
         .form-container {
@@ -18,6 +18,7 @@
             background: white;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
         }
         .form-container h2 {
             text-align: center;
@@ -68,11 +69,15 @@
         .btn-submit:hover {
             background-color: #2980b9;
         }
+        .margin {
+            margin-top: 8rem;
+        }
     </style>
 </head>
 <body>
     <!-- navbar -->
     <?php include 'navbar.php'; ?>
+    <div class="margin"></div>
     <div class="form-container">
         <h2>Medical Complaint Form</h2>
         <form action="/submit" method="POST">
@@ -92,21 +97,37 @@
             <div class="form-group">
                 <label>Select Diseases</label>
                 <div class="checkbox-group">
-                    <label>
-                        <input type="checkbox" name="diseases[]" value="Diabetes"> Diabetes
-                    </label>
-                    <label>
-                        <input type="checkbox" name="diseases[]" value="Hypertension"> Hypertension
-                    </label>
-                    <label>
-                        <input type="checkbox" name="diseases[]" value="Asthma"> Asthma
-                    </label>
-                    <label>
-                        <input type="checkbox" name="diseases[]" value="Heart Disease"> Heart Disease
-                    </label>
-                    <label>
-                        <input type="checkbox" name="diseases[]" value="Others"> Others
-                    </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Diabetes"> Diabetes
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Hypertension"> Hypertension
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Asthma"> Asthma
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Heart Disease"> Heart Disease
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Influenza"> Influenza
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Diarrhea"> Diarrhea
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Constipation"> Constipation
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Migraine"> Migraine
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Maag"> Maag
+                </label>
+                <label>
+                    <input type="checkbox" name="diseases[]" value="Other"> Other
+                </label>
+
                 </div>
             </div>
 

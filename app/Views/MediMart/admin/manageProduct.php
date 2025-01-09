@@ -118,41 +118,6 @@
 
     <script>
         // Keep the existing JavaScript functions but update the product list template
-        function fetchProducts() {
-            fetch('/MediMart/products')
-                .then(response => response.json())
-                .then(data => {
-                    const productList = document.getElementById('product-list');
-                    productList.innerHTML = '';
-
-                    // Formatter untuk harga dalam format IDR
-                    const formatter = new Intl.NumberFormat('id-ID', {
-                        style: 'currency',
-                        currency: 'IDR'
-                    });
-
-                    data.forEach(product => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${product.product_id}</td>
-                            <td>${product.name}</td>
-                            <td><span class="badge">${product.category}</span></td>
-                            <td>${formatter.format(product.price)}</td>
-                            <td>${product.stock}</td>
-                            <td>${product.disease || '-'}</td>
-                            <td class="action-buttons">
-                                <button class="btn btn-warning" onclick="editProduct(${product.product_id})">Edit</button>
-                                <button class="btn btn-danger" onclick="deleteProduct(${product.product_id})">Delete</button>
-                            </td>
-                        `;
-                        productList.appendChild(row);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching products:', error);
-                    alert('Failed to load products. Please try again later.');
-                });
-        }
 
 
         // Fungsi untuk menampilkan modal
@@ -201,37 +166,41 @@
 
         // Fungsi untuk submit form tambah/edit produk
         function submitProductForm(event) {
-            event.preventDefault();
+    event.preventDefault();
 
-            const form = document.getElementById('product-form');
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            data.is_active = 1; // Tambahkan atribut lain yang diperlukan
-            
-            // Tentukan metode dan URL berdasarkan keberadaan product_id
-            const productId = data.product_id;
-            const method = productId ? 'PUT' : 'POST';
-            const url = productId ? `/MediMart/products/${productId}` : '/MediMart/products';
+    const form = document.getElementById('product-form');
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    data.is_active = 1; // Tambahkan atribut lain yang diperlukan
+    
+    // Log data untuk melihat apakah 'disease' sudah dikirim
+    console.log('Form Data:', data);
 
-            fetch(url, {
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
-                if (result.message === 'Product created successfully' || result.message === 'Product updated successfully') {
-                    alert(result.message);
-                    fetchProducts();
-                    closeModal();
-                } else {
-                    alert(result.message);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+    // Tentukan metode dan URL berdasarkan keberadaan product_id
+    const productId = data.product_id;
+    const method = productId ? 'PUT' : 'POST';
+    const url = productId ? `/MediMart/products/${productId}` : '/MediMart/products';
+
+    fetch(url, {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.message === 'Product created successfully' || result.message === 'Product updated successfully') {
+            alert(result.message);
+            fetchProducts();
+            closeModal();
+        } else {
+            alert(result.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
+
         // Fungsi untuk menampilkan daftar produk
         function fetchProducts() {
             fetch('/MediMart/products')
@@ -247,6 +216,7 @@
                                 <td>${product.category}</td>
                                 <td>${product.price}</td>
                                 <td>${product.stock}</td>
+                                <td>${product.disease}</td>
                                 <td class="action-buttons">
                                     <button class="btn btn-edit" onclick="editProduct(${product.product_id})">Edit</button>
                                     <button class="btn btn-delete" onclick="deleteProduct(${product.product_id})">Delete</button>
@@ -256,6 +226,9 @@
                     });
                 });
         }
+
+
+        
 
 
        

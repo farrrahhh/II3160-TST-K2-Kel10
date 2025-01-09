@@ -24,102 +24,104 @@ class OrderController extends BaseController
     // user can create new order
     // customer can choose product from catalog, determine quantity, and create order
     public function create()
-    {
-        // Ambil data JSON dari request
-        $requestData = $this->request->getJSON(true);
-        $orderDetails = $this->orderDetailModel->getOrderDetail($orderId) ?? [];
-        $orderDetails = $requestData['order_details'] ?? null;
-        $userId = $requestData['user_id'] ?? null;
-        $shippingAddress = $requestData['shipping_address'] ?? null;
-    
-        // Validasi input utama
-        if (!$userId || !$shippingAddress || !$orderDetails || !is_array($orderDetails)) {
-            return $this->response->setJSON(['message' => 'Invalid input. Please provide user ID, shipping address, and order details.']);
+{
+    // Ambil data JSON dari request
+    $requestData = $this->request->getJSON(true);
+    $orderDetails = $requestData['order_details'] ?? null;
+    $userId = $requestData['user_id'] ?? null;
+    $shippingAddress = $requestData['shipping_address'] ?? null;
+
+    // Validasi input utama
+    if (!$userId || !$shippingAddress || !$orderDetails || !is_array($orderDetails)) {
+        return $this->response->setJSON(['message' => 'Invalid input. Please provide user ID, shipping address, and order details.']);
+    }
+
+    $productModel = new ProductModel();
+    $productsCache = []; // Cache untuk produk yang sudah diambil
+    $totalPrice = 0;
+
+    // Validasi stok dan data produk
+    foreach ($orderDetails as $orderDetail) {
+        $productId = $orderDetail['product_id'] ?? null;
+        $quantity = $orderDetail['quantity'] ?? 0;
+
+        if (!$productId || $quantity <= 0) {
+            return $this->response->setJSON(['message' => 'Invalid order detail. Please provide product ID and quantity.']);
         }
-    
-        $productModel = new ProductModel();
-        $productsCache = []; // Cache untuk produk yang sudah diambil
-        $totalPrice = 0;
-    
-        // Validasi stok dan data produk
-        foreach ($orderDetails as $orderDetail) {
-            $productId = $orderDetail['product_id'] ?? null;
-            $quantity = $orderDetail['quantity'] ?? 0;
-    
-            if (!$productId || $quantity <= 0) {
-                return $this->response->setJSON(['message' => 'Invalid order detail. Please provide product ID and quantity.']);
+
+        // Ambil data produk (gunakan cache jika tersedia)
+        if (!isset($productsCache[$productId])) {
+            $product = $productModel->getProduct($productId);
+            if (!$product) {
+                return $this->response->setJSON(['message' => "Product with ID $productId not found."]);
             }
-    
-            // Ambil data produk (gunakan cache jika tersedia)
-            if (!isset($productsCache[$productId])) {
-                $product = $productModel->getProduct($productId);
-                if (!$product) {
-                    return $this->response->setJSON(['message' => "Product with ID $productId not found."]);
-                }
-                $productsCache[$productId] = $product;
-            } else {
-                $product = $productsCache[$productId];
-            }
-    
-            // Validasi stok
-            if ($product['stock'] < $quantity) {
-                return $this->response->setJSON(['message' => "Product $product[name] is out of stock."]);
-            }
-    
-            // Validasi jika produk tidak aktif
-            if ($product['is_active'] == 0) {
-                return $this->response->setJSON(['message' => "Product $product[name] is not ready."]);
-            }
-    
-            // Hitung harga total
-            $totalPrice += $product['price'] * $quantity;
-        }
-    
-        // Data utama pesanan
-        $orderData = [
-            'user_id' => $userId,
-            'total_price' => 0, // Akan diperbarui nanti
-            'status' => 'pending',
-            'shipping_address' => $shippingAddress
-        ];
-    
-        // Simpan data order ke tabel `orders`
-        $this->orderModel->insert($orderData);
-        $orderId = $this->orderModel->insertID();
-    
-        // Simpan detail pesanan dan perbarui stok
-        foreach ($orderDetails as $orderDetail) {
-            $productId = $orderDetail['product_id'];
-            $quantity = $orderDetail['quantity'];
+            $productsCache[$productId] = $product;
+        } else {
             $product = $productsCache[$productId];
-    
-            // Hitung harga produk
-            $price = $product['price'] * $quantity;
-    
-            // Simpan ke tabel `order_details`
-            $this->orderDetailModel->insert([
-                'order_id' => $orderId,
-                'product_id' => $productId,
-                'quantity' => $quantity,
-                'price' => $price
-            ]);
-    
-            // Kurangi stok produk
-            $productModel->update($productId, [
-                'stock' => $product['stock'] - $quantity
-            ]);
         }
-    
-        // Perbarui total harga pesanan di tabel `orders`
-        $this->orderModel->update($orderId, ['total_price' => $totalPrice]);
-    
-        // Kirim respons sukses
-        return $this->response->setJSON([
-            'message' => 'Order created successfully',
+
+        // Validasi stok
+        if ($product['stock'] < $quantity) {
+            return $this->response->setJSON(['message' => "Product $product[name] is out of stock."]);
+        }
+
+        // Validasi jika produk tidak aktif
+        if ($product['is_active'] == 0) {
+            return $this->response->setJSON(['message' => "Product $product[name] is not ready."]);
+        }
+
+        // Hitung harga total
+        $totalPrice += $product['price'] * $quantity;
+    }
+
+    // Data utama pesanan
+    $orderData = [
+        'user_id' => $userId,
+        'total_price' => 0, // Akan diperbarui nanti
+        'status' => 'pending',
+        'shipping_address' => $shippingAddress
+    ];
+
+    // Simpan data order ke tabel `orders`
+    $this->orderModel->insert($orderData);
+
+    // Ambil orderId setelah insert
+    $orderId = $this->orderModel->insertID();
+
+    // Simpan detail pesanan dan perbarui stok
+    foreach ($orderDetails as $orderDetail) {
+        $productId = $orderDetail['product_id'];
+        $quantity = $orderDetail['quantity'];
+        $product = $productsCache[$productId];
+
+        // Hitung harga produk
+        $price = $product['price'] * $quantity;
+
+        // Simpan ke tabel `order_details`
+        $this->orderDetailModel->insert([
             'order_id' => $orderId,
-            'total_price' => $totalPrice
+            'product_id' => $productId,
+            'quantity' => $quantity,
+            'price' => $price
+        ]);
+
+        // Kurangi stok produk
+        $productModel->update($productId, [
+            'stock' => $product['stock'] - $quantity
         ]);
     }
+
+    // Perbarui total harga pesanan di tabel `orders`
+    $this->orderModel->update($orderId, ['total_price' => $totalPrice]);
+
+    // Kirim respons sukses
+    return $this->response->setJSON([
+        'message' => 'Order created successfully',
+        'order_id' => $orderId,
+        'total_price' => $totalPrice
+    ]);
+}
+
 
     // user can see their order
     public function showByUser($userId)
