@@ -166,11 +166,10 @@ class EasyDiagnoseController extends BaseController
         
             if ($response->getStatusCode() == 200) {
                 // return json 
-                return $this->response->setJSON([
-                    'status' => 'success',
-                    'message' => 'Data dokter berhasil diambil.',
-                    'data' => json_decode($response->getBody()->getContents(), true),
-                ]);
+                // print hasilnay di body json
+                // return $this->response->setJSON($jadwalDokter);
+                $jadwalDokter = json_decode($response->getBody()->getContents(), true);
+                return $this->response->setJSON($jadwalDokter);
             } else {
                 // Return an empty array if the request failed
                 return [];
