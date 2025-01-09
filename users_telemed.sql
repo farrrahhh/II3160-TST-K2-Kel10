@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2025 at 01:43 PM
+-- Generation Time: Jan 09, 2025 at 08:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,15 +35,6 @@ CREATE TABLE `bookings` (
   `jam_booking` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`booking_id`, `patient_id`, `booking_date`, `dokter_id`, `jam_booking`) VALUES
-(20, 8, '0000-00-00 00:00:00', 3, '12:00:00'),
-(21, 8, '0000-00-00 00:00:00', 2, '06:00:00'),
-(22, 7, '0000-00-00 00:00:00', 3, '12:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -64,8 +55,12 @@ CREATE TABLE `data_dokter` (
 --
 
 INSERT INTO `data_dokter` (`dokter_id`, `id`, `nama_dokter`, `spesialis`, `created_at`, `updated_at`) VALUES
-(2, 4, 'Dr. Dre', 'Hati', '2024-12-28 07:38:12', '2024-12-28 11:17:43'),
-(3, 9, 'Farah Imba', 'Artifical Neural Network', '2025-01-03 13:15:57', '2025-01-03 13:15:57');
+(5, 4, 'Dr. Budi Santoso', 'Spesialis Kardiologi', '2025-01-09 19:32:52', '2025-01-09 19:34:36'),
+(6, 24, 'Dr. Citra Lestar', 'Spesialis Penyakit Dalam', '2025-01-09 19:38:03', '2025-01-09 19:42:16'),
+(7, 25, 'Dr. Lila Sekar', 'Dokter Umum', '2025-01-09 19:39:03', '2025-01-09 19:39:03'),
+(8, 26, 'Dr. Mita Purnama', 'Dokter Umum', '2025-01-09 19:40:03', '2025-01-09 19:40:03'),
+(9, 27, 'Dr. Oscar Pranata', 'Spesialis Gastroenterologi', '2025-01-09 19:41:23', '2025-01-09 19:41:23'),
+(10, 28, 'Dr. Joko Pratama', 'Spesialis Penyakit Dalam', '2025-01-09 19:44:42', '2025-01-09 19:44:42');
 
 -- --------------------------------------------------------
 
@@ -80,19 +75,6 @@ CREATE TABLE `data_pasien` (
   `usia` int(11) NOT NULL,
   `keluhan_penyakit` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `data_pasien`
---
-
-INSERT INTO `data_pasien` (`pasien_id`, `id`, `nama`, `usia`, `keluhan_penyakit`) VALUES
-(1, 3, 'Clement Nathanael Lim', 19, 'a'),
-(2, 5, 'Sugeng', 35, 'Puyeng gak ada duit :D'),
-(3, 6, 'TESTING', 28, 'sakit pala'),
-(4, 7, 'clem', 20, 'g'),
-(5, 8, 'clementtt', 18, 'aaaa'),
-(6, 10, 'Clement', 21, 'Cupu AI'),
-(7, 8, 'clement', 200, 'aaaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -112,10 +94,15 @@ CREATE TABLE `jadwal_dokter` (
 --
 
 INSERT INTO `jadwal_dokter` (`jadwal_dokter_id`, `dokter_id`, `jadwal_konsultasi`, `jam`) VALUES
-(2, 2, '2024-12-30', '06:00:00'),
-(3, 2, '2024-12-30', '08:00:00'),
-(4, 2, '2024-12-30', '09:00:00'),
-(5, 3, '2025-01-11', '12:00:00');
+(7, 5, '2025-01-10', '00:00:00'),
+(8, 5, '2025-12-26', '03:00:00'),
+(9, 5, '2025-06-24', '04:00:00'),
+(10, 6, '2025-01-27', '04:15:00'),
+(11, 7, '2025-01-15', '03:08:00'),
+(12, 8, '2025-01-06', '02:00:00'),
+(13, 9, '2024-12-30', '04:00:00'),
+(14, 10, '2025-01-07', '04:00:00'),
+(15, 10, '2025-03-31', '03:05:00');
 
 -- --------------------------------------------------------
 
@@ -143,8 +130,11 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`, `created_at`) VALUES
 (6, 'pasien3', '3a13f50cf7bc2cece19355b9340e91e2', 'patient', '2024-12-28 03:40:06'),
 (7, 'pasien4', '2f5c87001c060678317c5a9b853f7237', 'patient', '2024-12-28 09:58:11'),
 (8, 'pasien5', 'bdd83d1c6c8fafb3b86e5b8ce9efa291', 'patient', '2024-12-28 11:06:55'),
-(9, 'farah', '9b0f4d720720fd55436ac7f07ac8a840', 'doctor', '2025-01-03 13:15:24'),
-(10, 'clement', '236e92bcf7c04d8d7ff3f798b537823f', 'patient', '2025-01-03 13:17:21');
+(24, 'dokter2', '83ac5c3ef493ab7cdebd68dc1712ca89', 'doctor', '2025-01-09 19:37:32'),
+(25, 'dokter3', 'c3df25b7b0f35874746bda741960fa85', 'doctor', '2025-01-09 19:38:41'),
+(26, 'dokter4', '09d6d215991224c49ecdca4158437d8e', 'doctor', '2025-01-09 19:39:33'),
+(27, 'dokter5', '63a6f03666f667bc34f928a4cf4af709', 'doctor', '2025-01-09 19:40:47'),
+(28, 'dokter6', 'a51c2ccf58e1bff620549b9d5fde0956', 'doctor', '2025-01-09 19:43:54');
 
 --
 -- Indexes for dumped tables
@@ -192,31 +182,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `data_dokter`
 --
 ALTER TABLE `data_dokter`
-  MODIFY `dokter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `dokter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `data_pasien`
 --
 ALTER TABLE `data_pasien`
-  MODIFY `pasien_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `pasien_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `jadwal_dokter`
 --
 ALTER TABLE `jadwal_dokter`
-  MODIFY `jadwal_dokter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `jadwal_dokter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
