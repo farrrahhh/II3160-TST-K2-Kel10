@@ -4,283 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediMart - Your Online Pharmacy</title>
+    <link rel="stylesheet" href="<?= base_url('css/style2.css') ?>">
+    <!-- Tambahkan di bagian <head> -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        :root {
-            --primary: #4066E0;
-            --primary-dark: #333;
-            --secondary: #E8EAF6;
-            --text: #2C3E50;
-            --text-light: #6B7C93;
-            --background: #F8FAFC;
-        }
-
-        body {
-            background-color: var(--background);
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .logo-icon {
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        .nav-middle {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            justify-content: flex-start;
-            text-align: left; 
-            
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-            
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-
-        .nav-icons {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-icon {
-            color: var(--text);
-            text-decoration: none;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-icon span {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
+        /* Additional styles for the table section */
+        .products-section {
             padding: 4rem 2rem;
-            position: relative; /* Agar pseudo-elemen ::after bekerja */
-            background: url('<?= base_url("images/pict1.png") ?>') center/cover no-repeat;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; /* Menjaga konten ke kiri */
-            overflow: hidden;
-        }
-
-        /* Blur efek pada gambar latar */
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; /* Pastikan blur menutupi seluruh area */
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Warna overlay semi-transparan */
-            z-index: 1; /* Letakkan di bawah teks */
-        }
-
-        /* Hero container untuk menampung konten */
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative; /* Agar berada di atas blur */
-            z-index: 2; /* Konten di atas pseudo-elemen */
-            display: flex;
-            flex-direction: column; /* Susunan konten secara vertikal */
-            align-items: flex-start; /* Teks ke kiri */
-        }
-
-        /* Hero content */
-        .hero-content {
-            max-width: 500px;
-        }
-
-        /* Judul utama */
-        .hero-title {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        /* Subjudul */
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-        }
-
-        .hero-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.3s;
-        }
-
-        .hero-button:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Categories Section */
-        .categories {
-            padding: 4rem 2rem;
-        }
-
-        .categories-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 2rem;
-            color: var(--text);
-            margin-bottom: 2rem;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .category-card {
+        .products-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            margin-top: 2rem;
         }
 
-        .category-card:hover {
-            transform: translateY(-5px);
+        .products-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--secondary);
         }
 
-        .category-image {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
+        .products-title {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin: 0;
         }
 
-        .category-content {
+        .table-container {
             padding: 1.5rem;
         }
 
-        .category-title {
-            font-size: 1.2rem;
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table th {
+            background-color: var(--background);
             color: var(--text);
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 2px solid var(--secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .category-description {
+        .table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--secondary);
             color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        .logo-icon{
-            width: 50px;
-            height: 50px;
-        }
-        .user-icon{
-            width: 30px;
-            height: 30px;
+            font-size: 0.95rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-middle {
-                display: none;
-            }
+        .table tbody tr:hover {
+            background-color: var(--background);
+        }
 
-            .hero-title {
-                font-size: 2.5rem;
-            }
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: none;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
 
-            .categories-grid {
-                grid-template-columns: 1fr;
-            }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Modal improvements */
+        .modal-content {
+            max-width: 600px;
+            border-radius: 12px;
+        }
+
+        .modal-header {
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body p {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .modal-body strong {
+            color: var(--text);
+        }
+
+        .modal-footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--secondary);
         }
     </style>
 </head>
+<!-- Tambahkan di bagian bawah sebelum tag </body> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo">
+            <a href="#" class="logo">
                 <span class="logo-icon">
-                    <!-- image -->
                     <img class="logo-icon" src="<?= base_url('images/icon.png') ?>" alt="My Icon">
                 </span>
                 MediMart
             </a>
-            
-            
-
             <div class="nav-icons">
-            <a href="/transactions" class="nav-icon">
-                     <span>Easy Diagnose</span>
-                </a>
-                <a href="/transactions" class="nav-icon">
-                     <span>Your Transactions</span>
-                </a>
-                <a href="/profile" class="nav-icon">
-                    <img class="user-icon" src="<?= base_url('images/User.png') ?>" alt="My Profile">
-                
-                </a>
+                <a href="/transactions" class="nav-icon">Easy Diagnose</a>
+                <a href="/transactions" class="nav-icon">Your Transactions</a>
+                <!-- Profil dengan Dropdown -->
+                <div class="profile-container" onclick="toggleDropdown()">
+                    <img class="user-icon" src="<?= base_url('images/User.png') ?>" alt="Profile">
+                    <div id="dropdown-menu" class="dropdown-menu hidden">
+                        <a href="/MediMart/logout">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -333,6 +190,338 @@
                 </div>
             </div>
         </div>
+
+        <section class="products-section">
+        <div class="products-card">
+        <div class="products-header">
+            <h3 class="products-title" style="display: inline-block; margin-right: 20px;">Available Products</h3>
+            <button class="btn btn-primary" onclick="openOrderModal()">Shop Now</button>
+        </div>
+        <!-- Modal Order -->
+<!-- Modal Order -->
+<div id="order-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Place Your Order</h2>
+            <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="product-selection">Choose Products:</label>
+                    <select id="product-selection" name="products[]" multiple="multiple" style="width: 100%;">
+                        <!-- Produk akan dimuat di sini secara dinamis -->
+                    </select>
+                </div>
+                <div id="product-quantities"></div>  <!-- Tempat untuk input quantity produk -->
+                
+                <p><strong>Address:</strong> 
+                    <textarea id="address" name="address" required></textarea>
+                </p>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalog-list">
+                        <!-- Data will be loaded here via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </section>
+
+    <!-- Modal with improved styling -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Product Details</h2>
+                <button class="close-btn" onclick="closeDetailModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Name:</strong> <span id="detail-name"></span></p>
+                <p><strong>Category:</strong> <span id="detail-category"></span></p>
+                <p><strong>Price:</strong> <span id="detail-price"></span></p>
+                <p><strong>Stock:</strong> <span id="detail-stock"></span></p>
+                <p><strong>Description:</strong> <span id="detail-description"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeDetailModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+        
+    </section>
+
+
+
+
+    <script>
+        const userId = <?= json_encode($userId) ?>;
+        sessionStorage.setItem('user_id', userId);
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown-menu');
+            dropdown.classList.toggle('hidden');
+        }
+
+        window.addEventListener('click', function (event) {
+            const dropdown = document.getElementById('dropdown-menu');
+            if (!event.target.closest('.profile-container')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+        function fetchCatalog() {
+            fetch('/MediMart/products/catalog')
+                .then(response => response.json())
+                .then(data => {
+                    const catalogList = document.getElementById('catalog-list');
+                    catalogList.innerHTML = '';
+
+                    const formatter = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    });
+
+                    data.forEach(product => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${product.name}</td>
+                            <td>${product.category}</td>
+                            <td>${formatter.format(product.price)}</td>
+                            <td>
+                                <button class="btn btn-primary" onclick="showDetail(${product.product_id})">See Details</button>
+                            </td>
+                        `;
+                        catalogList.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching catalog:', error));
+        }
+
+        // Fungsi untuk menampilkan detail produk
+        function showDetail(productId) {
+            fetch(`/MediMart/products/${productId}`)
+                .then(response => response.json())
+                .then(product => {
+                    document.getElementById('detail-name').textContent = product.name;
+                    document.getElementById('detail-category').textContent = product.category;
+                    document.getElementById('detail-price').textContent = product.price;
+                    document.getElementById('detail-stock').textContent = product.stock;
+                    document.getElementById('detail-description').textContent = product.description;
+
+                    const modal = document.getElementById('detail-modal');
+                    modal.style.display = 'flex';
+                })
+                .catch(error => console.error('Error fetching product details:', error));
+        }
+
+        // Fungsi untuk menutup modal detail
+        function closeDetailModal() {
+            const modal = document.getElementById('detail-modal');
+            modal.style.display = 'none';
+        }
+
+        // Panggil fetchCatalog saat halaman dimuat
+        fetchCatalog();
+
+        let productsData = [];
+
+        function openOrderModal() {
+            const modal = document.getElementById('order-modal');
+            if (modal) {
+                modal.style.display = 'flex';
+
+                // Mengambil produk untuk form pemesanan
+                fetch('/MediMart/products/catalog')
+                    .then(response => response.json())
+                    .then(data => {
+                        productsData = data;
+                        const productSelect = document.getElementById('product-selection');
+                        if (productSelect) {
+                            productSelect.innerHTML = '';  // Clear existing options
+
+                            data.forEach(product => {
+                                const option = document.createElement('option');
+                                option.value = product.product_id;
+                                option.textContent = `${product.name} - ${product.category} - ${formatCurrency(product.price)}`;
+                                productSelect.appendChild(option);
+                            });
+
+                            // Inisialisasi Select2 untuk pencarian
+                            $(productSelect).select2({
+                                placeholder: "Select products",
+                                allowClear: true
+                            });
+
+                            // Tambahkan input quantity untuk produk yang dipilih
+                            productSelect.addEventListener('change', updateQuantityInputs);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching products:', error));
+            }
+        }
+
+        function updateQuantityInputs() {
+            const selectedProductIds = Array.from(document.getElementById('product-selection').selectedOptions).map(option => option.value);
+            const quantityContainer = document.getElementById('product-quantities');
+            if (quantityContainer) {
+                quantityContainer.innerHTML = '';  // Clear previous quantity inputs
+
+                selectedProductIds.forEach(productId => {
+                    const product = productsData.find(p => p.product_id == productId);
+                    if (product) {
+                        const quantityDiv = document.createElement('div');
+                        quantityDiv.classList.add('quantity-item'); // Optional: add class for styling
+                        quantityDiv.innerHTML = `
+                            <label for="quantity-${product.product_id}">Quantity for ${product.name}:</label>
+                            <input type="number" id="quantity-${product.product_id}" name="quantity-${product.product_id}" min="1" required>
+                        `;
+                        quantityContainer.appendChild(quantityDiv);
+                    }
+                });
+            }
+        }
+
+        function closeOrderModal() {
+            const modal = document.getElementById('order-modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+        // Format harga menjadi IDR
+        function formatCurrency(value) {
+            const formatter = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR'
+            });
+            return formatter.format(value);
+        }
+        document.getElementById('order-form')?.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const orderItems = [];
+            let validOrder = true;
+
+            // Get selected product IDs
+            const selectedProductIds = Array.from(document.getElementById('product-selection').selectedOptions).map(option => option.value);
+
+            if (selectedProductIds.length === 0) {
+                alert('Please select at least one product.');
+                return;
+            }
+
+            selectedProductIds.forEach(productId => {
+                const quantityInput = document.getElementById('quantity-' + productId);
+                const quantity = quantityInput ? quantityInput.value : 0;
+
+                if (quantity > 0) {
+                    orderItems.push({
+                        product_id: productId,
+                        quantity: quantity
+                    });
+                }
+            });
+
+            if (orderItems.length === 0) {
+                alert('Please enter valid quantities.');
+                return;
+            }
+
+            const address = document.getElementById('address').value;
+            if (!address) {
+                alert("Please provide a shipping address.");
+                return;
+            }
+
+            // ambil dari session
+            const userId = sessionStorage.getItem('user_id');
+
+            if (!userId) {
+                alert("User ID is required.");
+                return;
+            }
+
+            const orderData = {
+                user_id: userId,
+                shipping_address: address,
+                order_details: orderItems
+            };
+
+            fetch('/MediMart/orders', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Order created successfully') {
+                    alert('Order placed successfully!');
+                    // Optionally close modal or reset form
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while processing your order.');
+            });
+        });
+
+        // Menambahkan input quantity di bawah pilihan produk
+        function updateProductQuantities() {
+            const productSelection = document.getElementById('product-selection');
+            const productQuantitiesDiv = document.getElementById('product-quantities');
+
+            productQuantitiesDiv.innerHTML = '';  // Bersihkan konten sebelumnya
+
+            // Ambil semua produk yang dipilih
+            const selectedProducts = Array.from(productSelection.selectedOptions);
+
+            selectedProducts.forEach(product => {
+                const productId = product.value;
+                const productName = product.text;
+
+                // Buat input quantity untuk produk ini
+                const quantityInput = document.createElement('div');
+                quantityInput.classList.add('form-group');
+                quantityInput.innerHTML = `
+                    <label for="quantity-${productId}">${productName} Quantity:</label>
+                    <input type="number" id="quantity-${productId}" name="quantities[${productId}]" min="1" value="1" required />
+                `;
+                productQuantitiesDiv.appendChild(quantityInput);
+            });
+        }
+
+        // Inisialisasi Select2 dan event listener untuk update quantity
+        $(document).ready(function() {
+            $('#product-selection').select2({
+                placeholder: 'Select products',
+                allowClear: true
+            });
+
+            // Perbarui input quantity ketika produk dipilih
+            $('#product-selection').on('change', function() {
+                updateProductQuantities();
+            });
+        });
+    </script>
+    
+
+
+
 </body>
 </html>

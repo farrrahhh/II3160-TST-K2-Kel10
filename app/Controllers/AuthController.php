@@ -31,6 +31,8 @@ class AuthController extends ResourceController
                 'role'    => $user['role'],
                 'is_logged_in' => true
             ]);
+            
+            
 
             // kalau sudah login dan role = admin redirect ke halaman admin
             if ($user['role'] == 'admin') {
@@ -51,6 +53,7 @@ class AuthController extends ResourceController
             'password' => md5($this->request->getVar('password')),
             'role' => 'user'
         ];
+
         $model->insertUser($data);
         return $this->respondCreated(['message' => 'User created successfully']);
     }

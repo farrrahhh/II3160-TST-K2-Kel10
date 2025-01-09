@@ -59,7 +59,7 @@
                     <label for="payment-status" class="form-label">Status</label>
                     <select id="payment-status" class="form-control" required>
                         <option value="processing">Processing</option>
-                        <option value="succeed">Succeed</option>
+                        <option value="success">Succees</option>
                         <option value="failed">Failed</option>
                     </select>
                 </div>

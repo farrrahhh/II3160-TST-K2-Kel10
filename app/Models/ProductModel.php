@@ -42,8 +42,11 @@ class ProductModel extends Model
     }
     public function getProductByIsActive()
     {
-        // only return the name of prodyct and the price
-        return $this->select('name, price')->getWhere(['is_active' => 1])->getResultArray();
+        return $this->db->table('products')
+            ->select('product_id, name, category, price')  // Gabungkan kolom dalam satu string
+            ->where('is_active', 1)
+            ->get()  // Menjalankan query
+            ->getResultArray();  // Mengembalikan hasil sebagai array
     }
     // search product by name or category
     public function searchProduct($keyword)

@@ -63,6 +63,9 @@
                 <button class="close-btn" onclick="closeModal()">&times;</button>
             </div>
             <form id="product-form" onsubmit="submitProductForm(event)">
+                <!-- Input untuk product_id -->
+                <input type="hidden" id="product-id" name="product_id">
+
                 <div class="form-group">
                     <label class="form-label" for="product-name">Name</label>
                     <input type="text" id="product-name" name="name" class="form-control" required>
@@ -149,7 +152,7 @@
             formTitle.innerText = title;
 
             if (product) {
-                // Isi form dengan data produk jika ada (untuk edit)
+                document.getElementById('product-id').value = product.product_id; // Set product_id
                 document.getElementById('product-name').value = product.name;
                 document.getElementById('product-description').value = product.description;
                 document.getElementById('category').value = product.category;
@@ -189,10 +192,12 @@
             const form = document.getElementById('product-form');
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
-            data.is_active = 1;
+            data.is_active = 1; // Tambahkan atribut lain yang diperlukan
 
-            const method = data.product_id ? 'PUT' : 'POST';
-            const url = data.product_id ? `/MediMart/products/${data.product_id}` : '/MediMart/products';
+            // Tentukan metode dan URL berdasarkan keberadaan product_id
+            const productId = data.product_id;
+            const method = productId ? 'PUT' : 'POST';
+            const url = productId ? `/MediMart/products/${productId}` : '/MediMart/products';
 
             fetch(url, {
                 method: method,
@@ -212,7 +217,7 @@
                 }
             })
             .catch(error => console.error('Error:', error));
-        }
+}
         // Fungsi untuk menampilkan daftar produk
         function fetchProducts() {
             fetch('/MediMart/products')
@@ -239,15 +244,20 @@
         }
 
 
-        // Fungsi untuk menghapus produk
+       
+        // konfirmasi delete atau gak
         function deleteProduct(id) {
-            fetch(`/MediMart/products/${id}`, { method: 'DELETE' })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                    fetchProducts();
-                });
+            if (confirm('Are you sure you want to delete this product?')) {
+                fetch(`/MediMart/products/${id}`, { method: 'DELETE' })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.message);
+                        fetchProducts();
+                    });
+            }
         }
+        // Fungsi untuk memuat data catalog
+
 
         // Panggil fetchProducts saat halaman dimuat
         fetchProducts();
