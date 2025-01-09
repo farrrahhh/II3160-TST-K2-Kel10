@@ -19,7 +19,7 @@ class EasyDiagnoseController extends BaseController
             return redirect()->back()->with('error', 'All fields are required!')->withInput();
         }
     
-        $url = 'http://localhost:8080/registerprocess'; // API URL
+        $url = 'http://farahproject.my.id/registerprocess'; // API URL
         $client = new Client();
         $postData = [
             'username' => $username,
