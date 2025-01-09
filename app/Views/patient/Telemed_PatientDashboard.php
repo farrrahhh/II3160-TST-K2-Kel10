@@ -30,7 +30,7 @@
             <p class="text-gray-600">Selamat datang di dashboard pasien TeleMedCare. Apa yang ingin Anda lakukan hari ini?</p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <a href="<?= site_url('patient/add-patient') ?>" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                 <div class="flex items-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
@@ -60,6 +60,16 @@
                     <h3 class="text-xl font-semibold text-gray-800">Buat Booking Konsultasi</h3>
                 </div>
                 <p class="text-gray-600">Jadwalkan konsultasi dengan dokter pilihan Anda</p>
+            </a>
+
+            <a href="<?= site_url('/patient/registermedicine') ?>" class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500 mr-3" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                    </svg>
+                    <h3 class="text-xl font-semibold text-gray-800">Buat Medicine</h3>
+                </div>
+                <p class="text-gray-600">Pilih obat yang anda mau!</p>
             </a>
         </div>
     </main>
