@@ -73,29 +73,30 @@ class Telemed_AuthController extends BaseController
 
     public function registerProcess() {
         
-            // Memeriksa apakah data 'username' dan 'password' ada dalam request
-            $username = $this->request->getPost('username');
-            $password = md5($this->request->getPost('password')); // Menggunakan MD5 untuk hashing password
-            $role = $this->request->getPost('role');
-            if ($username && $password) {
-                // Simpan pengguna dengan role 'pending'
-                $this->userModel->save([
-                    'username' => $username,
-                    'password' => $password,
-                    'role' => $role ?? 'patient'
-                ]);
-    
-                // Kembalikan respons sukses dalam format JSON
-                return $this->response->setStatusCode(200)->setJSON([
-                    'message' => 'User registered successfully!',
-                    'username' => $username
-                ]);
-            } else {
-                // Mengembalikan respons error jika data tidak lengkap
-                return $this->response->setStatusCode(400)->setJSON([
-                    'error' => 'Username and password are required.'
-                ]);
-            }
+        // Memeriksa apakah data 'username' dan 'password' ada dalam request
+        $username = $this->request->getPost('username');
+        $password = md5($this->request->getPost('password')); // Menggunakan MD5 untuk hashing password
+        $role = $this->request->getPost('role');
+        if ($username && $password) {
+            // Simpan pengguna dengan role 'pending'
+            $this->userModel->save([
+                'username' => $username,
+                'password' => $password,
+                'role' => $role ?? 'patient'
+            ]);
+
+            // Kembalikan respons sukses dalam format JSON
+            return $this->response->setStatusCode(200)->setJSON([
+                'message' => 'User registered successfully!',
+                'username' => $username,
+                'user_id' => $this->userModel->getInsertID()
+            ]);
+        } else {
+            // Mengembalikan respons error jika data tidak lengkap
+            return $this->response->setStatusCode(400)->setJSON([
+                'error' => 'Username and password are required.'
+            ]);
+        }
         
     
         

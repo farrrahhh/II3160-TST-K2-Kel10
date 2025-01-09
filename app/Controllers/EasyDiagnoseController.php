@@ -21,11 +21,6 @@ class EasyDiagnoseController extends BaseController
     
         $url = 'http://farahproject.my.id/registerprocess'; // API URL
         $client = new Client();
-        $postData = [
-            'username' => $username,
-            'password' => $password,
-            'role' => 'patient',
-        ];
     
         try {
             // Send data to registration API
@@ -50,6 +45,16 @@ class EasyDiagnoseController extends BaseController
                     'message' => 'Registration successful',
                     'data' => $responseData // Include the API response data
                 ]);
+
+                // save the patient data to the database
+                $patientData = [
+                    'name' => $name,
+                    'age' => $age,
+                    'complaint' => $complaint,
+                    'user_id' => $responseData['user_id'],
+                ]; 
+
+
             } else {
                 // Return error in JSON format
                 return $this->response->setJSON([
