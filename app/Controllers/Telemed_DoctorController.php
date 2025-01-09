@@ -94,8 +94,7 @@ class Telemed_DoctorController extends BaseController
 
         // Ambil data
         $jadwalDokter = $jadwalDokterModel->findAll();
-
-        // return json jadwal dokter
+        #return jadwal dookter
         return $this->response->setJSON($jadwalDokter);
     }
 

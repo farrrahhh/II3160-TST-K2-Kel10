@@ -156,24 +156,19 @@ class EasyDiagnoseController extends BaseController
     
         try {
             // Send request to the API
-            $response = $client->request('GET', $url, [
+            $jadwalDokter = $client->request('GET', $url, [
                 
                 'query' => [
                     'spesialis' => $resultString,
                 ],
                 'timeout' => 10,
             ]);
-        
-            if ($response->getStatusCode() == 200) {
-                // return json 
-                // print hasilnay di body json
-                // return $this->response->setJSON($jadwalDokter);
-                $jadwalDokter = json_decode($response->getBody()->getContents(), true);
-                return $this->response->setJSON($jadwalDokter);
-            } else {
-                // Return an empty array if the request failed
-                return [];
-            }
+            // parse jadwal doctor from json
+            $jadwalDokter = json_decode($jadwalDokter->getBody()->getContents(), true);
+
+            return view ('MediMart/user/booking', [
+                'jadwalDokter' => $jadwalDokter
+            ]);
         } catch (\Exception $e) {
             // Return an empty array if an exception occurred
             return [];
