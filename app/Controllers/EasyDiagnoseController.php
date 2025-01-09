@@ -14,17 +14,25 @@ class EasyDiagnoseController extends BaseController
         $password = 'password123';  
         $username = $this->generateUsername($name);
         $diseases = $this->request->getPost('diseases');
-        // print diseases
-        echo $diseases;
-        // Pastikan $diseases adalah array
+        // Diagnosa format data diseases
+        echo "Diseases (raw): ";
+        var_dump($diseases);
+
+        // Pastikan diseases adalah array
         if (is_string($diseases)) {
-            $diseases = explode(',', $diseases); 
+            // Jika data dalam format JSON
+            $decoded = json_decode($diseases, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $diseases = $decoded;
+            } else {
+                // Jika data dipisahkan dengan koma
+                $diseases = explode(',', $diseases);
+            }
         }
 
-        // Print diseases setelah diubah menjadi array
+        // Print diseases setelah diproses
         echo "Diseases (as array): ";
         print_r($diseases);
-    
         // Input validation
         if (!$name || !$age || !$complaint) {
             return redirect()->back()->with('error', 'All fields are required!')->withInput();
