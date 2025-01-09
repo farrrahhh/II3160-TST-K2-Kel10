@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2025 at 03:02 PM
+-- Generation Time: Jan 09, 2025 at 06:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,20 +40,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `total_price`, `status`, `shipping_address`) VALUES
-(1, 1, 500000, 'pending', 'Jl. Merdeka No. 10, Jakarta'),
-(2, 2, 120000, 'paid', 'Jl. Raya No. 5, Surabaya'),
-(3, 1, 320000, 'shipped', 'Jl. Kebon Jeruk No. 12, Bandung'),
-(4, 4, 150000, 'completed', 'Jl. Taman No. 8, Yogyakarta'),
-(5, 20, 200000, 'cancelled', 'Jl. Sumber Alam No. 20, Bali'),
-(6, 6, 250000, 'pending', 'Jl. Lautan No. 15, Makassar'),
-(7, 7, 17000, 'paid', 'Jl. Angkasa No. 18, Medan'),
-(8, 11, 55000, 'shipped', 'Jl. Bukit Indah No. 25, Palembang'),
-(9, 9, 200000, 'completed', 'Jl. Raya No. 10, Malang'),
-(10, 10, 22000, 'pending', 'Jl. Wira No. 30, Solo'),
-(11, 22, 108000, 'pending', 'ITB'),
-(12, 1, 120000, 'completed', '123 Main Street, City, Country'),
-(13, 22, 0, 'pending', 'sdcd'),
-(14, 22, 12000, 'pending', 'asdas');
+(1, 1, 75000, 'pending', 'dsc');
 
 -- --------------------------------------------------------
 
@@ -69,6 +56,13 @@ CREATE TABLE `order_details` (
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`order_detail_id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
+(1, 1, 2, 1, 75000);
+
 -- --------------------------------------------------------
 
 --
@@ -81,23 +75,6 @@ CREATE TABLE `payments` (
   `status` enum('processing','failed','success') DEFAULT 'processing',
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `payments`
---
-
-INSERT INTO `payments` (`payment_id`, `order_id`, `status`, `amount`) VALUES
-(1, 1, 'success', 500000),
-(2, 2, 'success', 120000),
-(3, 3, 'success', 320000),
-(4, 4, 'success', 150000),
-(5, 5, 'failed', 200000),
-(6, 6, 'processing', 250000),
-(7, 7, 'success', 17000),
-(8, 8, 'success', 55000),
-(9, 9, 'success', 200000),
-(10, 10, 'processing', 22000),
-(11, 11, 'processing', 108000);
 
 -- --------------------------------------------------------
 
@@ -122,7 +99,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `name`, `description`, `category`, `price`, `stock`, `is_active`, `disease`) VALUES
 (1, 'Diabetes Support Capsule', 'Capsule for managing blood sugar levels.', 'medicine', 120000, 50, 1, 'Diabetes'),
-(2, 'Hypertension Relief Supplement', 'A supplement to help control blood pressure.', 'supplement', 75000, 30, 1, 'Hypertension'),
+(2, 'Hypertension Relief Supplement', 'A supplement to help control blood pressure.', 'supplement', 75000, 29, 1, 'Hypertension'),
 (3, 'Asthma Inhaler', 'Inhaler for relieving asthma symptoms.', 'medicine', 150000, 25, 1, 'Asthma'),
 (4, 'Heart Health Vitamin', 'Vitamin to support heart health.', 'vitamin', 95000, 40, 1, 'Heart Disease'),
 (5, 'Flu Relief Ointment', 'Ointment for relieving flu-related symptoms.', 'ointment', 60000, 15, 1, 'Influenza'),
@@ -152,26 +129,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `role`) VALUES
 (1, 'Alice Johnson', 'alice@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(2, 'Bob Smith', 'bob@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(3, 'Charlie Davis', 'charlie@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'admin'),
-(4, 'David Lee', 'david@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(5, 'Eva White', 'eva@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'admin'),
-(6, 'Frank Green', 'frank@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(7, 'Grace Black', 'grace@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(8, 'Henry Clark', 'henry@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'admin'),
-(9, 'Isabel Moore', 'isabel@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(10, 'James Wilson', 'james@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(11, 'John Carter', 'john@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(12, 'Lily Evans', 'lily@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'admin'),
-(13, 'Michael Brown', 'michael@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(14, 'Natalie White', 'natalie@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(15, 'Oliver King', 'oliver@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'admin'),
-(16, 'Patricia Adams', 'patricia@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(17, 'Quinn Brooks', 'quinn@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(18, 'Robert White', 'robert@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'admin'),
-(19, 'Sophia Green', 'sophia@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(20, 'Thomas Miller', 'thomas@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer'),
-(22, 'farah', 'farah@example.com', '482c811da5d5b4bc6d497ffa98491e38', '');
+(2, 'Lily Evans', 'lily@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'admin'),
+(3, 'John Doe', 'john.doe@example.com', '482c811da5d5b4bc6d497ffa98491e38', 'customer');
 
 --
 -- Indexes for dumped tables
@@ -220,19 +179,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -244,7 +203,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
