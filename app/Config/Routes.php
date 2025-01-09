@@ -149,3 +149,5 @@ $routes->post('/patient/registermedicine', 'Telemed_MedicineRegisterController::
 // Change routes
 
 $routes->post('/registerprocess', 'Telemed_AuthController::registerProcess'); // Menampilkan form
+
+$routes->post('/patient/save-patient-process', 'Telemed_PatientController::savePatientProcess'); // Menampilkan form

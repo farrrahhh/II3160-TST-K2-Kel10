@@ -46,13 +46,42 @@ class EasyDiagnoseController extends BaseController
                     'data' => $responseData // Include the API response data
                 ]);
 
-                // save the patient data to the database
-                $patientData = [
-                    'name' => $name,
-                    'age' => $age,
-                    'complaint' => $complaint,
-                    'user_id' => $responseData['user_id'],
-                ]; 
+                // save into session user id
+                session()->set('id', $responseData['user_id']);
+
+                
+
+                $url = 'http://farahproject.my.id/patient/save-patient-process'; // API URL
+
+                // Data to be sent to the API
+                $postData = [
+                    'nama' => $name,
+                    'usia' => $age,
+                    'keluhan' => $complaint,
+                ];
+
+                // Send data to the API
+                $response = $client->request('POST', $url, [
+                    'form_params' => $postData,
+                    'timeout' => 10,
+                ]);
+
+                if ($response->getStatusCode() == 200) {
+                    return $this->response->setJSON([
+                        'status' => 'success',
+                        'message' => 'Registration successful',
+                        'data' => $responseData // Include the API response data
+                    ]);    
+                } else {
+                    
+                    return $this->response->setJSON([
+                        'status' => 'error',
+                        'message' => 'Registration failed!',
+                    ]);
+                    
+
+
+                }
 
 
             } else {
