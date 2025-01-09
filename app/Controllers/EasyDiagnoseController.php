@@ -100,9 +100,9 @@ class EasyDiagnoseController extends BaseController
     }
 
 
-    private function getDoctors($diseases)
+    private function getDoctors(array $diseases)
     {   
-        $diseases = ['influenza', 'diabetes', 'hypertension', 'maag'];
+        
         // Inisialisasi string penyakit
         $diseaseString = '';
         // Inisialisasi string hasil akhir
