@@ -13,7 +13,7 @@ class EasyDiagnoseController extends BaseController
         $complaint = $this->request->getPost('complaint');
         $password = 'password123';  
         $username = $this->generateUsername($name);
-        // $diseases = $this->request->getPost('diseases');
+        $diseases = $this->request->getPost('diseases');
     
         // Input validation
         if (!$name || !$age || !$complaint) {
@@ -64,11 +64,8 @@ class EasyDiagnoseController extends BaseController
                 if ($response->getStatusCode() == 200) {
 
                     
-                    // return json
-                    return $this->response->setJSON([
-                        'status' => 'success',
-                        'message' => 'Registration successful!',
-                    ]);
+                    // panggil method getDoctors
+                    $doctors = $this->getDoctors($diseases);
                 } else {
                     
                     return $this->response->setJSON([
