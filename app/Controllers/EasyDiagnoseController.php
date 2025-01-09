@@ -38,13 +38,6 @@ class EasyDiagnoseController extends BaseController
             if ($response->getStatusCode() == 200) {
                 // Parse the JSON response from the API
                 $responseData = json_decode($response->getBody()->getContents(), true);
-        
-                // Return the JSON response
-                return $this->response->setJSON([
-                    'status' => 'success',
-                    'message' => 'Registration successful',
-                    'data' => $responseData // Include the API response data
-                ]);
 
                 // save into session user id
                 session()->set('id', $responseData['user_id']);
@@ -57,7 +50,7 @@ class EasyDiagnoseController extends BaseController
                 $postData = [
                     'nama' => $name,
                     'usia' => $age,
-                    'keluhan' => $complaint,
+                    'keluhan_penyakit' => $complaint,
                 ];
 
                 // Send data to the API
@@ -67,7 +60,10 @@ class EasyDiagnoseController extends BaseController
                 ]);
 
                 if ($response->getStatusCode() == 200) {
+
+                    
                     return $this->response->setJSON([
+
                         'status' => 'success',
                         'message' => 'Registration successful',
                         'data' => $responseData // Include the API response data
@@ -78,8 +74,6 @@ class EasyDiagnoseController extends BaseController
                         'status' => 'error',
                         'message' => 'Registration failed!',
                     ]);
-                    
-
 
                 }
 
