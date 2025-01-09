@@ -30,6 +30,7 @@ $routes->group('MediMart', function ($routes) {
     $routes->group('user', ['filter' => 'auth'], function ($routes) {
         $routes->get('dashboard', 'UserViewController::Dashboard');
         $routes->get('transactions', 'UserViewController::Transactions');
+        $routes->get('consultation', 'UserViewController::Consultation');
     });
 
     // Subgrup untuk produk

@@ -7,7 +7,7 @@
             MediMart
         </a>
         <div class="nav-icons">
-            <a href="/MediMart/user/dashboard" class="nav-icon">Easy Diagnose</a>
+            <a href="/MediMart/user/consultation" class="nav-icon">Easy Diagnose</a>
             <a href="/MediMart/user/transactions" class="nav-icon">Your Transactions</a>
             <!-- Profil dengan Dropdown -->
             <div class="profile-container" onclick="toggleDropdown()">

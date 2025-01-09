@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Form</title>
+    <link rel="stylesheet" href="<?= base_url('css/style2.css') ?>">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,6 +71,8 @@
     </style>
 </head>
 <body>
+    <!-- navbar -->
+    <?php include 'navbar.php'; ?>
     <div class="form-container">
         <h2>Medical Complaint Form</h2>
         <form action="/submit" method="POST">
