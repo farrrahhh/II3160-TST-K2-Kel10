@@ -14,6 +14,12 @@ class EasyDiagnoseController extends BaseController
         $password = 'password123';  
         $username = $this->generateUsername($name);
         $diseases = $this->request->getPost('diseases');
+        // print diseases
+        echo $diseases;
+        // Pastikan $diseases adalah array
+        if (is_string($diseases)) {
+            $diseases = explode(',', $diseases); 
+        }
     
         // Input validation
         if (!$name || !$age || !$complaint) {
