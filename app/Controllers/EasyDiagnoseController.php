@@ -116,63 +116,69 @@ class EasyDiagnoseController extends BaseController
 
     private function getDoctors(array $diseases)
     {   
-        
-        // Inisialisasi string penyakit
-        $diseaseString = '';
-        // Inisialisasi string hasil akhir
-        $resultString = '';
+        // Inisialisasi string spesialis
+        $spesialisList = [];
 
         // Looping setiap disease
         foreach ($diseases as $disease) {
-            // Menentukan string berdasarkan disease
-            if ($disease == 'Influenza') {
-                $diseaseString = 'umum';
-            } elseif ($disease == 'Diabetes') {
-                $diseaseString = 'dalam';
-            } elseif ($disease == 'Hypertension') {
-                $diseaseString = 'kardiologi';
-            } elseif ($disease == 'Maag') {
-                $diseaseString = 'gastroenterologi';
-            }
-            else {
-                $diseaseString = 'umum';
-            }
-
-            // Tambahkan ke resultString dengan separator "-"
-            if ($resultString === '') {
-                // Jika resultString kosong, langsung tambahkan
-                $resultString = $diseaseString;
-            } else {
-                // Jika tidak, tambahkan dengan tanda strip
-                $resultString .= '-' . $diseaseString;
+            switch ($disease) {
+                case 'Influenza':
+                    $spesialisList[] = 'umum';
+                    break;
+                case 'Diabetes':
+                    $spesialisList[] = 'dalam';
+                    break;
+                case 'Hypertension':
+                    $spesialisList[] = 'kardiologi';
+                    break;
+                case 'Maag':
+                    $spesialisList[] = 'gastroenterologi';
+                    break;
+                default:
+                    $spesialisList[] = 'umum';
+                    break;
             }
         }
 
-        
-        // Menggunakan concatenation untuk memasukkan resultString ke URL
-        $url = 'http://farahproject.my.id/doctor/spesialis/';
-        
+        // Hilangkan duplikat spesialis dan gabungkan dengan tanda "-"
+        $spesialisQuery = implode('-', array_unique($spesialisList));
+
+        // URL API
+        $url = 'http://farahproject.my.id/doctor/spesialis';
+
         $client = new Client();
-    
+
         try {
-            // Send request to the API
-            $jadwalDokter = $client->request('GET', $url, [
-                
+            // Kirim permintaan ke API
+            $response = $client->request('GET', $url, [
                 'query' => [
-                    'spesialis' => $resultString,
+                    'spesialis' => $spesialisQuery,
                 ],
                 'timeout' => 10,
             ]);
-            // parse jadwal doctor from json
-            $jadwalDokter = json_decode($jadwalDokter->getBody()->getContents(), true);
 
-            return view ('MediMart/user/booking', [
+            // Parse JSON response
+            $jadwalDokter = json_decode($response->getBody()->getContents(), true);
+
+            // Pastikan response dalam format yang diharapkan
+            if (!is_array($jadwalDokter) || empty($jadwalDokter)) {
+                throw new \Exception('Data jadwal dokter kosong atau tidak valid.');
+            }
+
+            // Kirim data ke view
+            return view('MediMart/user/booking', [
                 'jadwalDokter' => $jadwalDokter
             ]);
         } catch (\Exception $e) {
-            // Return an empty array if an exception occurred
-            return [];
+            // Log error dan kembalikan view dengan pesan error
+            log_message('error', 'Error in getDoctors: ' . $e->getMessage());
+
+            return view('MediMart/user/booking', [
+                'jadwalDokter' => [],
+                'error' => 'Gagal memuat jadwal dokter. Silakan coba lagi.'
+            ]);
         }
     }
+
     
 }
