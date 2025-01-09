@@ -2,74 +2,57 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\HTTP\Client;
+use CodeIgniter\Controller;
+use GuzzleHttp\Client;
 
-class Telemed_MedicineRegisterController extends BaseController
+class Telemed_MedicineRegisterController extends Controller
 {
     public function index()
     {
-        // Menampilkan form registrasi
         return view('patient/Telemed_UserMedicineRegister');
     }
 
     public function submit()
     {
-        // $client = \Config\Services::curlrequest(); // Menggunakan HTTP Client
-        // $apiUrl = 'http://localhost:8080/MediMart/register'; // URL API teman Anda
-
         // Ambil data dari form
         $name = $this->request->getPost('name');
         $email = $this->request->getPost('email');
-        $password = 'password123';
+        $password = 'password123'; // Password default
 
-       // Validasi input
-       if (!$name || !$email || !$password) {
-        return redirect()->back()->with('error', 'Semua field wajib diisi!')->withInput();
-    }
-
-    // Endpoint API
-    $apiUrl = base_url('/MediMart/register'); 
-
-    // Data untuk dikirim
-    $postData = http_build_query([
-        'name' => $name,
-        'email' => $email,
-        'password' => $password,
-    ]);
-
-    // Opsi context untuk HTTP POST
-    $options = [
-        'http' => [
-            'header'  => "Content-Type: application/x-www-form-urlencoded\r\n" .
-                         "Content-Length: " . strlen($postData) . "\r\n",
-            'method'  => 'POST',
-            'content' => $postData,
-        ],
-    ];
-
-    // Membuat stream context
-    $context = stream_context_create($options);
-
-    try {
-        // Kirim permintaan ke API
-        $response = file_get_contents($apiUrl, false, $context);
-
-        if ($response === FALSE) {
-            throw new \Exception('Gagal menghubungi API.');
+        // Validasi input
+        if (!$name || !$email) {
+            return redirect()->back()->with('error', 'All fields are required!')->withInput();
         }
+        $url = 'http://farahproject.my.id/MediMart/register';
 
-        // Decode respons JSON
-        $body = json_decode($response, true);
+        // Data yang akan dikirim ke API
+        $postData = [
+            'name' => $name,
+            'email' => $email,
+            'password' => $password
+        ];
 
-        // Periksa apakah berhasil
-        if (isset($body['message'])) {
-            return redirect()->to('/patient/dashboard')->with('success', 'Registrasi berhasil!');
-        } else {
-            return redirect()->back()->with('error', 'Gagal melakukan registrasi.')->withInput();
+        // Inisialisasi Guzzle client
+        $client = new Client();
+
+
+        try {
+            // Mengirimkan data POST ke API
+            $response = $client->request('POST', $url, [
+                'headers' => ['Content-Type' => 'application/json'],
+                'json' => $postData, // Secara otomatis meng-encode data menjadi JSON
+                'timeout' => 10, // Timeout 10 detik
+            ]);
+
+            // Cek status code dari response API
+            if ($response->getStatusCode() == 200) {
+                return redirect()->to('/success')->with('message', 'Registration successful!');
+            } else {
+                return redirect()->back()->with('error', 'Registration failed!')->withInput();
+            }
+        } catch (\Exception $e) {
+            // Jika terjadi error pada request
+            return redirect()->back()->with('error', 'Error: ' . $e->getMessage())->withInput();
         }
-    } catch (\Exception $e) {
-        // Tangani kesalahan
-        return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage())->withInput();
     }
-}
 }

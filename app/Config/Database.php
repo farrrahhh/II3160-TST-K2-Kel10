@@ -30,7 +30,7 @@ class Database extends Config
         'password' => '',
         'database' => 'online_medicine',
         'DBDriver' => 'MySQLi',
-        'port'     => 3307,
+        'port'     => 3306,
         'charset'  => 'utf8mb4',          
         'DBCollat' => 'utf8mb4_general_ci', 
     ];
@@ -41,7 +41,7 @@ class Database extends Config
         'password' => '',
         'database' => 'users_telemed',
         'DBDriver' => 'MySQLi',
-        'port'     => 3307,
+        'port'     => 3306,
         'charset'  => 'utf8mb4',
         'DBCollat' => 'utf8mb4_general_ci',
     ];

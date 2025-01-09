@@ -17,6 +17,21 @@ class App extends BaseConfig
      * E.g., http://example.com/
      */
     public $baseURL = 'http://farahproject.my.id/';
+    /**
+     * --------------------------------------------------------------------------
+     * CURL Request Options
+     * --------------------------------------------------------------------------
+     *
+     * Konfigurasi default untuk CURLRequest
+     */
+    public $curlRequestOptions = [
+        'timeout' => 30, // Waktu tunggu dalam detik
+        'headers' => [
+            'User-Agent' => 'CodeIgniter',
+            'Content-Type' => 'application/json',
+        ],
+    ];
+
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -199,4 +214,6 @@ class App extends BaseConfig
      * @see http://www.w3.org/TR/CSP/
      */
     public bool $CSPEnabled = false;
+
+    
 }

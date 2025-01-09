@@ -51,7 +51,7 @@ class AuthController extends ResourceController
             'name' => $this->request->getVar('name'),
             'email' => $this->request->getVar('email'),
             'password' => md5($this->request->getVar('password')),
-            'role' => 'user'
+            'role' => 'customer'
         ];
 
         $model->insertUser($data);
