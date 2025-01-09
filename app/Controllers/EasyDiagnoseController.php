@@ -21,7 +21,9 @@ class EasyDiagnoseController extends BaseController
             $diseases = explode(',', $diseases); 
         }
 
-        echo $diseases;
+        // Print diseases setelah diubah menjadi array
+        echo "Diseases (as array): ";
+        print_r($diseases);
     
         // Input validation
         if (!$name || !$age || !$complaint) {
