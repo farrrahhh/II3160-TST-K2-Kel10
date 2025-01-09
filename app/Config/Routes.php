@@ -120,5 +120,4 @@ $routes->get('patient/booking', 'Telemed_BookingController::index');
 $routes->post('patient/booking/create', 'Telemed_BookingController::create');
 $routes->get('/doctor/add-profile', 'Telemed_DataDokterController::index');
 $routes->post('/doctor/save', 'Telemed_DataDokterController::save');
-
 $routes->get('/logout', 'Telemed_AuthController::logout');
