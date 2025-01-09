@@ -129,13 +129,13 @@ class EasyDiagnoseController extends BaseController
         // Looping setiap disease
         foreach ($diseases as $disease) {
             // Menentukan string berdasarkan disease
-            if ($disease == 'influenza') {
+            if ($disease == 'Influenza') {
                 $diseaseString = 'umum';
-            } elseif ($disease == 'diabetes') {
+            } elseif ($disease == 'Diabetes') {
                 $diseaseString = 'dalam';
-            } elseif ($disease == 'hypertension') {
+            } elseif ($disease == 'Hypertension') {
                 $diseaseString = 'kardiologi';
-            } elseif ($disease == 'maag') {
+            } elseif ($disease == 'Maag') {
                 $diseaseString = 'gastroenterologi';
             }
             else {
