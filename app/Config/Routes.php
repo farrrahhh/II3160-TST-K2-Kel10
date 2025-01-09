@@ -122,3 +122,9 @@ $routes->post('patient/booking/create', 'Telemed_BookingController::create');
 $routes->get('/doctor/add-profile', 'Telemed_DataDokterController::index');
 $routes->post('/doctor/save', 'Telemed_DataDokterController::save');
 $routes->get('/logout', 'Telemed_AuthController::logout');
+
+
+// File: app/Config/Routes.php
+
+$routes->get('/patient/registermedicine', 'Telemed_MedicineRegisterController::index'); // Menampilkan form
+$routes->post('/patient/registermedicine', 'Telemed_MedicineRegisterController::submit'); // Mengirim data ke API
