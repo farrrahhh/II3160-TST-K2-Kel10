@@ -73,8 +73,10 @@ class Telemed_DoctorController extends BaseController
 
     }
 
-    public function getDoctor($spesialis)
+    public function getDoctor()
     {
+        // get send json
+        $spesialis = $this->request->getVar('spesialis');
         $jadwalDokterModel = new Telemed_JadwalDokterModel();
 
         // Pecah string menjadi array jika ada beberapa nilai (dipisahkan koma)

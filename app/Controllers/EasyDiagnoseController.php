@@ -150,13 +150,17 @@ class EasyDiagnoseController extends BaseController
 
         
         // Menggunakan concatenation untuk memasukkan resultString ke URL
-        $url = 'http://farahproject.my.id/doctor/spesialis/' . $resultString;
+        $url = 'http://farahproject.my.id/doctor/spesialis/';
         
         $client = new Client();
     
         try {
             // Send request to the API
             $response = $client->request('GET', $url, [
+                
+                'query' => [
+                    'spesialis' => $resultString,
+                ],
                 'timeout' => 10,
             ]);
         
