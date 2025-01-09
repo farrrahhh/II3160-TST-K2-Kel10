@@ -92,9 +92,9 @@ class Telemed_BookingController extends BaseController
     try {
         $bookingModel->save($data);
         log_message('info', 'Data yang disimpan: ' . print_r($data, true));
-        return $this->response->setStatusCode(200)->setJSON([
-            'success' => 'Booking berhasil dibuat!'
-        ]);
+        // redirect to dashboard 
+        return redirect()->to('/patient/dashboard')->with('success', 'Booking berhasil dibuat.');
+
     } catch (\Exception $e) {
         log_message('error', "Terjadi kesalahan saat menyimpan booking: " . $e->getMessage());
         return $this->response->setStatusCode(500)->setJSON([
