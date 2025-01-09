@@ -46,6 +46,7 @@
                         <th>Category</th>
                         <th>Price</th>
                         <th>Stock</th>
+                        <th>Disease</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -92,6 +93,21 @@
                     <label class="form-label" for="product-stock">Stock</label>
                     <input type="number" id="product-stock" name="stock" class="form-control" required>
                 </div>
+                <div class="form-group">
+                    <label class="form-label" for="disease">Disease</label>
+                    <select id="disease" name="disease" class="form-control">
+                        <option value="" selected>Select Disease</option>
+                        <option value="Diabetes">Diabetes</option>
+                        <option value="Hypertension">Hypertension</option>
+                        <option value="Asthma">Asthma</option>
+                        <option value="Heart Disease">Heart Disease</option>
+                        <option value="Influenza">Influenza</option>
+                        <option value="Diarrhea">Diarrhea</option>
+                        <option value="Constipation">Constipation</option>
+                        <option value="Migraine">Migraine</option>
+                        <option value="Maag">Maag</option>
+                    </select>
+                </div>
                 <div class="form-actions">
                     <button type="button" class="btn btn-danger" onclick="closeModal()">Cancel</button>
                     <button type="submit" class="btn btn-primary">Save Product</button>
@@ -104,12 +120,7 @@
         // Keep the existing JavaScript functions but update the product list template
         function fetchProducts() {
             fetch('/MediMart/products')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
                     const productList = document.getElementById('product-list');
                     productList.innerHTML = '';
@@ -128,6 +139,7 @@
                             <td><span class="badge">${product.category}</span></td>
                             <td>${formatter.format(product.price)}</td>
                             <td>${product.stock}</td>
+                            <td>${product.disease || '-'}</td>
                             <td class="action-buttons">
                                 <button class="btn btn-warning" onclick="editProduct(${product.product_id})">Edit</button>
                                 <button class="btn btn-danger" onclick="deleteProduct(${product.product_id})">Delete</button>
@@ -141,6 +153,7 @@
                     alert('Failed to load products. Please try again later.');
                 });
         }
+
 
         // Fungsi untuk menampilkan modal
         function showModal(title, product = null) {
@@ -158,6 +171,7 @@
                 document.getElementById('category').value = product.category;
                 document.getElementById('product-price').value = product.price;
                 document.getElementById('product-stock').value = product.stock;
+                document.getElementById('disease').value = product.disease;
             }
 
             modal.style.display = 'flex'; // Tampilkan modal
@@ -193,7 +207,7 @@
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
             data.is_active = 1; // Tambahkan atribut lain yang diperlukan
-
+            
             // Tentukan metode dan URL berdasarkan keberadaan product_id
             const productId = data.product_id;
             const method = productId ? 'PUT' : 'POST';

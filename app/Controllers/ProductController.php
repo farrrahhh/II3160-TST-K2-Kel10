@@ -37,7 +37,7 @@ class ProductController extends BaseController
         if (
             !isset($data['name'], $data['description'], $data['category'], $data['price'], $data['stock'], $data['is_active'])
             || empty($data['name']) || empty($data['description']) || empty($data['category'])
-            || empty($data['price']) || empty($data['stock'])
+            || empty($data['price']) || empty($data['stock']) || empty($data['disease'])
         ) {
             return $this->response->setJSON(['message' => 'Invalid input']);
         }
@@ -46,6 +46,7 @@ class ProductController extends BaseController
         if (!in_array($data['category'], ['vitamin', 'supplement', 'medicine', 'ointment', 'other'])) {
             return $this->response->setJSON(['message' => 'Invalid category']);
         }
+
 
         // Simpan produk ke database
         $model->insertProduct($data);

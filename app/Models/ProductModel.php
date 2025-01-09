@@ -12,7 +12,8 @@ class ProductModel extends Model
         'category', 
         'price', 
         'stock', 
-        'is_active'
+        'is_active',
+        'diasease'
     ]; 
 
     public function getProduct($id = false)
@@ -29,9 +30,17 @@ class ProductModel extends Model
 
     public function insertProduct($data)
     {
-        
-        return $this->insert($data);
+        $this->db->table('products')->insert([
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'category' => $data['category'],
+            'price' => $data['price'],
+            'stock' => $data['stock'],
+            'is_active' => $data['is_active'],
+            'disease' => $data['disease'] // Pastikan field ini ada
+        ]);
     }
+    
     public function updateProduct($data, $id)
     {
         return $this->update($id, $data);
@@ -43,7 +52,7 @@ class ProductModel extends Model
     public function getProductByIsActive()
     {
         return $this->db->table('products')
-            ->select('product_id, name, category, price')  // Gabungkan kolom dalam satu string
+            ->select('product_id, name, category, price', disease)  // Gabungkan kolom dalam satu string
             ->where('is_active', 1)
             ->get()  // Menjalankan query
             ->getResultArray();  // Mengembalikan hasil sebagai array
