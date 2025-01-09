@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2024 at 05:41 PM
+-- Generation Time: Jan 09, 2025 at 03:02 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,7 +51,9 @@ INSERT INTO `orders` (`order_id`, `user_id`, `total_price`, `status`, `shipping_
 (9, 9, 200000, 'completed', 'Jl. Raya No. 10, Malang'),
 (10, 10, 22000, 'pending', 'Jl. Wira No. 30, Solo'),
 (11, 22, 108000, 'pending', 'ITB'),
-(12, 1, 120000, 'completed', '123 Main Street, City, Country');
+(12, 1, 120000, 'completed', '123 Main Street, City, Country'),
+(13, 22, 0, 'pending', 'sdcd'),
+(14, 22, 12000, 'pending', 'asdas');
 
 -- --------------------------------------------------------
 
@@ -66,29 +68,6 @@ CREATE TABLE `order_details` (
   `quantity` int(11) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`order_detail_id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(1, 1, 1, 10, 50000),
-(2, 2, 10, 6, 20000),
-(3, 3, 4, 20, 15000),
-(4, 3, 10, 1, 20000),
-(5, 4, 13, 4, 25000),
-(7, 5, 19, 4, 50000),
-(8, 6, 7, 10, 25000),
-(9, 7, 9, 1, 17000),
-(10, 8, 10, 1, 20000),
-(11, 8, 11, 1, 35000),
-(12, 9, 12, 1, 180000),
-(13, 9, 10, 1, 20000),
-(14, 10, 18, 1, 22000),
-(15, 11, 1, 2, 100000),
-(16, 11, 3, 1, 8000),
-(17, 12, 11, 2, 70000),
-(18, 12, 19, 1, 50000);
 
 -- --------------------------------------------------------
 
@@ -108,7 +87,7 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`payment_id`, `order_id`, `status`, `amount`) VALUES
-(1, 1, 'processing', 500000),
+(1, 1, 'success', 500000),
 (2, 2, 'success', 120000),
 (3, 3, 'success', 320000),
 (4, 4, 'success', 150000),
@@ -133,33 +112,25 @@ CREATE TABLE `products` (
   `category` enum('vitamin','supplement','medicine','ointment','other') DEFAULT NULL,
   `price` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
-  `is_active` tinyint(1) DEFAULT 1
+  `is_active` tinyint(1) DEFAULT 1,
+  `disease` enum('Diabetes','Hypertension','Asthma','Heart Disease','Influenza','Diarrhea','Constipation','Migraine','Maag','Other') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `description`, `category`, `price`, `stock`, `is_active`) VALUES
-(1, 'Vitamin C 1000mg', 'Vitamin C supplement to support immune system', 'vitamin', 50000, 198, 1),
-(2, 'Omega-3 Fish Oil', 'Fish oil rich in Omega-3 for heart health', 'supplement', 150000, 120, 1),
-(3, 'Paracetamol 500mg', 'Pain reliever and fever reducer', 'medicine', 8000, 499, 1),
-(4, 'Antiseptic Ointment', 'Ointment for minor cuts and burns', 'ointment', 15000, 100, 1),
-(5, 'Herbal Tea', 'Calming herbal tea for relaxation', 'other', 10000, 150, 1),
-(6, 'Multivitamin A-Z', 'Complete daily multivitamin supplement', 'vitamin', 30000, 250, 1),
-(7, 'Calcium Tablets', 'Calcium supplement for stronger bones', 'supplement', 25000, 180, 1),
-(8, 'Ibuprofen 400mg', 'Pain reliever for inflammation and fever', 'medicine', 12000, 400, 1),
-(9, 'Aloe Vera Gel', 'Natural aloe vera gel for skin hydration', 'ointment', 17000, 90, 1),
-(10, 'Lavender Essential Oil', 'Relaxing lavender oil for aromatherapy', 'other', 20000, 110, 1),
-(11, 'Vitamin D 1000 IU', 'Vitamin D supplement for bone health', 'vitamin', 35000, 218, 1),
-(12, 'Fish Collagen Peptides', 'Collagen supplement for skin elasticity', 'supplement', 180000, 130, 1),
-(13, 'Amoxicillin 500mg', 'Antibiotic for bacterial infections', 'medicine', 25000, 250, 1),
-(14, 'Neosporin Ointment', 'Antibiotic ointment for cuts and scrapes', 'ointment', 18000, 200, 1),
-(15, 'Green Tea Extract', 'Natural antioxidant supplement', 'other', 9000, 300, 1),
-(16, 'Magnesium Supplement', 'Magnesium supplement for muscle and nerve function', 'supplement', 40000, 160, 1),
-(17, 'Ginger Tea', 'Herbal ginger tea for digestion and nausea relief', 'other', 15000, 180, 1),
-(18, 'Echinacea Supplement', 'Herbal supplement for immune system support', 'supplement', 22000, 210, 1),
-(19, 'Probiotic Capsules', 'Probiotic supplement for gut health', 'supplement', 50000, 149, 1);
+INSERT INTO `products` (`product_id`, `name`, `description`, `category`, `price`, `stock`, `is_active`, `disease`) VALUES
+(1, 'Diabetes Support Capsule', 'Capsule for managing blood sugar levels.', 'medicine', 120000, 50, 1, 'Diabetes'),
+(2, 'Hypertension Relief Supplement', 'A supplement to help control blood pressure.', 'supplement', 75000, 30, 1, 'Hypertension'),
+(3, 'Asthma Inhaler', 'Inhaler for relieving asthma symptoms.', 'medicine', 150000, 25, 1, 'Asthma'),
+(4, 'Heart Health Vitamin', 'Vitamin to support heart health.', 'vitamin', 95000, 40, 1, 'Heart Disease'),
+(5, 'Flu Relief Ointment', 'Ointment for relieving flu-related symptoms.', 'ointment', 60000, 15, 1, 'Influenza'),
+(6, 'Diarrhea Care Solution', 'Solution to manage diarrhea effectively.', 'medicine', 50000, 20, 1, 'Diarrhea'),
+(7, 'Constipation Relief Powder', 'Powder to ease constipation.', 'other', 45000, 35, 1, 'Constipation'),
+(8, 'Migraine Soothing Balm', 'A soothing balm for relieving migraines.', 'ointment', 70000, 20, 1, 'Migraine'),
+(9, 'Maag Relief Capsule', 'Capsule for managing stomach acid and maag.', 'medicine', 55000, 25, 1, 'Maag'),
+(10, 'General Wellness Supplement', 'Supplement for overall health and well-being.', 'supplement', 65000, 50, 1, 'Other');
 
 -- --------------------------------------------------------
 
@@ -249,13 +220,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -267,7 +238,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
