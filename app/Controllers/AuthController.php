@@ -45,7 +45,7 @@ class AuthController extends ResourceController
             return $this->respond(['message' => 'Invalid login'], 401);
         }
     }
-    public function register(){
+    public function registerProcess(){
         $model = new UserModel();
         $data = [
             'name' => $this->request->getVar('name'),
@@ -55,8 +55,18 @@ class AuthController extends ResourceController
         ];
 
         $model->insertUser($data);
-        return $this->respondCreated(['message' => 'User created successfully']);
+        
+
+        
     }
+
+    public function register(){
+        // call register process
+        $this->registerProcess();
+        return redirect()->to('/MediMart/login');
+    }
+
+    
 
     // return view login
     public function Medimartlogin(){

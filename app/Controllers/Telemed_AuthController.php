@@ -71,24 +71,44 @@ class Telemed_AuthController extends BaseController
         return view('admin/telemed_admin_dashboard');
     }
 
+    public function registerProcess() {
+        
+            // Memeriksa apakah data 'username' dan 'password' ada dalam request
+            $username = $this->request->getPost('username');
+            $password = md5($this->request->getPost('password')); // Menggunakan MD5 untuk hashing password
+            $role = $this->request->getPost('role');
+            if ($username && $password) {
+                // Simpan pengguna dengan role 'pending'
+                $this->userModel->save([
+                    'username' => $username,
+                    'password' => $password,
+                    'role' => $role ?? 'patient'
+                ]);
+    
+                // Kembalikan respons sukses dalam format JSON
+                return $this->response->setStatusCode(200)->setJSON([
+                    'message' => 'User registered successfully!',
+                    'username' => $username
+                ]);
+            } else {
+                // Mengembalikan respons error jika data tidak lengkap
+                return $this->response->setStatusCode(400)->setJSON([
+                    'error' => 'Username and password are required.'
+                ]);
+            }
+        
+    
+        
+    }
+    
+
     public function register() {
-    if ($this->request->getMethod() === 'post') {
-        $username = $this->request->getPost('username');
-        $password = md5($this->request->getPost('password')); // Menggunakan MD5 untuk hashing password
-        // Enkripsi password dengan bcrypt
-
-        // Simpan pengguna sebagai user yang belum memiliki role
-        $this->userModel->save([
-            'username' => $username,
-            'password' => $password,
-            'role' => 'pending' // Status 'pending' menunggu verifikasi dari admin
-        ]);
-
+        // Panggil method registerProcess
+        $this->registerProcess();
         return redirect()->to('/login')->with('success', 'Registration successful. Please wait for admin approval.');
     }
 
-    return view('telemed_register');
-    }
+
 
     public function editUser($id) {
         if (session()->get('role') !== 'admin') {

@@ -15,10 +15,14 @@ $routes->group('MediMart', function ($routes) {
     $routes->post('login', 'AuthController::login');
     $routes->post('register', 'AuthController::register');
     $routes->get('logout', 'AuthController::logout');
+    $routes->post('registerprocess', 'AuthController::registerProcess');
+    
 
     // API VIEW
     $routes->get('login', 'AuthController::MedimartLogin');
     $routes->get('register', 'AuthController::MedimartRegister');
+
+
 
     // Subgrup view admin
     $routes->group('admin', ['filter' => 'auth'], function ($routes) {
@@ -31,6 +35,7 @@ $routes->group('MediMart', function ($routes) {
         $routes->get('dashboard', 'UserViewController::Dashboard');
         $routes->get('transactions', 'UserViewController::Transactions');
         $routes->get('consultation', 'UserViewController::Consultation');
+        
     });
 
     // Subgrup untuk produk
@@ -79,7 +84,17 @@ $routes->group('MediMart', function ($routes) {
         // check payment by status - admin can check the all of payment by status
         $routes->get('check/(:alpha)', 'PaymentController::check/$1');
     });
+
+
+   
+    $routes->group('consultation', function ($routes) {
+        $routes->post('submit', 'EasyDiagnoseController::submit');
+        $routes->get('registerprocess', 'Telemed_AuthController::registerProcess'); // Menampilkan form
+    });
+
+    
 });
+
 
 
 
@@ -128,3 +143,9 @@ $routes->get('/logout', 'Telemed_AuthController::logout');
 
 $routes->get('/patient/registermedicine', 'Telemed_MedicineRegisterController::index'); // Menampilkan form
 $routes->post('/patient/registermedicine', 'Telemed_MedicineRegisterController::submit'); // Mengirim data ke API
+
+
+
+// Change routes
+
+$routes->post('/registerprocess', 'Telemed_AuthController::registerProcess'); // Menampilkan form

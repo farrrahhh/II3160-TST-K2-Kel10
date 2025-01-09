@@ -216,8 +216,8 @@
             
             <form action="/MediMart/register" method="POST">
                 <div class="form-group">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 </div>
 
                 <div class="form-group">
