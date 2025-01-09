@@ -44,12 +44,18 @@ class OrderModel extends Model
     }
     public function getOrderDetail($order_id)
     {
-        return $this->db->table('order_details')
+        $query = $this->db->table('order_details')
             ->select('order_details.*, products.name, products.price')
             ->join('products', 'products.product_id = order_details.product_id')
             ->where('order_id', $order_id)
-            ->get()
-            ->getResultArray();
+            ->get();
+
+        $result = $query->getResultArray();
+        
+        // Log hasil query untuk debugging
+        log_message('debug', 'Query Result: ' . json_encode($result));
+
+        return $result;
     }
     
 }

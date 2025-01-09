@@ -27,6 +27,7 @@ class OrderController extends BaseController
     {
         // Ambil data JSON dari request
         $requestData = $this->request->getJSON(true);
+        $orderDetails = $this->orderDetailModel->getOrderDetail($orderId) ?? [];
         $orderDetails = $requestData['order_details'] ?? null;
         $userId = $requestData['user_id'] ?? null;
         $shippingAddress = $requestData['shipping_address'] ?? null;
@@ -145,8 +146,8 @@ class OrderController extends BaseController
         }
 
         // Ambil data order detail berdasarkan orderId
+       
         $orderDetails = $this->orderDetailModel->getOrderDetail($orderId);
-
         // Validasi apakah order details ditemukan dan dalam bentuk array
         if (!is_array($orderDetails) || empty($orderDetails)) {
             log_message('error', 'Invalid order details data: ' . json_encode($orderDetails));

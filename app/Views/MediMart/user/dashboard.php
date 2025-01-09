@@ -23,11 +23,6 @@
             margin-top: 2rem;
         }
 
-        .products-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--secondary);
-        }
-
         .products-title {
             font-size: 1.5rem;
             color: var(--text);
@@ -114,6 +109,104 @@
             padding-top: 1rem;
             border-top: 1px solid var(--secondary);
         }
+        /* Updated hero styles */
+        .hero {
+            background-color: #f0f4f8;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-button:hover {
+            background-color: var(--secondary);
+        }
+
+        /* Updated products header styles */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .products-title {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin: 0;
+        }
+
+
+
+        .modal-title {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #e9ecef;
+            padding: 1rem 1.5rem;
+            text-align: right;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #34495e;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        
     </style>
 </head>
 <!-- Tambahkan di bagian bawah sebelum tag </body> -->

@@ -17,7 +17,7 @@ class UserViewController extends BaseController
     }
     public function Consultation()
     {
-        return view('MediMart/user/consultation');
+        return view('MediMart/user/easydiagnose');
     }
     public function Payment()
     {
