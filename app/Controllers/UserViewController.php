@@ -12,7 +12,8 @@ class UserViewController extends BaseController
     }
     public function Transactions()
     {
-        return view('MediMart/user/transactions');
+        $userId = session()->get('user_id');
+        return view('MediMart/user/transactions', ['userId' => $userId]);
     }
     public function Consultation()
     {

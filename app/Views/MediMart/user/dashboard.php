@@ -120,27 +120,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon">
-                    <img class="logo-icon" src="<?= base_url('images/icon.png') ?>" alt="My Icon">
-                </span>
-                MediMart
-            </a>
-            <div class="nav-icons">
-                <a href="/transactions" class="nav-icon">Easy Diagnose</a>
-                <a href="/transactions" class="nav-icon">Your Transactions</a>
-                <!-- Profil dengan Dropdown -->
-                <div class="profile-container" onclick="toggleDropdown()">
-                    <img class="user-icon" src="<?= base_url('images/User.png') ?>" alt="Profile">
-                    <div id="dropdown-menu" class="dropdown-menu hidden">
-                        <a href="/MediMart/logout">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbar.php'; ?>
 
     <section class="hero">
         <div class="hero-container">
