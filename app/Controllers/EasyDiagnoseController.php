@@ -49,6 +49,7 @@ class EasyDiagnoseController extends BaseController
 
                 // Data to be sent to the API
                 $postData = [
+                    'userId' => $responseData['user_id'],
                     'nama' => $name,
                     'usia' => $age,
                     'keluhan_penyakit' => $complaint,

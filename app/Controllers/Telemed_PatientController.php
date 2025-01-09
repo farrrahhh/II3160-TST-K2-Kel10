@@ -69,12 +69,12 @@ class Telemed_PatientController extends BaseController
     public function savePatientProcess()
     {
         // Ambil ID pengguna yang sedang login
-        $userId = 20;
-    
+        
+        
     
     
         $data = [
-            'id' => $userId, // ID user diambil dari sesi
+            'id' => $this->request->getPost('userId'), // ID user diambil dari sesi
             'nama' => $this->request->getPost('nama'),
             'usia' => $this->request->getPost('usia'),
             'keluhan_penyakit' => $this->request->getPost('keluhan_penyakit'),
