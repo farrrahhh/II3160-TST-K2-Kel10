@@ -151,8 +151,7 @@ class EasyDiagnoseController extends BaseController
         
         // Menggunakan concatenation untuk memasukkan resultString ke URL
         $url = 'http://farahproject.my.id/doctor/spesialis/' . $resultString;
-        // print url
-        echo $url;
+        
         $client = new Client();
     
         try {
