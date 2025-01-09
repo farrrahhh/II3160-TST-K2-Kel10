@@ -30,8 +30,13 @@ class EasyDiagnoseController extends BaseController
         try {
             // Send data to registration API
             $response = $client->request('POST', $url, [
-                'headers' => ['Content-Type' => 'application/json'],
-                'json' => $postData,
+                // x-www-form-urlencoded
+                'form_params' => [
+                    'username' => $username,
+                    'password' => $password,
+                    'role' => 'patient',
+                ],
+                
                 'timeout' => 10,
             ]);
         
