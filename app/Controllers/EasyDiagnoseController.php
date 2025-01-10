@@ -155,7 +155,7 @@ class EasyDiagnoseController extends BaseController
                 throw new \Exception('Doctor schedule data is empty or invalid.');
             }
 
-            return $jadwalDokter;
+            return view('/MediMart/user/booking', $jadwalDokter);
         } catch (\Exception $e) {
             log_message('error', 'Error in getDoctors: ' . $e->getMessage());
 
