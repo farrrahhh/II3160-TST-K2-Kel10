@@ -142,21 +142,30 @@ class EasyDiagnoseController extends BaseController
         try {
             // Send GET request for doctors based on specialties
            // Fetch the doctor schedule API response
-$doctorsResponse = $client->request('GET', $url, [
+// Send the request to the API
+$response = $client->request('GET', $url, [
     'query' => ['spesialis' => $spesialisQuery],
     'timeout' => 10,
 ]);
 
-$doctorsData = json_decode($doctorsResponse->getBody()->getContents(), true);
+// Log the raw response body for debugging
+$responseBody = $response->getBody()->getContents();
+log_message('info', 'API Response: ' . $responseBody);
 
-// Check for an error in the API response
-if (isset($doctorsData['status']) && $doctorsData['status'] == 'error') {
-    // Handle the error (log it, show user-friendly message, etc.)
-    $doctorsData = [];  // Set to empty array if API fails
-    $errorMessage = $doctorsData['message'] ?? 'Failed to load doctor schedule. Please try again.';
+// Now try to parse it
+$doctorsData = json_decode($responseBody, true);
+
+if (json_last_error() !== JSON_ERROR_NONE) {
+    // Log the error if JSON parsing fails
+    log_message('error', 'JSON Parse Error: ' . json_last_error_msg());
+    
+    // Handle the error (fallback, error message, etc.)
+    $doctorsData = [];  // Set to empty array if JSON parsing fails
+    $errorMessage = 'Failed to load doctor schedule. Please try again.';
 } else {
     $errorMessage = null;
 }
+
 
 // Pass the data and any error messages to the view
 return view('MediMart/user/booking', [
