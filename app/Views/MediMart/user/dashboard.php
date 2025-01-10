@@ -205,6 +205,45 @@
             border: 1px solid #ced4da;
             border-radius: 4px;
         }
+        #payment-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        #payment-modal .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal-body {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
 
         
     </style>
@@ -220,7 +259,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Your Health, Our Priority</h1>
                 <p class="hero-subtitle">Get your medicines and health supplies delivered right to your doorstep.</p>
-                <a href="#" class="hero-button">Shop Now</a>
+                <a href="#" class="hero-button" onclick="openOrderModal()">Shop Now</a>
             </div>
         </div>
     </section>
@@ -272,32 +311,33 @@
         </div>
         <!-- Modal Order -->
 <!-- Modal Order -->
-<div id="order-modal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2 class="modal-title">Place Your Order</h2>
-            <button class="close-btn" onclick="closeOrderModal()">&times;</button>
-        </div>
-        <div class="modal-body">
-            <form id="order-form">
-                <div class="form-group">
-                    <label for="product-selection">Choose Products:</label>
-                    <select id="product-selection" name="products[]" multiple="multiple" style="width: 100%;">
-                        <!-- Produk akan dimuat di sini secara dinamis -->
-                    </select>
-                </div>
-                <div id="product-quantities"></div>  <!-- Tempat untuk input quantity produk -->
-                
-                <p><strong>Address:</strong> 
-                    <textarea id="address" name="address" required></textarea>
-                </p>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Place Order</button>
-                </div>
-            </form>
+<<div id="order-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Place Your Order</h2>
+                <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="product-selection">Choose Products:</label>
+                        <select id="product-selection" name="products[]" multiple style="width: 100%;">
+                            <!-- Products will be loaded here dynamically -->
+                        </select>
+                    </div>
+                    <div id="product-quantities"></div>
+                    
+                    <p><strong>Address:</strong> 
+                        <textarea id="address" name="address" required></textarea>
+                    </p>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Place Order</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeOrderModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
             <div class="table-container">
                 <table class="table">
                     <thead>
@@ -333,6 +373,13 @@
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="closeDetailModal()">Close</button>
             </div>
+        </div>
+    </div>
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h2>Payment Details</h2>
+            <div id="payment-details"></div>
         </div>
     </div>
 
@@ -418,7 +465,11 @@
             if (modal) {
                 modal.style.display = 'flex';
 
-                // Mengambil produk untuk form pemesanan
+                // Reset the form when opening the modal
+                document.getElementById('order-form').reset();
+                document.getElementById('product-quantities').innerHTML = '';
+
+                // Fetch and populate products as before
                 fetch('/MediMart/products/catalog')
                     .then(response => response.json())
                     .then(data => {
@@ -473,6 +524,9 @@
             const modal = document.getElementById('order-modal');
             if (modal) {
                 modal.style.display = 'none';
+                // Clear the form when closing the modal
+                document.getElementById('order-form').reset();
+                document.getElementById('product-quantities').innerHTML = '';
             }
         }
         // Format harga menjadi IDR
@@ -484,7 +538,7 @@
             return formatter.format(value);
         }
         document.getElementById('order-form')?.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
+            event.preventDefault();
 
             const orderItems = [];
             let validOrder = true;
@@ -539,20 +593,22 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData)
             })
+
             .then(response => response.json())
             .then(data => {
-                if (data.message === 'Order created successfully') {
-                    alert('Order placed successfully!');
-                    // Optionally close modal or reset form
-                } else {
-                    alert('Error: ' + data.message);
-                }
+                console.log(data.order_id);
+                // save into session
+                sessionStorage.setItem('order_id', data.order_id);
+                const order_id = sessionStorage.getItem('order_id');
+                console.log(order_id);
+                alert('Order created successfully. Redirecting to payment page...');
+                window.location.href = '/MediMart/user/payment';
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while processing your order.');
-            });
-        });
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while processing your order.');
+                    });
+                });
 
         // Menambahkan input quantity di bawah pilihan produk
         function updateProductQuantities() {

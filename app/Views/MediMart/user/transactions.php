@@ -160,10 +160,13 @@
         #orderDetailContent li:last-child {
             border-bottom: none;
         }
+        .modal, .modal-content, .close-button, @keyframes fadeIn, #orderDetailContent {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+<?php include 'navbar.php'; ?>
     
     <section class="orders-section">
         <div class="orders-card">
@@ -178,7 +181,6 @@
                             <th>Total Price</th>
                             <th>Status</th>
                             <th>Shipping Address</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="orders-list">
@@ -188,16 +190,6 @@
             </div>
         </div>
     </section>
-
-    <div id="orderDetailModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <h3>Order Details</h3>
-            <div id="orderDetailContent">
-                <!-- Order details will be loaded here -->
-            </div>
-        </div>
-    </div>
 
     <script>
         function formatCurrency(value) {
@@ -230,9 +222,6 @@
                             <td>${formatCurrency(order.total_price)}</td>
                             <td>${order.status}</td>
                             <td>${order.shipping_address}</td>
-                            <td>
-                                <button class="btn btn-primary" onclick="showOrderDetail(${order.order_id})">View Details</button>
-                            </td>
                         `;
                         ordersList.appendChild(row);
                     });
@@ -240,61 +229,9 @@
                 .catch(error => console.error('Error fetching orders:', error));
         }
 
-        function showOrderDetail(orderId) {
-            fetch(`/MediMart/orders/${orderId}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        const detailContent = document.getElementById('orderDetailContent');
-                        const order = data.data;
-
-                        let detailsHTML = `
-                            <p><strong>Order ID:</strong> ${order.order_id}</p>
-                            <p><strong>Total Price:</strong> ${formatCurrency(order.total_price)}</p>
-                            <p><strong>Status:</strong> ${order.status}</p>
-                            <p><strong>Shipping Address:</strong> ${order.shipping_address}</p>
-                            <h4>Items:</h4>
-                            <ul>
-                        `;
-
-                        if (Array.isArray(order.orderDetails)) {
-                            order.order_details.forEach(item => {
-                                detailsHTML += `
-                                    <li>
-                                        ${item.product_name} - ${item.quantity} x ${formatCurrency(item.product_price)}
-                                    </li>
-                                `;
-                            });
-                        } else {
-                            detailsHTML += `<li>No items found for this order.</li>`;
-                        }
-
-                        detailsHTML += '</ul>';
-                        detailContent.innerHTML = detailsHTML;
-
-                        const modal = document.getElementById('orderDetailModal');
-                        modal.style.display = 'block';
-                    } else {
-                        alert(data.message);
-                    }
-                })
-                .catch(error => console.error('Error fetching order detail:', error));
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('orderDetailModal');
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('orderDetailModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        };
-
         // Call this function when the page loads
         fetchOrders();
     </script>
 </body>
 </html>
+
