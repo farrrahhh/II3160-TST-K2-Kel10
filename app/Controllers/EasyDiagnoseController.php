@@ -150,21 +150,14 @@ $response = $client->request('GET', $url, [
 
 // Log the raw response body for debugging
 $responseBody = $response->getBody()->getContents();
-log_message('info', 'API Response: ' . $responseBody);
+log_message('debug', 'Response body: ' . $responseBody); // Debug response body
 
-// Now try to parse it
-$doctorsData = json_decode($responseBody, true);
+$jadwalDokter = json_decode($responseBody, true);
 
 if (json_last_error() !== JSON_ERROR_NONE) {
-    // Log the error if JSON parsing fails
-    log_message('error', 'JSON Parse Error: ' . json_last_error_msg());
-    
-    // Handle the error (fallback, error message, etc.)
-    $doctorsData = [];  // Set to empty array if JSON parsing fails
-    $errorMessage = 'Failed to load doctor schedule. Please try again.';
-} else {
-    $errorMessage = null;
+    throw new \Exception('JSON parsing error: ' . json_last_error_msg());
 }
+
 
 
 // Pass the data and any error messages to the view
