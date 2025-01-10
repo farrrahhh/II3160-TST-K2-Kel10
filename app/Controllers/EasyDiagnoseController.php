@@ -141,12 +141,12 @@ class EasyDiagnoseController extends BaseController
 
         try {
             // Send GET request for doctors based on specialties
-            $response = $client->request('GET', $url, [
-                'query' => [
-                    'spesialis' => $spesialisQuery,
-                ],
-                'timeout' => 10,
-            ]);
+           // Fetch the doctor schedule API response
+// Send the request to the API
+$response = $client->request('GET', $url, [
+    'query' => ['spesialis' => $spesialisQuery],
+    'timeout' => 10,
+]);
 
             // Parse JSON response
             $jadwalDokter = json_decode($response->getBody()->getContents(), true);
@@ -155,10 +155,8 @@ class EasyDiagnoseController extends BaseController
                 throw new \Exception('Doctor schedule data is empty or invalid.');
             }
 
-            // return view and data jadwaldokter
-
-            return view ('/MediMart/user/booking', ['jadwalDokter' => $jadwalDokter]);
-            } catch (\Exception $e) {
+            return $jadwalDokter;
+        } catch (\Exception $e) {
             log_message('error', 'Error in getDoctors: ' . $e->getMessage());
 
             return [

@@ -152,4 +152,3 @@ $routes->post('/registerprocess', 'Telemed_AuthController::registerProcess'); //
 
 $routes->post('/patient/save-patient-process', 'Telemed_PatientController::savePatientProcess'); 
 $routes->get('/doctor/spesialis', 'Telemed_DoctorController::getDoctor');
-$routes->post('/booking/createProcess', 'Telemed_BookingController::createProcess');
