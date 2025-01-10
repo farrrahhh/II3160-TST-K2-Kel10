@@ -141,24 +141,29 @@ class EasyDiagnoseController extends BaseController
 
         try {
             // Send GET request for doctors based on specialties
-            $response = $client->request('GET', $url, [
-                'query' => [
-                    'spesialis' => $spesialisQuery,
-                ],
-                'timeout' => 10,
-            ]);
+           // Fetch the doctor schedule API response
+$doctorsResponse = $client->request('GET', $url, [
+    'query' => ['spesialis' => $spesialisQuery],
+    'timeout' => 10,
+]);
 
-            $doctorsData = json_decode($doctorsResponse->getBody()->getContents(), true);
+$doctorsData = json_decode($doctorsResponse->getBody()->getContents(), true);
 
-        // Handle the case where the response is empty or invalid
-        if (!isset($doctorsData['status']) || $doctorsData['status'] != 'success') {
-            $doctorsData = [];  // Set empty or fallback data if the API call fails
-        }
+// Check for an error in the API response
+if (isset($doctorsData['status']) && $doctorsData['status'] == 'error') {
+    // Handle the error (log it, show user-friendly message, etc.)
+    $doctorsData = [];  // Set to empty array if API fails
+    $errorMessage = $doctorsData['message'] ?? 'Failed to load doctor schedule. Please try again.';
+} else {
+    $errorMessage = null;
+}
 
-        // Pass the data to the view
-        return view('MediMart/user/booking', [
-            'doctors' => $doctorsData['data'] ?? [], // Ensure 'data' is available
-        ]);
+// Pass the data and any error messages to the view
+return view('MediMart/user/booking', [
+    'doctors' => $doctorsData['data'] ?? [],
+    'errorMessage' => $errorMessage,  // Pass the error message if available
+]);
+
         } catch (\Exception $e) {
             log_message('error', 'Error in getDoctors: ' . $e->getMessage());
 
