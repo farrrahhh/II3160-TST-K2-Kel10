@@ -35,6 +35,7 @@ $routes->group('MediMart', function ($routes) {
         $routes->get('dashboard', 'UserViewController::Dashboard');
         $routes->get('transactions', 'UserViewController::Transactions');
         $routes->get('consultation', 'UserViewController::Consultation');
+        $routes->get('payment', 'UserViewController::Payment');
         
         
     });
@@ -147,9 +148,8 @@ $routes->post('/patient/registermedicine', 'Telemed_MedicineRegisterController::
 
 
 
-// Change routes
+
 
 $routes->post('/registerprocess', 'Telemed_AuthController::registerProcess'); // Menampilkan form
-
 $routes->post('/patient/save-patient-process', 'Telemed_PatientController::savePatientProcess'); 
 $routes->get('/doctor/spesialis', 'Telemed_DoctorController::getDoctor');

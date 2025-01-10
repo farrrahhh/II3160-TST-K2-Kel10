@@ -21,7 +21,9 @@ class UserViewController extends BaseController
     }
     public function Payment()
     {
-        return view('MediMart/user/profile');
+        $order_id = session()->get('order_id');
+        
+        return view('MediMart/user/payments', ['order_id' => $order_id]);
     }
     public function Booking()
     {

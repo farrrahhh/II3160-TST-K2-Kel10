@@ -25,7 +25,6 @@ class PaymentController extends BaseController{
         // Ambil data JSON dari request
         $requestData = $this->request->getJSON(true);
         $orderId = $requestData['order_id'] ?? null;
-    
         // Validasi input 
         if (!$orderId) {
             return $this->response->setJSON(['message' => 'Invalid input. Please provide order_id.']);
@@ -50,6 +49,8 @@ class PaymentController extends BaseController{
     
         // Simpan data pembayaran
         $this->paymentModel->insertPayment($data);
+        
+
     
         return $this->response->setJSON(['message' => 'Payment created successfully']);
     }
