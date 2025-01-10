@@ -145,6 +145,8 @@ $routes->get('/logout', 'Telemed_AuthController::logout');
 $routes->get('/patient/registermedicine', 'Telemed_MedicineRegisterController::index'); // Menampilkan form
 $routes->post('/patient/registermedicine', 'Telemed_MedicineRegisterController::submit'); // Mengirim data ke API
 
+$routes->get('/patient/catalog', 'Telemed_MedicineController::catalog');
+
 
 
 // Change routes
