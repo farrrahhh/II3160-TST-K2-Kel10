@@ -36,6 +36,7 @@ $routes->group('MediMart', function ($routes) {
         $routes->get('transactions', 'UserViewController::Transactions');
         $routes->get('consultation', 'UserViewController::Consultation');
         $routes->get('payment', 'UserViewController::Payment');
+        $routes->get('booking', 'UserViewController::Booking');
         
         
     });

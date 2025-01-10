@@ -45,7 +45,7 @@ class EasyDiagnoseController extends Controller
             $doctors = $this->getDoctors($diseases);
 
             // Pass the doctor schedule data to the view
-            return view('/MediMart/user/booking', ['doctors' => $doctors]);
+            return redirect()->to('/MediMart/user/booking', ['doctors' => $doctors]);
         } catch (\Exception $e) {
             log_message('error', 'Error in submit: ' . $e->getMessage());
             return view('errors/html/error_exception', ['message' => 'An error occurred during processing.']);

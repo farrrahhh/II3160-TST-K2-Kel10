@@ -25,9 +25,10 @@ class UserViewController extends BaseController
         
         return view('MediMart/user/payments', ['order_id' => $order_id]);
     }
-    public function Booking()
+    public function Booking($doctors)
     {
-        return view('MediMart/user/booking');
+        
+        return view('/MediMart/user/booking', ['doctors' => $doctors]);
     }
 
 }
