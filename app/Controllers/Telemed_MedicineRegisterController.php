@@ -4,49 +4,55 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 class Telemed_MedicineRegisterController extends Controller
 {
     public function index()
     {
-        return view('patient/Telemed_UserMedicineRegister', ['title' => 'User Registration']);
+        return view('patient/Telemed_UserMedicineRegister');
     }
 
     public function submit()
     {
+        // Ambil data dari form
         $name = $this->request->getPost('name');
         $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
+        $password = 'password123'; // Password default
 
-        if (!$name || !$email || !$password) {
+        // Validasi input
+        if (!$name || !$email) {
             return redirect()->back()->with('error', 'All fields are required!')->withInput();
         }
-
         $url = 'http://farahproject.my.id/MediMart/registerprocess';
+
+        // Data yang akan dikirim ke API
         $postData = [
             'name' => $name,
             'email' => $email,
             'password' => $password
         ];
 
+        // Inisialisasi Guzzle client
         $client = new Client();
 
+
         try {
+            // Mengirimkan data POST ke API
             $response = $client->request('POST', $url, [
                 'headers' => ['Content-Type' => 'application/json'],
-                'json' => $postData,
-                'timeout' => 10,
+                'json' => $postData, // Secara otomatis meng-encode data menjadi JSON
+                'timeout' => 10, // Timeout 10 detik
             ]);
 
+            // Cek status code dari response API
             if ($response->getStatusCode() == 200) {
-                return redirect()->to('patient/Catalog')->with('message', 'Registration successful!');
+                return redirect()->to('patient/Telemed_ProductCatalog')->with('message', 'Registration successful!');
             } else {
-                return redirect()->back()->with('error', 'Registration failed. Please try again.')->withInput();
+                return redirect()->back()->with('error', 'Registration failed!')->withInput();
             }
-        } catch (GuzzleException $e) {
-            log_message('error', 'Registration error: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'An error occurred during registration. Please try again later.')->withInput();
+        } catch (\Exception $e) {
+            // Jika terjadi error pada request
+            return redirect()->back()->with('error', 'Error: ' . $e->getMessage())->withInput();
         }
     }
 }
