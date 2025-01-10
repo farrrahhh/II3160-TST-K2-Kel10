@@ -47,8 +47,9 @@ class EasyDiagnoseController extends Controller
             return redirect()->to('/MediMart/booking');
             
         } catch (\Exception $e) {
-            log_message('error', 'Error in submit: ' . $e->getMessage());
-            return view('errors/html/error_exception', ['message' => 'An error occurred during processing.']);
+            // return json response for API
+            return $this->response->setJSON(['error' => $e->getMessage()]);
+            
         }
     }
 
