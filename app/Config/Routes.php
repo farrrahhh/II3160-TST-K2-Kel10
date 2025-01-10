@@ -92,7 +92,7 @@ $routes->group('MediMart', function ($routes) {
    
     $routes->group('consultation', function ($routes) {
         $routes->post('submit', 'EasyDiagnoseController::submit');
-        $routes->get('registerprocess', 'Telemed_AuthController::registerProcess'); // Menampilkan form
+        $routes->get('registerprocess', 'Telemed_AuthController::registerProcess'); 
     });
 
     
