@@ -15,23 +15,24 @@ class EasyDiagnoseController extends BaseController
         $username = $this->generateUsername($name);
         $diseases = $this->request->getPost('diseases[]');
 
-
-        // Pastikan diseases adalah array
+        // Ensure diseases is an array
         if (is_string($diseases)) {
-            // Jika data dalam format JSON
+            // If data is in JSON format
             $decoded = json_decode($diseases, true);
             if (json_last_error() === JSON_ERROR_NONE) {
                 $diseases = $decoded;
             } else {
-                // Jika data dipisahkan dengan koma
+                // If data is comma-separated
                 $diseases = explode(',', $diseases);
             }
         }
 
-   
         // Input validation
         if (!$name || !$age || !$complaint) {
-            return redirect()->back()->with('error', 'All fields are required!')->withInput();
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'All fields are required!',
+            ]);
         }
     
         $url = 'http://farahproject.my.id/registerprocess'; // API URL
@@ -40,13 +41,11 @@ class EasyDiagnoseController extends BaseController
         try {
             // Send data to registration API
             $response = $client->request('POST', $url, [
-                // x-www-form-urlencoded
                 'form_params' => [
                     'username' => $username,
                     'password' => $password,
                     'role' => 'patient',
                 ],
-                
                 'timeout' => 10,
             ]);
         
@@ -54,14 +53,11 @@ class EasyDiagnoseController extends BaseController
                 // Parse the JSON response from the API
                 $responseData = json_decode($response->getBody()->getContents(), true);
 
-                // save into session user id
+                // Save user ID into session
                 session()->set('id', $responseData['user_id']);
 
-                
-
+                // Prepare data for the second API call
                 $url = 'http://farahproject.my.id/patient/save-patient-process'; // API URL
-
-                // Data to be sent to the API
                 $postData = [
                     'userId' => $responseData['user_id'],
                     'nama' => $name,
@@ -76,50 +72,45 @@ class EasyDiagnoseController extends BaseController
                 ]);
 
                 if ($response->getStatusCode() == 200) {
-
-                    
-                    // panggil method getDoctors
+                    // Call getDoctors method
                     $doctors = $this->getDoctors($diseases);
+                    return $this->response->setJSON([
+                        'status' => 'success',
+                        'message' => 'Registration and patient save successful!',
+                        'data' => $doctors,
+                    ]);
                 } else {
-                    
                     return $this->response->setJSON([
                         'status' => 'error',
-                        'message' => 'Registration failed!',
+                        'message' => 'Patient data save failed!',
                     ]);
-
                 }
-
-
             } else {
-                // Return error in JSON format
                 return $this->response->setJSON([
                     'status' => 'error',
                     'message' => 'Registration failed!',
                 ]);
             }
         } catch (\Exception $e) {
-            // Return exception error in JSON format
             return $this->response->setJSON([
                 'status' => 'error',
                 'message' => 'Error: ' . $e->getMessage(),
             ]);
         }
-        
     }
-    
+
     private function generateUsername($name)
     {
         // Generate a random username based on the name and random digits
         return strtolower(str_replace(' ', '', $name)) . rand(1000, 9999);
     }
 
-
     private function getDoctors(array $diseases)
-    {   
-        // Inisialisasi string spesialis
+    {
+        // Initialize specialist list
         $spesialisList = [];
 
-        // Looping setiap disease
+        // Loop through each disease
         foreach ($diseases as $disease) {
             switch ($disease) {
                 case 'Influenza':
@@ -140,16 +131,16 @@ class EasyDiagnoseController extends BaseController
             }
         }
 
-        // Hilangkan duplikat spesialis dan gabungkan dengan tanda "-"
+        // Remove duplicates and join with "-"
         $spesialisQuery = implode('-', array_unique($spesialisList));
 
-        // URL API
+        // API URL for doctors
         $url = 'http://farahproject.my.id/doctor/spesialis';
 
         $client = new Client();
 
         try {
-            // Kirim permintaan ke API
+            // Send GET request for doctors based on specialties
             $response = $client->request('GET', $url, [
                 'query' => [
                     'spesialis' => $spesialisQuery,
@@ -160,25 +151,18 @@ class EasyDiagnoseController extends BaseController
             // Parse JSON response
             $jadwalDokter = json_decode($response->getBody()->getContents(), true);
 
-            // Pastikan response dalam format yang diharapkan
             if (!is_array($jadwalDokter) || empty($jadwalDokter)) {
-                throw new \Exception('Data jadwal dokter kosong atau tidak valid.');
+                throw new \Exception('Doctor schedule data is empty or invalid.');
             }
 
-            // Kirim data ke view
-            return view('MediMart/user/booking', [
-                'jadwalDokter' => $jadwalDokter
-            ]);
+            return $jadwalDokter;
         } catch (\Exception $e) {
-            // Log error dan kembalikan view dengan pesan error
             log_message('error', 'Error in getDoctors: ' . $e->getMessage());
 
-            return view('MediMart/user/booking', [
-                'jadwalDokter' => [],
-                'error' => 'Gagal memuat jadwal dokter. Silakan coba lagi.'
-            ]);
+            return [
+                'status' => 'error',
+                'message' => 'Failed to load doctor schedule. Please try again.',
+            ];
         }
     }
-
-    
 }
