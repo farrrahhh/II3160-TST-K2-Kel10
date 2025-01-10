@@ -27,8 +27,6 @@
             <form action="<?= site_url('patient/booking/create') ?>" method="post" class="space-y-6">
                 <?= csrf_field() ?>
 
-                
-
                 <div>
                     <label for="spesialis" class="block text-sm font-medium text-gray-700 mb-1">Spesialis:</label>
                     <select name="spesialis" id="spesialis" required
@@ -84,6 +82,7 @@
     <script>
         const jadwalDokter = <?= json_encode($jadwalDokter) ?>;
         console.log("Data jadwalDokter:", jadwalDokter);
+
         const spesialisSelect = document.getElementById('spesialis');
         const dokterSelect = document.getElementById('dokter_id');
         const jadwalDokterSelect = document.getElementById('jadwal_dokter_id');
@@ -143,4 +142,3 @@
     </script>
 </body>
 </html>
-
