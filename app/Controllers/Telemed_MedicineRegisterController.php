@@ -8,6 +8,11 @@ use GuzzleHttp\Client;
 class Telemed_MedicineController extends Controller
 {
     private $client;
+    // index
+    public function index()
+    {
+        return view('Telemed_MedicineRegister');
+    }
 
     public function __construct()
     {
