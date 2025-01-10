@@ -39,4 +39,24 @@ class Telemed_MedicineController extends Controller
             return view('errors/html/error_exception', ['message' => 'Gagal memuat katalog produk.']);
         }
     }
+
+    // Method untuk mengupdate dropdown produk berdasarkan kategori
+    public function getProductsByCategory($category)
+    {
+        try {
+            // Memanggil API untuk mendapatkan data produk
+            $response = $this->client->get('MediMart/products/catalog');
+            $products = json_decode($response->getBody()->getContents(), true);
+
+            // Filter produk berdasarkan kategori yang dipilih
+            $filteredProducts = array_filter($products, function($product) use ($category) {
+                return $product['category'] === $category;
+            });
+
+            // Kirim data produk yang difilter
+            return $this->response->setJSON(array_values($filteredProducts));
+        } catch (\Exception $e) {
+            return $this->response->setJSON(['message' => 'Gagal memuat produk berdasarkan kategori.']);
+        }
+    }
 }
