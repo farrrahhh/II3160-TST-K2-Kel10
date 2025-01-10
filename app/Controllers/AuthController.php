@@ -31,6 +31,17 @@ class AuthController extends ResourceController
                 'role'    => $user['role'],
                 'is_logged_in' => true
             ]);
+            // kalau usernya dokter
+            if ($user['role'] == 'dokter') {
+                // save doctor id to session
+                // if id on the doctor is there
+                
+                return redirect()->to('/MediMart/doctor/dashboard');
+            }
+            if ($user['role'] == 'admin') {
+                return redirect()->to('/MediMart/admin/manage');
+            }
+            return redirect()->to('/MediMart/user/dashboard');
             
             
 
@@ -44,6 +55,8 @@ class AuthController extends ResourceController
             // Jika user tidak ditemukan, kirim response gagal
             return $this->respond(['message' => 'Invalid login'], 401);
         }
+
+
     }
     public function registerProcess(){
         $model = new UserModel();
