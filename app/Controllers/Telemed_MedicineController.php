@@ -54,11 +54,18 @@ class Telemed_MedicineController extends Controller
             });
 
             // Kirim data produk yang difilter
-            return $this->response->setJSON(array_values($filteredProducts));
-        }catch (\Exception $e) {
-            // Menangani error dan mengirim pesan exception ke view
-            log_message('error', 'Error fetching catalog: ' . $e->getMessage());
-            return view('errors/html/error_exception', ['message' => 'Gagal memuat katalog produk. ' . $e->getMessage()]);
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data' => array_values($filteredProducts)
+            ]);
+        } catch (\Exception $e) {
+            // Menangani error dan mengirim pesan error sebagai JSON response
+            log_message('error', 'Error fetching products by category: ' . $e->getMessage());
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Gagal memuat produk. ' . $e->getMessage()
+            ])->setStatusCode(500);
         }
     }
 }
+
