@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Konsultasi - TeleMedCare</title>
+    <title>Booking Konsultasi - MediMart</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -105,13 +106,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>
-                <span class="text-blue">TeleMed</span><span class="text-purple">Care</span>
-            </h1>
-        </div>
-    </header>
+    <?php include 'navbar.php'; ?>
 
     <main>
         <div class="container">

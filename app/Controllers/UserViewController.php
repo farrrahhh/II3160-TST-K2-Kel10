@@ -23,5 +23,9 @@ class UserViewController extends BaseController
     {
         return view('MediMart/user/profile');
     }
+    public function Booking()
+    {
+        return view('MediMart/user/booking');
+    }
 
 }

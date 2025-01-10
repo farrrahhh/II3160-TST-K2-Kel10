@@ -21,7 +21,7 @@ $routes->group('MediMart', function ($routes) {
     // API VIEW
     $routes->get('login', 'AuthController::MedimartLogin');
     $routes->get('register', 'AuthController::MedimartRegister');
-
+    $routes->get('booking', 'UserViewController::Booking');
 
 
     // Subgrup view admin
@@ -35,6 +35,7 @@ $routes->group('MediMart', function ($routes) {
         $routes->get('dashboard', 'UserViewController::Dashboard');
         $routes->get('transactions', 'UserViewController::Transactions');
         $routes->get('consultation', 'UserViewController::Consultation');
+        
         
     });
 
