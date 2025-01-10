@@ -46,7 +46,7 @@ class Telemed_MedicineRegisterController extends Controller
 
             // Cek status code dari response API
             if ($response->getStatusCode() == 200) {
-                return redirect()->to('patient/Telemed_ProductCatalog')->with('message', 'Registration successful!');
+                return redirect()->to('patient/Catalog')->with('message', 'Registration successful!');
             } else {
                 return redirect()->back()->with('error', 'Registration failed!')->withInput();
             }
