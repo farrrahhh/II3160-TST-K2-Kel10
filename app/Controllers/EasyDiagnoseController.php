@@ -74,11 +74,7 @@ class EasyDiagnoseController extends BaseController
                 if ($response->getStatusCode() == 200) {
                     // Call getDoctors method
                     $doctors = $this->getDoctors($diseases);
-                    return $this->response->setJSON([
-                        'status' => 'success',
-                        'message' => 'Registration and patient save successful!',
-                        'data' => $doctors,
-                    ]);
+                    
                 } else {
                     return $this->response->setJSON([
                         'status' => 'error',
@@ -156,7 +152,7 @@ class EasyDiagnoseController extends BaseController
             }
 
             // return to view booking with parsing data jadwaldokter
-            return view('MediMart/user/booking', ['jadwalDokter' => $jadwalDokter]);
+            return view('/MediMart/user/booking', ['jadwalDokter' => $jadwalDokter]);
 
         } catch (\Exception $e) {
             log_message('error', 'Error in getDoctors: ' . $e->getMessage());
