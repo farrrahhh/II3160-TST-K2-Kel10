@@ -23,6 +23,10 @@ $routes->group('MediMart', function ($routes) {
     $routes->get('register', 'AuthController::MedimartRegister');
     $routes->get('booking', 'UserViewController::Booking');
 
+    $routes->group('consultation', function ($routes) {
+        $routes->post('submit', 'EasyDiagnoseController::submit');
+        $routes->get('registerprocess', 'Telemed_AuthController::registerProcess'); 
+    });
 
     // Subgrup view admin
     $routes->group('admin', ['filter' => 'auth'], function ($routes) {
@@ -87,15 +91,6 @@ $routes->group('MediMart', function ($routes) {
         // check payment by status - admin can check the all of payment by status
         $routes->get('check/(:alpha)', 'PaymentController::check/$1');
     });
-
-
-   
-    $routes->group('consultation', function ($routes) {
-        $routes->post('submit', 'EasyDiagnoseController::submit');
-        $routes->get('registerprocess', 'Telemed_AuthController::registerProcess'); 
-    });
-
-    
 });
 
 
