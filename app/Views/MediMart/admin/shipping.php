@@ -58,7 +58,7 @@
                         <option value="pending">Pending</option>
                         <option value="shipped">Shipped</option>
                         <option value="completed">Completed</option>
-                        <option value="canceled">Canceled</option>
+                        <option value="cancelled">Cancelled</option>
                     </select>
                 </div>
                 <div class="form-actions">
