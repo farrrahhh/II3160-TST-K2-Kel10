@@ -43,13 +43,12 @@ class EasyDiagnoseController extends Controller
             $userId = $this->registerUser($username, $password);
             $this->savePatientData($userId, $name, $age, $complaint);
             $doctors = $this->getDoctors($diseases);
-            session()->setFlashdata('doctors', $doctors);
-            return redirect()->to('/MediMart/booking');
-            
+
+            // Pass the doctor schedule data to the view
+            return view('/MediMart/user/booking', ['doctors' => $doctors]);
         } catch (\Exception $e) {
-            // return json response for API
-            return $this->response->setJSON(['error' => $e->getMessage()]);
-            
+            log_message('error', 'Error in submit: ' . $e->getMessage());
+            return view('errors/html/error_exception', ['message' => 'An error occurred during processing.']);
         }
     }
 
