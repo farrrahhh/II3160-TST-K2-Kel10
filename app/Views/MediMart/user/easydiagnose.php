@@ -77,7 +77,7 @@
     <div class="margin"></div>
     <div class="form-container">
         <h2>Medical Complaint Form</h2>
-        <form action="/MediMart/consultation/submit" method="POST">
+        <form action="/MediMart/submit" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>

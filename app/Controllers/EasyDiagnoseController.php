@@ -44,7 +44,7 @@ class EasyDiagnoseController extends Controller
             $this->savePatientData($userId, $name, $age, $complaint);
             $doctors = $this->getDoctors($diseases);
             session()->setFlashdata('doctors', $doctors);
-            return redirect()->to('/MediMart/user/booking');
+            return redirect()->to('/MediMart/booking');
             
         } catch (\Exception $e) {
             log_message('error', 'Error in submit: ' . $e->getMessage());

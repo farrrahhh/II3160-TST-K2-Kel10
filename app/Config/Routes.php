@@ -22,7 +22,7 @@ $routes->group('MediMart', function ($routes) {
     $routes->get('login', 'AuthController::MedimartLogin');
     $routes->get('register', 'AuthController::MedimartRegister');
     $routes->get('booking', 'UserViewController::Booking');
-
+    $routes->post('submit', 'EasyDiagnoseController::submit');
     $routes->group('consultation', function ($routes) {
         $routes->post('submit', 'EasyDiagnoseController::submit');
         $routes->get('registerprocess', 'Telemed_AuthController::registerProcess'); 
