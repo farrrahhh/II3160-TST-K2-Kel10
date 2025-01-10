@@ -158,6 +158,7 @@ class Telemed_BookingController extends BaseController
             // redirect to dashboard 
             return redirect()->to('/dashboard')->with('success', 'Booking berhasil dibuat.');
 
+
         } catch (\Exception $e) {
             log_message('error', "Terjadi kesalahan saat menyimpan booking: " . $e->getMessage());
             return $this->response->setStatusCode(500)->setJSON([
