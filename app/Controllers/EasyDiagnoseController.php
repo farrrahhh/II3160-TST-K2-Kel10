@@ -13,7 +13,7 @@ class EasyDiagnoseController extends BaseController
         $complaint = $this->request->getPost('complaint');
         $password = 'password123';  
         $username = $this->generateUsername($name);
-        $diseases = $this->request->getPost('diseases');
+        $diseases = $this->request->getPost('diseases[]');
 
 
         // Pastikan diseases adalah array
