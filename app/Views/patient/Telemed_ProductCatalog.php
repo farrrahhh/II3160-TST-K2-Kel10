@@ -19,42 +19,13 @@
         th {
             background-color: #f2f2f2;
         }
-        select {
-            padding: 8px;
-            margin: 10px 0;
-            width: 200px;
-        }
     </style>
-    <script>
-        function filterByCategory() {
-            const category = document.getElementById('categoryDropdown').value;
-            const rows = document.querySelectorAll('#productTable tbody tr');
-            rows.forEach(row => {
-                const cell = row.querySelector('td:nth-child(3)');
-                if (category === 'all' || cell.textContent.trim() === category) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </head>
 <body>
     <h1><?= esc($title) ?></h1> <!-- Gunakan $title -->
-
-    <label for="categoryDropdown">Filter by Category:</label>
-    <select id="categoryDropdown" onchange="filterByCategory()">
-        <option value="all">All Categories</option>
-        <?php 
-        $categories = array_unique(array_column($products, 'category')); 
-        foreach ($categories as $category): ?>
-            <option value="<?= esc($category) ?>"><?= esc(ucfirst($category)) ?></option>
-        <?php endforeach; ?>
-    </select>
-
+    
     <?php if (!empty($products)): ?>
-        <table id="productTable">
+        <table>
             <thead>
                 <tr>
                     <th>Product ID</th>
@@ -79,3 +50,5 @@
     <?php endif; ?>
 </body>
 </html>
+
+
