@@ -57,7 +57,7 @@
                     <select id="order-status" class="form-control" required>
                         <option value="pending">Pending</option>
                         <option value="shipped">Shipped</option>
-                        <option value="delivered">Delivered</option>
+                        <option value="completed">Completed</option>
                         <option value="canceled">Canceled</option>
                     </select>
                 </div>

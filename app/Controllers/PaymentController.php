@@ -68,7 +68,7 @@ class PaymentController extends BaseController{
             return $this->response->setJSON(['message' => 'Invalid input. Please provide payment_id and status.']);
         }
         // validasi isi
-        if (!in_array($status, ['success', 'failed'])) {
+        if (!in_array($status, ['success', 'failed', 'processing'])) {
             return $this->response->setJSON(['message' => 'Invalid status.']);
         }
     
