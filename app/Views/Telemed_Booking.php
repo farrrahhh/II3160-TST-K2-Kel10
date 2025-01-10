@@ -24,7 +24,7 @@
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <h1 class="text-2xl font-bold text-gray-800 mb-6">Booking Konsultasi</h1>
 
-            <form action="<?= site_url('/patient/booking/create') ?>" method="post" class="space-y-6">
+            <form action="<?= site_url('/patient/booking/createBooking') ?>" method="post" class="space-y-6">
                 <?= csrf_field() ?>
 
                 <div>

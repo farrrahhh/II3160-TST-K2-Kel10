@@ -136,6 +136,7 @@ $routes->get('/patient/profile', 'Telemed_PatientController::viewProfile');
 $routes->get('/patient/history', 'Telemed_PatientController::viewHistory');
 $routes->get('/patient/booking', 'Telemed_BookingController::index');
 $routes->post('/patient/booking/create', 'Telemed_BookingController::create');
+$routes->post('/patient/booking/createBooking', 'Telemed_BookingController::createBooking');
 $routes->get('/doctor/add-profile', 'Telemed_DataDokterController::index');
 $routes->post('/doctor/save', 'Telemed_DataDokterController::save');
 $routes->get('/logout', 'Telemed_AuthController::logout');
