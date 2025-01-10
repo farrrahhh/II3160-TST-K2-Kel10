@@ -46,7 +46,7 @@
     <h1><?= esc($title) ?></h1>
     
     <!-- Form untuk pembelian produk -->
-    <form method="POST" action="/MediMart/products/purchase">
+    <form method="POST" action="/MediMart/orders/">
         <label for="category">Category:</label>
         <select id="category" name="category" onchange="updateProductDropdown()" required>
             <option value="">-- Select Category --</option>
