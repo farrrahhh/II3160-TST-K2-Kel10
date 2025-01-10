@@ -50,5 +50,3 @@
     <?php endif; ?>
 </body>
 </html>
-
-
