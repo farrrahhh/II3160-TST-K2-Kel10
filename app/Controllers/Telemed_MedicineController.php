@@ -25,7 +25,7 @@ class Telemed_MedicineController extends Controller
             $products = json_decode($response->getBody()->getContents(), true);
 
             // Kirim data ke view
-            return view('patient/Telemed_ProductCatalog', ['products' => $products, 'title' => 'Telemed Product Catalog']);
+            return view('patient/catalog', ['products' => $products, 'title' => 'Telemed Product Catalog']);
         } catch (\Exception $e) {
             // Menangani error
             log_message('error', 'Error fetching catalog: ' . $e->getMessage());
