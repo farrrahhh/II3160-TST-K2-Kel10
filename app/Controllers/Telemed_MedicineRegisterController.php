@@ -5,56 +5,67 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use GuzzleHttp\Client;
 
-class Telemed_MedicineRegisterController extends Controller
+class Telemed_MedicineController extends Controller
 {
-    public function index()
+    private $client;
+
+    public function __construct()
     {
-        return view('patient/Telemed_UserMedicineRegister');
+        $this->client = new Client([
+            'base_uri' => 'http://farahproject.my.id/',
+            'timeout'  => 10,
+        ]);
     }
 
-    public function submit()
+    public function catalog()
     {
-        // Ambil data dari form
-        $name = $this->request->getPost('name');
-        $email = $this->request->getPost('email');
-        $password = 'password123'; // Password default
-
-        // Validasi input
-        if (!$name || !$email) {
-            return redirect()->back()->with('error', 'All fields are required!')->withInput();
-        }
-        $url = 'http://farahproject.my.id/MediMart/registerprocess';
-
-        // Data yang akan dikirim ke API
-        $postData = [
-            'name' => $name,
-            'email' => $email,
-            'password' => $password
-        ];
-
-        // Inisialisasi Guzzle client
-        $client = new Client();
-
-
         try {
-            // Mengirimkan data POST ke API
-            $response = $client->request('POST', $url, [
-                'headers' => ['Content-Type' => 'application/json'],
-                'json' => $postData, // Secara otomatis meng-encode data menjadi JSON
-                'timeout' => 10, // Timeout 10 detik
+            // Memanggil API untuk mendapatkan data produk
+            $response = $this->client->get('MediMart/products/catalog');
+            $products = json_decode($response->getBody()->getContents(), true);
+    
+            // Mengambil kategori unik dari data produk
+            $categories = array_unique(array_column($products, 'category'));
+    
+            // Kirim data ke view, termasuk kategori
+            return view('Telemed_ProductCatalog', [
+                'products' => $products,
+                'categories' => $categories,
+                'title' => 'Telemed Product Catalog',
             ]);
-
-            // Cek status code dari response API
-            if ($response->getStatusCode() == 200) {
-                // return redirect()->to('patient/catalog')->with('message', 'Registration successful!');
-                return json_decode($response->getBody()->getContents(), true);
-
-            } else {
-                return redirect()->back()->with('error', 'Registration failed!')->withInput();
-            }
         } catch (\Exception $e) {
-            // Jika terjadi error pada request
-            return redirect()->back()->with('error', 'Error: ' . $e->getMessage())->withInput();
+            // Menangani error
+            log_message('error', 'Error fetching catalog: ' . $e->getMessage());
+            return view('errors/html/error_exception', ['message' => 'Gagal memuat katalog produk.']);
+        }
+    }
+
+    // Method untuk mengupdate dropdown produk berdasarkan kategori
+    public function getProductsByCategory($category)
+    {
+        try {
+            // Memanggil API untuk mendapatkan data produk
+            $response = $this->client->get('MediMart/products/catalog');
+            $products = json_decode($response->getBody()->getContents(), true);
+
+            // Filter produk berdasarkan kategori yang dipilih
+            $filteredProducts = array_filter($products, function($product) use ($category) {
+                return $product['category'] === $category;
+            });
+
+            // Kirim data produk yang difilter
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data' => array_values($filteredProducts)
+            ]);
+        } catch (\Exception $e) {
+            // Menangani error dan mengirim pesan error sebagai JSON response
+            log_message('error', 'Error fetching products by category: ' . $e->getMessage());
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Gagal memuat produk. ' . $e->getMessage()
+            ])->setStatusCode(500);
         }
     }
 }
+
