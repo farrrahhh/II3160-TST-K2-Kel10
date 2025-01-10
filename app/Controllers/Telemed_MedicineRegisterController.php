@@ -23,7 +23,7 @@ class Telemed_MedicineRegisterController extends Controller
         if (!$name || !$email) {
             return redirect()->back()->with('error', 'All fields are required!')->withInput();
         }
-        $url = 'http://localhost:8080/MediMart/registerprocess';
+        $url = 'http://farahproject.my.id/MediMart/registerprocess';
 
         // Data yang akan dikirim ke API
         $postData = [
