@@ -65,7 +65,7 @@
             color: #374151;
             margin-bottom: 4px;
         }
-        select {
+        select, input {
             width: 100%;
             padding: 8px 12px;
             font-size: 14px;
@@ -73,7 +73,7 @@
             border-radius: 4px;
             background-color: white;
         }
-        select:focus {
+        select:focus, input:focus {
             outline: none;
             ring: 2px solid #8B5CF6;
             border-color: #8B5CF6;
@@ -138,6 +138,10 @@
                         </select>
                     </div>
                     <div>
+                        <label for="booking_date">Tanggal Booking:</label>
+                        <input type="date" name="booking_date" id="booking_date" required>
+                    </div>
+                    <div>
                         <label for="jam_booking">Jam Konsultasi:</label>
                         <select name="jam_booking" id="jam_booking" required>
                             <option value="">-- Pilih Jam --</option>
@@ -163,6 +167,7 @@
         const spesialisSelect = document.getElementById('spesialis');
         const dokterSelect = document.getElementById('dokter_id');
         const jadwalDokterSelect = document.getElementById('jadwal_dokter_id');
+        const bookingDateInput = document.getElementById('booking_date');
         const jamBookingSelect = document.getElementById('jam_booking');
 
         // Populate spesialis options
@@ -179,6 +184,7 @@
 
             dokterSelect.innerHTML = '<option value="">-- Pilih Nama Dokter --</option>';
             jadwalDokterSelect.innerHTML = '<option value="">-- Pilih Jadwal Dokter --</option>';
+            bookingDateInput.value = '';
             jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
 
             const dokterBySpesialis = jadwalDokter.filter(jadwal => jadwal.spesialis === selectedSpesialis);
@@ -199,14 +205,16 @@
             const selectedDokterId = this.value;
 
             jadwalDokterSelect.innerHTML = '<option value="">-- Pilih Jadwal Dokter --</option>';
+            bookingDateInput.value = '';
             jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
 
             const jadwalDokterByDokter = jadwalDokter.filter(jadwal => jadwal.dokter_id == selectedDokterId);
 
             jadwalDokterByDokter.forEach(jadwal => {
                 const option = document.createElement('option');
-                option.value = `${jadwal.dokter_id}|${jadwal.tanggal}|${jadwal.jam}`;
+                option.value = jadwal.dokter_id;
                 option.textContent = jadwal.tanggal;
+                option.setAttribute('data-tanggal', jadwal.tanggal);
                 option.setAttribute('data-jam', jadwal.jam);
                 jadwalDokterSelect.appendChild(option);
             });
@@ -214,8 +222,10 @@
 
         jadwalDokterSelect.addEventListener('change', function () {
             const selectedOption = this.selectedOptions[0];
+            const selectedTanggal = selectedOption ? selectedOption.getAttribute('data-tanggal') : '';
             const availableJam = selectedOption ? selectedOption.getAttribute('data-jam') : '';
 
+            bookingDateInput.value = selectedTanggal;
             jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
 
             if (availableJam) {
