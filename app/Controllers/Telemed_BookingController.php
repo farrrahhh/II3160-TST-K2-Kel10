@@ -156,7 +156,7 @@ class Telemed_BookingController extends BaseController
             $bookingModel->save($data);
             log_message('info', 'Data yang disimpan: ' . print_r($data, true));
             // redirect to dashboard 
-            return redirect()->to('/dashboard')->with('success', 'Booking berhasil dibuat.');
+            return redirect()->to('patient/dashboard')->with('success', 'Booking berhasil dibuat.');
 
 
         } catch (\Exception $e) {
