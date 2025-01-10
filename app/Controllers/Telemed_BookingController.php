@@ -43,65 +43,118 @@ class Telemed_BookingController extends BaseController
     }
 
     public function create()
-{
-    $bookingModel = new Telemed_BookingModel();
-    $jadwalDokterModel = new Telemed_JadwalDokterModel();
-    
-    // Debug: periksa data yang diterima dari form
-    $postData = $this->request->getPost();
-    log_message('debug', 'Data yang diterima: ' . print_r($postData, true));
+    {
+        $bookingModel = new Telemed_BookingModel();
+        $jadwalDokterModel = new Telemed_JadwalDokterModel();
+        
+        // Debug: periksa data yang diterima dari form
+        $postData = $this->request->getPost();
+        log_message('debug', 'Data yang diterima: ' . print_r($postData, true));
 
-    // Ambil data dari form
-    $patientId = session()->get('id');
-    $jadwalDokterId = $this->request->getPost('jadwal_dokter_id');
-    $dokterId = $this->request->getPost('dokter_id');
-    $bookingDate = $this->request->getPost('booking_date');
-    $jamBooking = $this->request->getPost('jam_booking');
-    
-    // Validasi input
-    if (!$patientId || !$jadwalDokterId || !$dokterId || !$bookingDate || !$jamBooking) {
-        log_message('error', 'Validasi input gagal. Semua field wajib diisi.');
-        return $this->response->setStatusCode(400)->setJSON([
-            'error' => 'Semua field wajib diisi!'
-        ]);
+        // Ambil data dari form
+        $patientId = session()->get('id');
+        $jadwalDokterId = $this->request->getPost('jadwal_dokter_id');
+        $dokterId = $this->request->getPost('dokter_id');
+        $bookingDate = $this->request->getPost('booking_date');
+        $jamBooking = $this->request->getPost('jam_booking');
+        
+        // Validasi input
+        if (!$patientId || !$jadwalDokterId || !$dokterId || !$bookingDate || !$jamBooking) {
+            log_message('error', 'Validasi input gagal. Semua field wajib diisi.');
+            return $this->response->setStatusCode(400)->setJSON([
+                'error' => 'Semua field wajib diisi!'
+            ]);
+        }
+
+        // Cek apakah pasien sudah pernah booking untuk jadwal dokter ini
+        $existingBooking = $bookingModel
+            ->where('patient_id', $patientId)
+            ->where('dokter_id', $dokterId)
+            ->where('booking_date', $bookingDate)
+            ->where('jam_booking', $jamBooking)
+            ->first();
+        
+        if ($existingBooking) {
+            log_message('info', 'Pasien sudah memiliki booking untuk jadwal ini.');
+            return $this->response->setStatusCode(400)->setJSON([
+                'error' => 'Anda sudah memiliki booking untuk jadwal ini.'
+            ]);
+        }
+
+        // Data booking baru
+        $data = [
+            'patient_id'    => $patientId,
+            'dokter_id'     => $dokterId,
+            'booking_date'  => $bookingDate,
+            'jam_booking'   => $jamBooking,
+        ];
+
+        try {
+            $bookingModel->save($data);
+            log_message('info', 'Data yang disimpan: ' . print_r($data, true));
+            // redirect to dashboard 
+            return redirect()->to('/patient/dashboard')->with('success', 'Booking berhasil dibuat.');
+
+        } catch (\Exception $e) {
+            log_message('error', "Terjadi kesalahan saat menyimpan booking: " . $e->getMessage());
+            return $this->response->setStatusCode(500)->setJSON([
+                'error' => 'Gagal membuat booking!'
+            ]);
+        }
     }
 
-    // Cek apakah pasien sudah pernah booking untuk jadwal dokter ini
-    $existingBooking = $bookingModel
-        ->where('patient_id', $patientId)
-        ->where('dokter_id', $dokterId)
-        ->where('booking_date', $bookingDate)
-        ->where('jam_booking', $jamBooking)
-        ->first();
-    
-    if ($existingBooking) {
-        log_message('info', 'Pasien sudah memiliki booking untuk jadwal ini.');
-        return $this->response->setStatusCode(400)->setJSON([
-            'error' => 'Anda sudah memiliki booking untuk jadwal ini.'
-        ]);
+    public function createProcess(){
+        $bookingModel = new Telemed_BookingModel();
+        
+        // Ambil data dari form
+        $patientId = session()->get('id');
+        $jadwalDokterId = $this->request->getPost('jadwal_dokter_id');
+        $dokterId = $this->request->getPost('dokter_id');
+        $bookingDate = $this->request->getPost('booking_date');
+        $jamBooking = $this->request->getPost('jam_booking');
+        
+        // Validasi input
+        if (!$patientId || !$jadwalDokterId || !$dokterId || !$bookingDate || !$jamBooking) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'error' => 'Semua field wajib diisi!'
+            ]);
+        }
+
+        // Cek apakah pasien sudah pernah booking untuk jadwal dokter ini
+        $existingBooking = $bookingModel
+            ->where('patient_id', $patientId)
+            ->where('dokter_id', $dokterId)
+            ->where('booking_date', $bookingDate)
+            ->where('jam_booking', $jamBooking)
+            ->first();
+        
+        if ($existingBooking) {
+            return $this->response->setStatusCode(400)->setJSON([
+                'error' => 'Anda sudah memiliki booking untuk jadwal ini.'
+            ]);
+        }
+
+        // Data booking baru
+        $data = [
+            'patient_id'    => $patientId,
+            'dokter_id'     => $dokterId,
+            'booking_date'  => $bookingDate,
+            'jam_booking'   => $jamBooking,
+        ];
+
+        try {
+            $bookingModel->save($data);
+            return $this->response->setStatusCode(200)->setJSON([
+                'success' => 'Booking berhasil dibuat!'
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'error' => 'Gagal membuat booking!'
+            ]);
+        }
     }
 
-    // Data booking baru
-    $data = [
-        'patient_id'    => $patientId,
-        'dokter_id'     => $dokterId,
-        'booking_date'  => $bookingDate,
-        'jam_booking'   => $jamBooking,
-    ];
 
-    try {
-        $bookingModel->save($data);
-        log_message('info', 'Data yang disimpan: ' . print_r($data, true));
-        // redirect to dashboard 
-        return redirect()->to('/patient/dashboard')->with('success', 'Booking berhasil dibuat.');
-
-    } catch (\Exception $e) {
-        log_message('error', "Terjadi kesalahan saat menyimpan booking: " . $e->getMessage());
-        return $this->response->setStatusCode(500)->setJSON([
-            'error' => 'Gagal membuat booking!'
-        ]);
-    }
-}
 
 
     
