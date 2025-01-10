@@ -27,8 +27,11 @@ class UserViewController extends BaseController
     }
     public function Booking()
     {
+        // Ambil data doctors dari session flashdata
         $doctors = session()->getFlashdata('doctors');
-        return view('BookingView', compact('doctors'));
+
+        // Tampilkan view booking, misalnya:
+        return view('BookingView', ['doctors' => $doctors]);
         
     }
 
