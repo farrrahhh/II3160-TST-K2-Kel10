@@ -2,15 +2,12 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\API\ResponseTrait;
-use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Controller;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
-class EasyDiagnoseController extends BaseController
+class EasyDiagnoseController extends Controller
 {
-    use ResponseTrait;
-
     private $client;
 
     public function __construct()
@@ -21,7 +18,7 @@ class EasyDiagnoseController extends BaseController
         ]);
     }
 
-    public function submit(): ResponseInterface
+    public function submit()
     {
         $rules = [
             'name' => 'required',
@@ -31,7 +28,7 @@ class EasyDiagnoseController extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            return $this->failValidationErrors($this->validator->getErrors());
+            return view('errors/html/error_validation', ['errors' => $this->validator->getErrors()]);
         }
 
         $name = $this->request->getPost('name');
@@ -47,14 +44,11 @@ class EasyDiagnoseController extends BaseController
             $this->savePatientData($userId, $name, $age, $complaint);
             $doctors = $this->getDoctors($diseases);
 
-            return $this->respond([
-                'status' => 'success',
-                'message' => 'Registration successful',
-                'doctors' => $doctors,
-            ]);
+            // Pass the doctor schedule data to the view
+            return view('/MediMart/user/booking', ['doctors' => $doctors]);
         } catch (\Exception $e) {
             log_message('error', 'Error in submit: ' . $e->getMessage());
-            return $this->failServerError('An error occurred during processing.');
+            return view('errors/html/error_exception', ['message' => 'An error occurred during processing.']);
         }
     }
 
