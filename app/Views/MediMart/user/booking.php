@@ -24,7 +24,7 @@
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <h1 class="text-2xl font-bold text-gray-800 mb-6">Booking Konsultasi</h1>
 
-            <form action="<?= site_url('/booking/createProcess') ?>" method="post" class="space-y-6">
+            <form action="<?= site_url('patient/booking/create') ?>" method="post" class="space-y-6">
                 <?= csrf_field() ?>
 
                 <div>
@@ -32,13 +32,11 @@
                     <select name="spesialis" id="spesialis" required
                             class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md">
                         <option value="">-- Pilih Spesialis --</option>
-                        <?php if (!empty($doctors)): ?>
-                            <?php foreach ($doctors as $doctor): ?>
-                                <option value="<?= $doctor['id'] ?>"><?= htmlspecialchars($doctor['name']) ?></option>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <option value="">No doctors available</option>
-                        <?php endif; ?>
+                        <?php 
+                        $uniqueSpesialis = array_unique(array_map('trim', array_column($jadwalDokter, 'spesialis'))); 
+                        foreach ($uniqueSpesialis as $spesialis): ?>
+                            <option value="<?= $spesialis ?>"><?= $spesialis ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
@@ -82,7 +80,6 @@
     </footer>
 
     <script>
-<<<<<<< HEAD
         const jadwalDokter = <?= json_encode($jadwalDokter) ?>;
         console.log("Data jadwalDokter:", jadwalDokter);
 
@@ -90,106 +87,57 @@
         const dokterSelect = document.getElementById('dokter_id');
         const jadwalDokterSelect = document.getElementById('jadwal_dokter_id');
         const jamBookingSelect = document.getElementById('jam_booking');
-=======
-        document.addEventListener('DOMContentLoaded', function () {
-            const jadwalDokter = <?= json_encode($jadwalDokter) ?>;
-            const spesialisSelect = document.getElementById('spesialis');
-            const dokterSelect = document.getElementById('dokter_id');
-            const jadwalDokterSelect = document.getElementById('jadwal_dokter_id');
-            const jamBookingSelect = document.getElementById('jam_booking');
-            const form = document.querySelector('form');
->>>>>>> c3ea4e7959d77fbbd987bdf231c9e36b9f360de4
 
-            spesialisSelect.addEventListener('change', function () {
-                const selectedSpesialis = this.value;
+        spesialisSelect.addEventListener('change', function () {
+            const selectedSpesialis = this.value;
 
-                dokterSelect.innerHTML = '<option value="">-- Pilih Nama Dokter --</option>';
-                jadwalDokterSelect.innerHTML = '<option value="">-- Pilih Jadwal Dokter --</option>';
-                jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
+            dokterSelect.innerHTML = '<option value="">-- Pilih Nama Dokter --</option>';
+            jadwalDokterSelect.innerHTML = '<option value="">-- Pilih Jadwal Dokter --</option>';
+            jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
 
-                const dokterBySpesialis = jadwalDokter.filter(jadwal => jadwal.spesialis === selectedSpesialis);
+            const dokterBySpesialis = jadwalDokter.filter(jadwal => jadwal.spesialis === selectedSpesialis);
 
-                dokterBySpesialis.forEach(jadwal => {
-                    const option = document.createElement('option');
-                    option.value = jadwal.dokter_id;
-                    option.textContent = jadwal.nama_dokter;
-                    dokterSelect.appendChild(option);
-                });
-
-                if (dokterBySpesialis.length === 0) {
-                    alert("Tidak ada dokter tersedia untuk spesialis ini.");
-                }
+            dokterBySpesialis.forEach(jadwal => {
+                const option = document.createElement('option');
+                option.value = jadwal.dokter_id; // Dokter ID sebagai value
+                option.textContent = `${jadwal.dokter_id} - ${jadwal.nama_dokter}`; // Dokter ID dan Nama Dokter
+                dokterSelect.appendChild(option);
             });
 
-            dokterSelect.addEventListener('change', function () {
-                const selectedDokterId = this.value;
+            if (dokterBySpesialis.length === 0) {
+                alert("Tidak ada dokter tersedia untuk spesialis ini.");
+            }
+        });
 
-                jadwalDokterSelect.innerHTML = '<option value="">-- Pilih Jadwal Dokter --</option>';
-                jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
+        dokterSelect.addEventListener('change', function () {
+            const selectedDokterId = this.value;
 
-                const jadwalDokterByDokter = jadwalDokter.filter(jadwal => jadwal.dokter_id == selectedDokterId);
+            jadwalDokterSelect.innerHTML = '<option value="">-- Pilih Jadwal Dokter --</option>';
+            jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
 
-                jadwalDokterByDokter.forEach(jadwal => {
-                    const option = document.createElement('option');
-                    option.value = jadwal.jadwal_dokter_id;
-                    option.textContent = jadwal.tanggal;
-                    option.setAttribute('data-jam', jadwal.jam);
-                    jadwalDokterSelect.appendChild(option);
-                });
+            const jadwalDokterByDokter = jadwalDokter.filter(jadwal => jadwal.dokter_id == selectedDokterId);
+
+            jadwalDokterByDokter.forEach(jadwal => {
+                const option = document.createElement('option');
+                option.value = `${jadwal.dokter_id}|${jadwal.tanggal}|${jadwal.jam}`;
+                option.textContent = `${jadwal.tanggal}`; // Menampilkan tanggal saja
+                option.setAttribute('data-jam', jadwal.jam);
+                jadwalDokterSelect.appendChild(option);
             });
+        });
 
-            jadwalDokterSelect.addEventListener('change', function () {
-                const selectedOption = this.selectedOptions[0];
-                const availableJam = selectedOption ? selectedOption.getAttribute('data-jam') : '';
+        jadwalDokterSelect.addEventListener('change', function () {
+            const selectedOption = this.selectedOptions[0];
+            const availableJam = selectedOption ? selectedOption.getAttribute('data-jam') : '';
 
-                jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
+            jamBookingSelect.innerHTML = '<option value="">-- Pilih Jam --</option>';
 
-                if (availableJam) {
-                    const option = document.createElement('option');
-                    option.value = availableJam;
-                    option.textContent = availableJam;
-                    jamBookingSelect.appendChild(option);
-                }
-            });
-
-            form.addEventListener('submit', function (event) {
-                const jadwalDokterId = jadwalDokterSelect.value;
-                const dokterId = dokterSelect.value;
-                const bookingDate = jadwalDokterSelect.selectedOptions[0] ? jadwalDokterSelect.selectedOptions[0].textContent : '';
-                const jamBooking = jamBookingSelect.value;
-
-                // Validate if all fields are selected
-                if (!dokterId || !jadwalDokterId || !bookingDate || !jamBooking) {
-                    event.preventDefault();
-                    alert("Semua field wajib diisi!");
-                    return;
-                }
-
-                // Create hidden input fields
-                const jadwalDokterInput = document.createElement('input');
-                jadwalDokterInput.type = 'hidden';
-                jadwalDokterInput.name = 'jadwal_dokter_id';
-                jadwalDokterInput.value = jadwalDokterId;
-                form.appendChild(jadwalDokterInput);
-
-                const dokterIdInput = document.createElement('input');
-                dokterIdInput.type = 'hidden';
-                dokterIdInput.name = 'dokter_id';
-                dokterIdInput.value = dokterId;
-                form.appendChild(dokterIdInput);
-
-                const bookingDateInput = document.createElement('input');
-                bookingDateInput.type = 'hidden';
-                bookingDateInput.name = 'booking_date';
-                bookingDateInput.value = bookingDate;
-                form.appendChild(bookingDateInput);
-
-                const jamBookingInput = document.createElement('input');
-                jamBookingInput.type = 'hidden';
-                jamBookingInput.name = 'jam_booking';
-                jamBookingInput.value = jamBooking;
-                form.appendChild(jamBookingInput);
-            });
+            if (availableJam) {
+                const option = document.createElement('option');
+                option.value = availableJam;
+                option.textContent = availableJam;
+                jamBookingSelect.appendChild(option);
+            }
         });
     </script>
 </body>
