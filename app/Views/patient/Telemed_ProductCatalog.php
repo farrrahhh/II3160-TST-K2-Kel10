@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Catalog</title>
+    <title><?= esc($title) ?></title> <!-- Gunakan $title -->
     <style>
         table {
             width: 100%;
@@ -22,8 +22,8 @@
     </style>
 </head>
 <body>
-    <h1>Product Catalog</h1>
-
+    <h1><?= esc($title) ?></h1> <!-- Gunakan $title -->
+    
     <?php if (!empty($products)): ?>
         <table>
             <thead>

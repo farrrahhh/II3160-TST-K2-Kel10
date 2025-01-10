@@ -12,7 +12,7 @@ class Telemed_MedicineController extends Controller
     public function __construct()
     {
         $this->client = new Client([
-            'base_uri' => 'http://localhost:8080/',
+            'base_uri' => 'http://farahproject.my.id/',
             'timeout'  => 10,
         ]);
     }
@@ -25,7 +25,7 @@ class Telemed_MedicineController extends Controller
             $products = json_decode($response->getBody()->getContents(), true);
 
             // Kirim data ke view
-            return view('patient/Telemed_ProductCatalog', ['products' => $products]);
+            return view('patient/Telemed_ProductCatalog', ['products' => $products, 'title' => 'Telemed Product Catalog']);
         } catch (\Exception $e) {
             // Menangani error
             log_message('error', 'Error fetching catalog: ' . $e->getMessage());
