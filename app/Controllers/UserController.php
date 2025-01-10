@@ -18,4 +18,5 @@ class UserController extends BaseController
         $data = $model->getUser($id);
         return $this->response->setJSON($data);
     }
+    
 }

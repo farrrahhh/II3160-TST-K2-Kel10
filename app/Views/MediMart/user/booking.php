@@ -123,14 +123,6 @@
         .btn-primary:hover {
             background-color: var(--primary-dark);
         }
-
-        footer {
-            background-color: #1F2937;
-            color: white;
-            padding: 24px 0;
-            margin-top: 48px;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -185,11 +177,7 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>© 2023 MediMart. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
+    
 
     <script>
         const jadwalDokter = <?= json_encode($doctors) ?>;
