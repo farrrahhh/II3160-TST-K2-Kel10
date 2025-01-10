@@ -148,14 +148,17 @@ class EasyDiagnoseController extends BaseController
                 'timeout' => 10,
             ]);
 
-            // Parse JSON response
-            $jadwalDokter = json_decode($response->getBody()->getContents(), true);
+            $doctorsData = json_decode($doctorsResponse->getBody()->getContents(), true);
 
-            if (!is_array($jadwalDokter) || empty($jadwalDokter)) {
-                throw new \Exception('Doctor schedule data is empty or invalid.');
-            }
+        // Handle the case where the response is empty or invalid
+        if (!isset($doctorsData['status']) || $doctorsData['status'] != 'success') {
+            $doctorsData = [];  // Set empty or fallback data if the API call fails
+        }
 
-            return view('/MediMart/user/booking', $jadwalDokter);
+        // Pass the data to the view
+        return view('MediMart/user/booking', [
+            'doctors' => $doctorsData['data'] ?? [], // Ensure 'data' is available
+        ]);
         } catch (\Exception $e) {
             log_message('error', 'Error in getDoctors: ' . $e->getMessage());
 

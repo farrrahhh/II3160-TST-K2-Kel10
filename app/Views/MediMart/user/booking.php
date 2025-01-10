@@ -34,11 +34,13 @@
                     <select name="spesialis" id="spesialis" required
                             class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md">
                         <option value="">-- Pilih Spesialis --</option>
-                        <?php 
-                        $uniqueSpesialis = array_unique(array_map('trim', array_column($jadwalDokter, 'spesialis'))); 
-                        foreach ($uniqueSpesialis as $spesialis): ?>
-                            <option value="<?= $spesialis ?>"><?= $spesialis ?></option>
-                        <?php endforeach; ?>
+                        <?php if (!empty($doctors)): ?>
+                            <?php foreach ($doctors as $doctor): ?>
+                                <option value="<?= $doctor['id'] ?>"><?= htmlspecialchars($doctor['name']) ?></option>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <option value="">No doctors available</option>
+                        <?php endif; ?>
                     </select>
                 </div>
 
