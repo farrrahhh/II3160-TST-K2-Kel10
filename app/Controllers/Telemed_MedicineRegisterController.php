@@ -11,7 +11,7 @@ class Telemed_MedicineController extends Controller
     // index
     public function index()
     {
-        return view('Telemed_MedicineRegister');
+        return view('patient/Telemed_MedicineRegister');
     }
 
     public function __construct()
