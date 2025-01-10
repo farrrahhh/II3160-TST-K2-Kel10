@@ -28,7 +28,7 @@ class Telemed_DoctorController extends BaseController
     {
         $jadwalModel = new Telemed_JadwalDokterModel();
         log_message('info', 'Data yang diterima: ' . json_encode($this->request->getPost()));
-
+        
         $dokterId = session()->get('dokter_id'); // Dokter ID dari session
         if (!$dokterId) {
             log_message('error', 'Dokter ID tidak ditemukan di session.');
@@ -72,53 +72,4 @@ class Telemed_DoctorController extends BaseController
 
 
     }
-
-    public function getDoctor()
-{
-    // Ambil parameter 'spesialis' dari request
-    $spesialis = $this->request->getVar('spesialis');
-
-    // Validasi input
-    if (!$spesialis) {
-        return $this->response->setJSON(['error' => 'Parameter spesialis is required'])->setStatusCode(400);
-    }
-
-    // Model untuk jadwal dokter
-    $jadwalDokterModel = new Telemed_JadwalDokterModel();
-
-    // Pecah string menjadi array (dipisahkan '-')
-    $spesialisList = explode('-', $spesialis);
-
-    // Mulai query
-    $jadwalDokterModel
-        ->select('jadwal_dokter.dokter_id, jadwal_dokter.jam, jadwal_dokter.jadwal_konsultasi AS tanggal, data_dokter.spesialis, data_dokter.nama_dokter')
-        ->join('data_dokter', 'jadwal_dokter.dokter_id = data_dokter.dokter_id');
-
-    // Tambahkan kondisi LIKE untuk setiap nilai dalam array
-    foreach ($spesialisList as $value) {
-        $jadwalDokterModel->orLike('data_dokter.spesialis', trim($value));
-    }
-
-    // Ambil data dari database
-    try {
-        $jadwalDokter = $jadwalDokterModel->findAll();
-
-        // Jika tidak ada data
-        if (empty($jadwalDokter)) {
-            return $this->response->setJSON(['message' => 'No doctors found'])->setStatusCode(404);
-        }
-
-        // Kembalikan data dalam format JSON
-        return $this->response->setJSON($jadwalDokter)->setStatusCode(200);
-
-    } catch (\Exception $e) {
-        // Tangani error database atau lainnya
-        return $this->response->setJSON(['error' => $e->getMessage()])->setStatusCode(500);
-    }
-}
-
-
-    
-    
-    
 }
