@@ -18,7 +18,7 @@
                 <span class="text-blue-600">TeleMed</span><span class="text-purple-600">Care</span>
             </h1>
             <nav>
-                <a href="<?= site_url('doctor/dashboard') ?>" class="text-purple-600 hover:text-purple-800 font-semibold mr-4">Dashboard</a>
+                <a href="<?= site_url('/dashboard') ?>" class="text-purple-600 hover:text-purple-800 font-semibold mr-4">Dashboard</a>
                 <a href="<?= site_url('logout') ?>" class="text-purple-600 hover:text-purple-800 font-semibold">Logout</a>
             </nav>
         </div>
